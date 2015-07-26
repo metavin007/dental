@@ -1,12 +1,83 @@
 <div id="bodyinto">
-    <h1>เพิ่มข้อมูลแผนกพนักงาน</h1>
-</div>
+    <h1 id="h1bodyintoaddcustomer">เพิ่มข้อมูลแผนกพนักงาน</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            ตารางกรอกข้อมูลแผนกพนักงาน
+        </div>
+        <div class="panel-body">
+            <!--//////////////////////////แถวซ้าย//////////////////////////////-->
+            <div class="row" >
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>เพิ่มแผนกพนักงาน</label>
+                        <input class="form-control">
+                    </div>
+                
+                </div>
 
+                <!--/////////////////////////////แถวขวา///////////////////////////-->
+                <div class="col-lg-6">
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            ตารางข้อมูลหมอ
+        </div>
+
+        <div id="inputsearch" class="input-group custom-search-form">
+            <input type="text" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    ค้นหา
+                </button>
+            </span>
+        </div>
+
+        <div class="panel-body">
+            <div class="dataTable_wrapper">
+                <table class="table table-striped table-bordered table-hover" >
+                    <tr>
+                        <td>ID</td>
+                        <td>NAME</td>                                            
+                    </tr>                                           
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>jasin</td>                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <style>
     #bodyinto{
         width: 102.5%;
         height: 990px;
         margin: 5px -15px;
         background-color: white;
+    }
+    #h1bodyintoaddcustomer{
+        padding: 0px;
+        margin: 0px 90px;
+        margin-left: -70px;
+    }
+    .panel-default{
+        margin: 20px;
+        position: relative;
+        top: 15px;
+    }
+    #inputsearch{
+        position: relative;
+        top: 10px;
+        left: 15px;
+        width: 300px;
+    }
+    .panel-body{
+       margin-top: 10px; 
     }
 </style>

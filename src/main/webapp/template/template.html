@@ -1,4 +1,4 @@
-<html ng-app>
+<html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -9,7 +9,7 @@
         <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
         
     </head>
-    <body>
+    <body ng-app="route">
         <div class="row">
             <div class="col-md-12">
                 <div ng-include="'../topber/topbar.html'"></div>
@@ -20,10 +20,12 @@
                 <div ng-include="'../manuber/manuber.html'"></div>
             </div>
             <div class="col-md-9">
-                <div ng-include="'../body/bodymain.html'"></div>
+                <div ng-view></div>
             </div>
         </div>
         <script src="../angularjs/angular.min.js"></script>
+        <script src="../angularjs/angularroute.js"></script>
+        <script src="../angularjs/route.js"></script>
         
     </body>
 </html>

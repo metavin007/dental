@@ -1,0 +1,16 @@
+.col-md-12{    
+    height: 150px; 
+    background-color: gray;
+}
+.col-md-3{
+    height: 1000px; 
+    background-color: gray;
+}
+.col-md-9{ 
+    height: 1000px;    
+    background-color: gray;
+}
+body{
+    padding:0 15px
+}
+

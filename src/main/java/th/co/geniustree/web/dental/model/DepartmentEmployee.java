@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -19,14 +20,15 @@ import javax.persistence.Table;
  * @author Jasin007
  */
 @Entity
-@Table(name = "MEDICALHISTORY")
-public class MedicalHistory implements Serializable{
+@Table(name = "DEPARTMENTEMPLOYEE")
+public class DepartmentEmployee implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @SequenceGenerator(name = "DEPARTMENTEMPLOYEE", sequenceName = "DEPARTMENTEMPLOYEE_SEQ", allocationSize = 1)
+    @GeneratedValue(generator = "DEPARTMENTEMPLOYEE",strategy = GenerationType.AUTO)
+    private  Integer id;
     
-    @Column(name = "DISEASE")
-    private String disease;
+    @Column(name = "NAME")
+    private String name;
 
     public Integer getId() {
         return id;
@@ -36,18 +38,18 @@ public class MedicalHistory implements Serializable{
         this.id = id;
     }
 
-    public String getDisease() {
-        return disease;
+    public String getName() {
+        return name;
     }
 
-    public void setDisease(String disease) {
-        this.disease = disease;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -59,7 +61,7 @@ public class MedicalHistory implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MedicalHistory other = (MedicalHistory) obj;
+        final DepartmentEmployee other = (DepartmentEmployee) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

@@ -18,20 +18,25 @@
             <div class="dataTable_wrapper">
                 <table class="table table-striped table-bordered table-hover" >
                     <tr>
-                        <td>ID</td>
+                        <td>EMAIL</td>
                         <td>NAME</td>
-                        <td>SEX</td>
-                        <td>AGE</td>
-                        <td>SELECT</td>                       
+                        <td>TEL</td> 
+                        <td>MOBILE</td>    
+                        <td></td> 
                     </tr>                                           
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>jasin</td>
-                            <td>M</td>
-                            <td>22</td>
-                            <td>INSERT</td>
-                    </tbody>
+
+                    <tr ng-repeat="columncustomer in customers.content">
+                        <td>{{columncustomer.email}}</td>
+                        <td>{{columncustomer.name}}</td>
+                        <td>{{columncustomer.tel}}</td>
+                        <td>{{columncustomer.mobile}}</td>
+                        <td>
+                            <form method="post">
+                                <input type="submit" value="Delete" class="btn btn-danger" ng-click="deleteCustomer(columncustomer)"> 
+                                <!-- <input type="submit" class="btn btn-primary" value="Update" ng-click="">-->
+                            </form>
+                        </td>
+                    </tr>  
                 </table>
             </div>
         </div>
@@ -61,7 +66,7 @@
         width: 300px;
     }
     .panel-body{
-       margin-top: 10px; 
+        margin-top: 10px; 
     }
 
 </style>

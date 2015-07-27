@@ -7,14 +7,18 @@ package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -37,7 +41,8 @@ public class Customer implements Serializable {
 
     @Column(name = "NAME")
     private String name;
-
+   
+    @Temporal(TemporalType.DATE)
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
@@ -68,6 +73,9 @@ public class Customer implements Serializable {
     @Column(name = "EMAIL")
     private String email;
 
+    @ManyToMany
+    private List<MedicalHistory> medicalHistory; 
+            
     public Integer getId() {
         return id;
     }

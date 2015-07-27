@@ -12,6 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -19,14 +22,16 @@ import javax.persistence.Table;
  * @author Jasin007
  */
 @Entity
-@Table(name = "MEDICALHISTORY")
-public class MedicalHistory implements Serializable{
+@Table(name = "SUPEREMPLOYEE")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class SuperEmployee implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "SUPEREMPLOYEE", sequenceName = "SUPEREMPLOYEE_SEQ", allocationSize = 1)
+    @GeneratedValue(generator = "SUPEREMPLOYEE",strategy = GenerationType.AUTO)
     private Integer id;
     
-    @Column(name = "DISEASE")
-    private String disease;
+    @Column(name = "STATEEMPLOYEE")
+    private String stateEmployee;
 
     public Integer getId() {
         return id;
@@ -36,18 +41,18 @@ public class MedicalHistory implements Serializable{
         this.id = id;
     }
 
-    public String getDisease() {
-        return disease;
+    public String getStateEmployee() {
+        return stateEmployee;
     }
 
-    public void setDisease(String disease) {
-        this.disease = disease;
+    public void setStateEmployee(String stateEmployee) {
+        this.stateEmployee = stateEmployee;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -59,12 +64,16 @@ public class MedicalHistory implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MedicalHistory other = (MedicalHistory) obj;
+        final SuperEmployee other = (SuperEmployee) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+    
+    
+    
+    
     
     
 }

@@ -12,9 +12,8 @@
                         <label>อีเมล</label>
                         <input class="form-control" ng-model="">
                     </div>
-
-                    <div class="form-group">
-                        <label>รหัสบัตรประจำตัวประชาชน</label>
+                    <div class="form-group" >
+                        <label>ชื่อ-สกุล ไทย</label>
                         <input class="form-control" ng-model="">
                     </div>
                     <div class="form-group">
@@ -25,12 +24,67 @@
                         <label>วันเกิด</label>
                         <input class="form-control" ng-model="">
                     </div>
-                    <div class="form-group">
+                    <div class ="form-group">
                         <label>เพศ</label>
+                        <span class="radio">
+                            <label style="margin-left: 0px;">
+                                <input type="radio" name="optradio" value="Male" ng-model="customer.sex" >ชาย</label>
+                            <label style="margin-left: 20px;">
+                                <input type="radio" name="optradio" value="Female" ng-model="customer.sex">หญิง</label>
+                        </span>
+                    </div>
+                      <div class="form-group" ng-init="customer.blood = 'A'">
+                        <label>กรุ๊ปเลือด</label>
+                        <select class="form-control" ng-model="customer.blood">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="O">O</option>
+                            <option value="AB">AB</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>เชื้อชาติ</label>
                         <input class="form-control" ng-model="">
                     </div>
                     <div class="form-group">
-                        <label>กรุ๊ปเลือด</label>
+                        <label>สัญชาติ</label>
+                        <input class="form-control" ng-model="">
+                    </div>
+                    <div class="form-group">
+                        <label>วันเริ่มทำงาน</label>
+                        <input class="form-control" ng-model="">
+                    </div>
+                    <div class="form-group">
+                        <label>วันสิ้นสุดงาน</label>
+                        <input class="form-control" ng-model="">
+                    </div>
+
+                </div>
+
+                <!--/////////////////////////////แถวขวา///////////////////////////-->
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>พาสเวิร์ค</label>
+                        <input class="form-control" ng-model="">
+                    </div>
+                    <div class="form-group">
+                        <label>รหัสบัตรประจำตัวประชาชน</label>
+                        <input class="form-control" ng-model="">
+                    </div>
+                    <div class="form-group">
+                        <label>ที่อยู่บัตรประชาชน</label>
+                        <textarea class="form-control" rows="3" ng-model="customer.address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>ที่อยู่ปัจจุบัน</label>
+                        <textarea class="form-control" rows="3" ng-model="customer.address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>เบอร์โทรศัพท์บ้าน</label>
+                        <input class="form-control" ng-model="">
+                    </div>
+                    <div class="form-group">
+                        <label>เบอร์โทรศัพท์มือถือ</label>
                         <input class="form-control" ng-model="">
                     </div>
                     <div class="form-group">
@@ -42,59 +96,10 @@
                         <input class="form-control" ng-model="">
                     </div>
                     <div class="form-group">
-                        <label>สัญชาติ</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>เชื้อชาติ</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-
-                </div>
-
-                <!--/////////////////////////////แถวขวา///////////////////////////-->
-                <div class="col-lg-6">
-                    <div class="form-group" >
-                        <label>ชื่อ-สกุล ไทย</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>เบอร์โทรศัพท์มือถือ</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-
-                    <div class="form-group">
-                        <label>ที่อยู่ตามบัตรระชาชน</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>ที่อยู่ปัจจุบัน</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>เบอร์โทรศัพท์บ้าน</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>วันเริ่มทำงาน</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>วันสิ้นสุดงาน</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
                         <label>สถานะการทำงาน</label>
                         <input class="form-control" ng-model="">
                     </div>
-                    <div class="form-group">
-                        <label>พาสเวิร์ค</label>
-                        <input class="form-control" ng-model="">
-                    </div>
-                    <div class="form-group">
-                        <label>ลำดับที่</label>
-                        <input class="form-control" ng-model="">
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -6,12 +6,14 @@
 package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,13 +25,24 @@ import javax.persistence.Table;
 @Table(name = "DEPARTMENTEMPLOYEE")
 public class DepartmentEmployee implements Serializable{
     @Id
-    @SequenceGenerator(name = "DEPARTMENTEMPLOYEE", sequenceName = "DEPARTMENTEMPLOYEE_SEQ", allocationSize = 1)
-    @GeneratedValue(generator = "DEPARTMENTEMPLOYEE",strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  Integer id;
     
     @Column(name = "NAME")
     private String name;
 
+    @OneToMany(mappedBy = "departmentEmployee")
+    private List<Staff> staffs;
+
+    
+    public List<Staff> getStaffs() {
+        return staffs;
+    }
+
+    public void setStaffs(List<Staff> staffs) {
+        this.staffs = staffs;
+    }
+    
     public Integer getId() {
         return id;
     }

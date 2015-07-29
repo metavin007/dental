@@ -1,4 +1,4 @@
-angular.module('route', ['ngRoute', 'Customer']);
+angular.module('route', ['ngRoute', 'Customer', 'Department','Employee','Doctor']);
 angular.module('route')
         .config(function ($routeProvider) {
             $routeProvider
@@ -7,11 +7,16 @@ angular.module('route')
                         controller: 'CustomerController'})
                     .when('/tablecustomer', {templateUrl: '../body/bodytablecustomer.html',
                         controller: 'CustomerController'})
-                    .when('/addemployee', {templateUrl: '../body/bodyaddemployee.html'})
-                    .when('/tableemployee', {templateUrl: '../body/bodytableemployee.html'})
-                    .when('/adddepartmentemployee', {templateUrl: '../body/bodyadddepartmentemployee.html'})
-                    .when('/adddoctor', {templateUrl: '../body/bodyadddoctor.html'})
-                    .when('/tabledoctor', {templateUrl: '../body/bodytabledoctor.html'})
+                    .when('/addemployee', {templateUrl: '../body/bodyaddemployee.html',
+                        controller: 'EmployeeController'})
+                    .when('/tableemployee', {templateUrl: '../body/bodytableemployee.html',
+                        controller: 'EmployeeController'})
+                    .when('/adddepartmentemployee', {templateUrl: '../body/bodyadddepartmentemployee.html'
+                        , controller: 'DepartmentController'})
+                    .when('/adddoctor', {templateUrl: '../body/bodyadddoctor.html',
+                        controller: 'DoctorController'})
+                    .when('/tabledoctor', {templateUrl: '../body/bodytabledoctor.html',
+                        controller: 'DoctorController'})
                     .otherwise({redirecTo: '../body/bodymain.html'})
                     ;
         });

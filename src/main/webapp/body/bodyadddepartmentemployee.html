@@ -10,14 +10,15 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label>เพิ่มแผนกพนักงาน</label>
-                        <input class="form-control">
+                        <input class="form-control" ng-model="department.name">
                     </div>
-                
                 </div>
 
                 <!--/////////////////////////////แถวขวา///////////////////////////-->
                 <div class="col-lg-6">
-                    
+                    <div class="form-group">
+                        <input type="submit" value="บันทึก" class="btn btn-success" style="margin-top: 25px;" ng-click="saveDepartment()">
+                    </div>
 
                 </div>
             </div>
@@ -25,7 +26,7 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            ตารางข้อมูลหมอ
+            ตารางแผนกพนักงาน
         </div>
 
         <div id="inputsearch" class="input-group custom-search-form">
@@ -42,12 +43,20 @@
                 <table class="table table-striped table-bordered table-hover" >
                     <tr>
                         <td>ID</td>
-                        <td>NAME</td>                                            
+                        <td>NAME</td>
+                        <td></td>
                     </tr>                                           
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>jasin</td>                    
+                        <tr ng-repeat="columndepartment in departments.content">
+                            <td>{{columndepartment.id}}</td>
+                            <td>{{columndepartment.name}}</td>   
+                            <td>
+                                <form method="post">
+                                    <input type="submit" value="Delete" class="btn btn-danger" ng-click="delectDepartment(columndepartment)"> 
+                                    <!-- <input type="submit" class="btn btn-primary" value="Update" ng-click="">-->
+                                </form>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -78,6 +87,6 @@
         width: 300px;
     }
     .panel-body{
-       margin-top: 10px; 
+        margin-top: 10px; 
     }
 </style>

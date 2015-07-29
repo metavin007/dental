@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -82,6 +84,19 @@ public class Staff extends SuperEmployee implements Serializable {
 
     @Column(name = "WORD_STATUS")
     private String workStatus;
+    
+    @ManyToOne
+    @JoinColumn(name ="DEPARTMENTEMPLOYEE_ID")
+    private DepartmentEmployee departmentEmployee;
+
+    
+    public DepartmentEmployee getDepartmentEmployee() {
+        return departmentEmployee;
+    }
+
+    public void setDepartmentEmployee(DepartmentEmployee departmentEmployee) {
+        this.departmentEmployee = departmentEmployee;
+    }
 
     private boolean enabled = true;
 

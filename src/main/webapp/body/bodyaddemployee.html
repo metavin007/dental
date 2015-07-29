@@ -4,7 +4,7 @@
         <div class="panel-heading">
             ตารางกรอกข้อมูลพนักงาน
         </div>
-        <div class="panel-body">
+        <div class="panel-body" ng-show="page === 1">
             <!--//////////////////////////แถวซ้าย//////////////////////////////-->
             <div class="row" >
                 <div class="col-lg-6">
@@ -33,7 +33,7 @@
                                 <input type="radio" name="optradio" value="Female" ng-model="customer.sex">หญิง</label>
                         </span>
                     </div>
-                      <div class="form-group" ng-init="customer.blood = 'A'">
+                    <div class="form-group" ng-init="customer.blood = 'A'">
                         <label>กรุ๊ปเลือด</label>
                         <select class="form-control" ng-model="customer.blood">
                             <option value="A">A</option>
@@ -99,27 +99,95 @@
                         <label>สถานะการทำงาน</label>
                         <input class="form-control" ng-model="">
                     </div>
-                    
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="ต่อไป" class="btn btn-success" style="margin-left: 90%" ng-click="nextPage()">
                 </div>
             </div>
         </div>
+        <div class="panel-body" ng-show="page === 2">
+            <!--//////////////////////////แถวซ้าย//////////////////////////////-->
+            <div class="row" >
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <h2>ข้อมูลผู้ติดต่อ</h2>
+                        <label>ชื่อ-สกุล</label>
+                        <input class="form-control" ng-model="employee.contactpersion.name">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>เกี่ยวข้องเป็น</label>
+                        <input class="form-control" ng-model="employee.contactpersion.relation">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>เบอร์โทรศัพท์</label>
+                        <input class="form-control" ng-model="employee.contactpersion.telephonenumber">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <h2>ข้อมูลแผนก</h2>
+                    <div class="form-group">
+                        <label>ชื่อแผนก</label>
+                        <select class="form-control" ng-model="employee.department" ng-options="dep.name for dep in departments.content">
+                        </select>
+                    </div>
+                </div>
+                <!--//////////////////////////แถวขวา//////////////////////////////-->
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <h2>ข้อมูลบัญชีธนาคาร</h2>
+                        <label>เลขบัญชีธนาคาร</label>
+                        <input class="form-control" ng-model="employee.bankaccount.addcountid">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>ธนาคาร</label>
+                        <input class="form-control" ng-model="employee.bankaccount.bankname">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ชื่อบัญชี้</label>
+                        <input class="form-control" ng-model="employee.bankaccount.addcountname" >
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>ประเภทบัญชี</label>
+                        <input class="form-control" ng-model="employee.bankaccount.addcounttype" >
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>                        
+                    <h2>สิทธิการใช้งาน</h2>
+                    <div class="form-group">
+
+                        <div class="checkbox" ng-repeat="auth in authorities.content">
+                            <label>
+                                <input type="checkbox" checklist-model="employee.authorities" checklist-value="auth">{{auth.role}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="กลับ" class="btn btn-danger" style="margin-left: 85%" ng-click="backPage()"> 
+                <input type="submit" value="บันทึก" class="btn btn-success"  ng-click="">    
+            </div>
+        </div>
     </div>
-</div>
-<style>
-    #bodyinto{
-        width: 102.5%;
-        height: 990px;
-        margin: 5px -15px;
-        background-color: white;
-    }
-    #h1bodyintoaddcustomer{
-        padding: 0px;
-        margin: 0px 90px;
-        margin-left: -70px;
-    }
-    .panel-default{
-        margin: 20px;
-        position: relative;
-        top: 15px;
-    }
-</style>
+    <style>
+        #bodyinto{
+            width: 102.5%;
+            height: 990px;
+            margin: 5px -15px;
+            background-color: white;
+        }
+        #h1bodyintoaddcustomer{
+            padding: 0px;
+            margin: 0px 90px;
+            margin-left: -70px;
+        }
+        .panel-default{
+            margin: 20px;
+            position: relative;
+            top: 15px;
+        }
+    </style>

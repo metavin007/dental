@@ -24,10 +24,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_EMPLOYEE"))
 public class Doctor extends SuperEmployee implements Serializable {
 
-    @Column(name = "CERNO")
+    @Column(name = "CER_NO")
     private String cerNo;
 
-    @Column(name = "CERTYPE")
+    @Column(name = "CER_TYPE")
     private String cerType;
 
     @Column(name = "EMAIL")
@@ -55,10 +55,10 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "BLOOD")
     private String blood;
 
-    @Column(name = "SOLDIERSTATUS")
+    @Column(name = "SOLDIER_STATUS")
     private String soldierStatus;
 
-    @Column(name = "MARRYSTATUS")
+    @Column(name = "MARRY_STATUS")
     private String marryStatus;
 
     @Column(name = "NATION")
@@ -67,7 +67,7 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "RACE")
     private String race;
 
-    @Column(name = "ADDRESSPID")
+    @Column(name = "ADDRESSP_ID")
     private String addressPid;
 
     @Column(name = "ADDRESS")
@@ -80,16 +80,17 @@ public class Doctor extends SuperEmployee implements Serializable {
     private String mobile;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "STARTWORD")
+    @Column(name = "START_WORD")
     private Date startWork;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "ENDWORD")
+    @Column(name = "END_WORD")
     private Date endWork;
 
-    @Column(name = "WORDSTATUS")
+    @Column(name = "WORD_STATUS")
     private String workStatus;
 
+    @Column(name = "ENABLED")
     private boolean enabled = true;
 
     public String getCerNo() {

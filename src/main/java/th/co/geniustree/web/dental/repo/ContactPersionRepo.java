@@ -5,14 +5,14 @@
  */
 package th.co.geniustree.web.dental.repo;
 
-
+import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import th.co.geniustree.web.dental.model.SuperEmployee;
+import th.co.geniustree.web.dental.model.ContactPersion;
 
 /**
  *
  * @author Jasin007
  */
-public interface SuperEmployeeRepo extends JpaRepository<SuperEmployee,Integer>{
+public interface ContactPersionRepo extends JpaRepository<ContactPersion, Integer>{
     
 }

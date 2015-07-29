@@ -12,28 +12,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
  *
  * @author Jasin007
  */
-@MappedSuperclass 
-@Table(name = "SUPEREMPLOYEE")
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class SuperEmployee implements Serializable{
+@Entity
+@Table(name = "CONTACTPERSION")
+public class ContactPersion implements Serializable{
     
     @Id
-    @SequenceGenerator(name = "SUPEREMPLOYEE", sequenceName = "SUPEREMPLOYEE_SEQ", allocationSize = 1)
-    @GeneratedValue(generator = "SUPEREMPLOYEE",strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    @Column(name = "STATEEMPLOYEE")
-    private String stateEmployee;
+    @Column(name = "NAME")
+    private String name;
+    
+    @Column(name = "MOBILE")
+    private String mobile;
+    
+    @Column(name = "RELATION")
+    private String relation;
 
     public Integer getId() {
         return id;
@@ -43,18 +43,34 @@ public abstract class SuperEmployee implements Serializable{
         this.id = id;
     }
 
-    public String getStateEmployee() {
-        return stateEmployee;
+    public String getName() {
+        return name;
     }
 
-    public void setStateEmployee(String stateEmployee) {
-        this.stateEmployee = stateEmployee;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getRelation() {
+        return relation;
+    }
+
+    public void setRelation(String relation) {
+        this.relation = relation;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -66,15 +82,12 @@ public abstract class SuperEmployee implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SuperEmployee other = (SuperEmployee) obj;
+        final ContactPersion other = (ContactPersion) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
-    
-    
-    
     
     
     

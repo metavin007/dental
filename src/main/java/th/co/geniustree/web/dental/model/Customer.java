@@ -41,7 +41,7 @@ public class Customer implements Serializable {
 
     @Column(name = "NAME")
     private String name;
-   
+
     @Temporal(TemporalType.DATE)
     @Column(name = "BIRTHDAY")
     private Date birthday;
@@ -74,8 +74,16 @@ public class Customer implements Serializable {
     private String email;
 
     @ManyToMany
-    private List<MedicalHistory> medicalHistory; 
-            
+    private List<MedicalHistory> medicalHistory;
+
+    public List<MedicalHistory> getMedicalHistory() {
+        return medicalHistory;
+    }
+
+    public void setMedicalHistory(List<MedicalHistory> medicalHistory) {
+        this.medicalHistory = medicalHistory;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -209,8 +217,5 @@ public class Customer implements Serializable {
         }
         return true;
     }
-    
-    
-    
 
 }

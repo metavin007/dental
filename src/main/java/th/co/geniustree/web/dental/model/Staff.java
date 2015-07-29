@@ -80,7 +80,7 @@ public class Staff extends SuperEmployee implements Serializable {
     @Column(name = "ENDWORD")
     private Date endWork;
 
-    @Column(name = "WORDSTATUS")
+    @Column(name = "WORD_STATUS")
     private String workStatus;
 
     private boolean enabled = true;

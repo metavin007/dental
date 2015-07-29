@@ -5,7 +5,7 @@
  */
 package th.co.geniustree.web.dental.repo;
 
-import java.io.Serializable;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import th.co.geniustree.web.dental.model.Doctor;
 

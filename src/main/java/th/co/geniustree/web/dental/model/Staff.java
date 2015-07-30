@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "STAFF")
-@AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_EMPLOYEE"))
+@AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_STAFF"))
 public class Staff extends SuperEmployee implements Serializable {
 
     @Column(name = "EMAIL")
@@ -84,12 +84,11 @@ public class Staff extends SuperEmployee implements Serializable {
 
     @Column(name = "WORD_STATUS")
     private String workStatus;
-    
+
     @ManyToOne
-    @JoinColumn(name ="DEPARTMENTEMPLOYEE_ID")
+    @JoinColumn(name = "DEPARTMENTEMPLOYEE_ID")
     private DepartmentEmployee departmentEmployee;
 
-    
     public DepartmentEmployee getDepartmentEmployee() {
         return departmentEmployee;
     }
@@ -259,5 +258,5 @@ public class Staff extends SuperEmployee implements Serializable {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-    
+
 }

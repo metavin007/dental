@@ -29,8 +29,6 @@ import javax.persistence.Table;
  * @author Jasin007
  */
 @MappedSuperclass 
-@Table(name = "SUPEREMPLOYEE")
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class SuperEmployee implements Serializable{
     
     @Id

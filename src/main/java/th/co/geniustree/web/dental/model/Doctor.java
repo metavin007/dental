@@ -21,7 +21,7 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Table(name = "DOCTOR")
-@AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_EMPLOYEE"))
+@AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_DOCTOR"))
 public class Doctor extends SuperEmployee implements Serializable {
 
     @Column(name = "CER_NO")

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import th.co.geniustree.web.dental.model.Authority;
 import th.co.geniustree.web.dental.model.DepartmentEmployee;
+import th.co.geniustree.web.dental.repo.AuthorityRepo;
 import th.co.geniustree.web.dental.repo.DepartmentEmployeeRepo;
 
 /**
@@ -25,6 +27,10 @@ public class DepartmentController {
 
     @Autowired
     DepartmentEmployeeRepo departmentEmployeeRepo;
+    
+    @Autowired
+    AuthorityRepo authorityRepo;
+    
 
     @RequestMapping(value = "/loaddepartmentemployee")
     public Page<DepartmentEmployee> loadDepartmentEmployee(Pageable pageable) {
@@ -39,5 +45,10 @@ public class DepartmentController {
     @RequestMapping(value = "/deletedepartmentemployee", method = RequestMethod.POST)
     public void deleteDepartmentEmployee(@RequestBody DepartmentEmployee departmentEmployee){
         departmentEmployeeRepo.delete(departmentEmployee.getId());
+    }
+    
+      @RequestMapping(value = "/loadauthority")
+    public Page<Authority> loadAuthority(Pageable pageable){
+        return authorityRepo.findAll(pageable);
     }
 }

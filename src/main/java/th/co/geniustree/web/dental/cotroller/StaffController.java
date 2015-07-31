@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import th.co.geniustree.web.dental.model.Authority;
 import th.co.geniustree.web.dental.model.Staff;
+import th.co.geniustree.web.dental.repo.AuthorityRepo;
 import th.co.geniustree.web.dental.repo.StaffRepo;
 
 /**
@@ -24,7 +26,7 @@ import th.co.geniustree.web.dental.repo.StaffRepo;
 public class StaffController {
     
     @Autowired
-    StaffRepo staffRepo;
+    StaffRepo staffRepo;   
     
     @RequestMapping(value = "/loadstaff")
     public Page<Staff> loadStaff(Pageable pageable){
@@ -40,4 +42,6 @@ public class StaffController {
     public void deleteStaff(@RequestBody Staff staff){
         staffRepo.delete(staff.getId());
     }
+        
+            
 }

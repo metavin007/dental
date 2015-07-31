@@ -1,8 +1,11 @@
 angular.module('Employee', []);
-angular.module('Employee', [])
+angular.module('Employee',['checklist-model'])
         .controller('EmployeeController', function ($scope, $http) {
             $scope.employees = {};
             $scope.employee = {};
+
+            $scope.departments = {};
+            $scope.authorities = {};
 
 
             loadEmployee();
@@ -18,7 +21,6 @@ angular.module('Employee', [])
             $scope.saveEmployee = function () {
                 $http.post('/saveStaff', $scope.employee).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
-
                 }).error(function (data, status, header, config) {
                     alert('saveข้อมูลล้มเหลว');
                 });
@@ -33,6 +35,28 @@ angular.module('Employee', [])
                 });
             };
 
+
+            loadDepartment();
+            function loadDepartment() {
+                $http.get('/loaddepartmentemployee').success(function (data) {
+                    $scope.departments = data;
+                }).error(function (data, status, header, config) {
+
+                });
+            };
+            
+            
+            loadAuthority();
+            function loadAuthority(){
+                $http.get('/loadauthority').success(function (data) {
+                    $scope.authorities = data;
+                    
+                }).error(function (data, status, header, config){
+                    
+                });
+            };
+            
+            
             $scope.page = 1;
             $scope.nextPage = function () {
                 $scope.page = 2;

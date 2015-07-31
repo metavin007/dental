@@ -1,5 +1,5 @@
 angular.module('Doctor', []);
-angular.module('Doctor', [])
+angular.module('Doctor')
         .controller('DoctorController', function ($scope, $http) {
             $scope.doctors = {};
             $scope.doctor = {};
@@ -23,13 +23,31 @@ angular.module('Doctor', [])
               });                   
             };
             
-            $scope.delectDoctor = function (rowedoctor){
-               $http.post('/deletedoctor',rowedoctor).success(function (data){
+            $scope.delectDoctor = function (rowdoctor){
+               $http.post('/deletedoctor',rowdoctor).success(function (data){
                     loadDoctor();
                     alert('ลบข้อมูลเรียบร้อย');
                }).error(function (data,status,header,config){
                    alert('ลบข้อมูลล้มเหลว');
                });
+            };
+            
+            loadAuthority();
+            function loadAuthority(){
+                $http.get('/loadauthority').success(function (data) {
+                    $scope.authorities = data;
+                    
+                }).error(function (data, status, header, config){
+                    
+                });
+            };
+            
+             $scope.page = 1;
+            $scope.nextPage = function () {
+                $scope.page = 2;
+            };
+            $scope.backPage = function () {
+                $scope.page = 1;
             };
             
         });

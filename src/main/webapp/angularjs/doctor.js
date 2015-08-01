@@ -4,6 +4,7 @@ angular.module('Doctor')
             $scope.doctors = {};
             $scope.doctor = {};
 
+            $scope.error = {};
 
             loadDoctor();
             function loadDoctor() {
@@ -20,6 +21,7 @@ angular.module('Doctor')
                     alert('saveข้อมูลเรียบร้อย');
                     $scope.doctor = {};
                 }).error(function (data, status, header, config) {
+                    $scope.error = data;
                     alert('saveข้อมูลล้มเหลว');
                 });
             };

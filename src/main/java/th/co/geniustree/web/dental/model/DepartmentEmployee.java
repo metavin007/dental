@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -28,6 +29,7 @@ public class DepartmentEmployee implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  Integer id;
     
+    @NotBlank(message = "Name not Empty")
     @Column(name = "NAME")
     private String name;
 

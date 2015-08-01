@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -25,6 +27,8 @@ import javax.persistence.TemporalType;
 @AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_STAFF"))
 public class Staff extends SuperEmployee implements Serializable {
 
+    @NotBlank(message = "E-Mail not Empty")
+    @Email(message = "format Incompatible (Ex. xxx@xxx.com)")
     @Column(name = "EMAIL")
     private String email;
 
@@ -34,6 +38,7 @@ public class Staff extends SuperEmployee implements Serializable {
     @Column(name = "PID")
     private String pid;
 
+    @NotBlank(message = "Name not Empty")
     @Column(name = "NAMETH")
     private String nameTh;
 
@@ -71,6 +76,7 @@ public class Staff extends SuperEmployee implements Serializable {
     @Column(name = "TEL")
     private String tel;
 
+    @NotBlank(message = "Mobile not Empty")
     @Column(name = "MOBILE")
     private String mobile;
 

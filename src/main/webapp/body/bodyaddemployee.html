@@ -11,10 +11,12 @@
                 <div class="col-lg-6">
                     <div class="form-group" >
                         <label>อีเมล</label>
+                        <span ng-show="error.violations.email.message" class="alert alert-danger">{{error.violations.email.message}}</span>
                         <input class="form-control" ng-model="employee.email">
                     </div>
                     <div class="form-group" >
                         <label>ชื่อ-สกุล ไทย</label>
+                        <span ng-show="error.violations.nameTh.message" class="alert alert-danger">{{error.violations.nameTh.message}}</span>
                         <input class="form-control" ng-model="employee.nameTh" >
                     </div>
                     <div class="form-group">
@@ -86,6 +88,7 @@
                     </div>
                     <div class="form-group">
                         <label>เบอร์โทรศัพท์มือถือ</label>
+                        <span ng-show="error.violations.mobile.message" class="alert alert-danger">{{error.violations.mobile.message}}</span>
                         <input class="form-control" ng-model="employee.mobile">
                     </div>
                     <div class="form-group">
@@ -184,5 +187,9 @@
         margin: 20px;
         position: relative;
         top: 15px;
+    }
+     .alert{
+        padding: 2px 4px;
+        margin-left: 5px;
     }
 </style>

@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -30,6 +31,8 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "CER_TYPE")
     private String cerType;
 
+    @NotBlank(message = "E-Mail not Empty")
+    @Email(message = "format Incompatible (Ex. xxx@xxx.com)")
     @Column(name = "EMAIL")
     private String email;
 
@@ -39,6 +42,7 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "PID")
     private String pid;
 
+    @NotBlank(message = "Name not Empty")
     @Column(name = "NAMETH")
     private String nameTh;
 
@@ -76,6 +80,7 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "TEL")
     private String tel;
 
+    @NotBlank(message = "Mobile not Empty")
     @Column(name = "MOBILE")
     private String mobile;
 

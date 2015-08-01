@@ -3,36 +3,39 @@ angular.module('Department', [])
         .controller('DepartmentController', function ($scope, $http) {
             $scope.departments = {};
             $scope.department = {};
-            
-            
+
+            $scope.error = {};
+
             loadDepartment();
-            function loadDepartment(){
-                $http.get('/loaddepartmentemployee').success(function (data){
+            function loadDepartment() {
+                $http.get('/loaddepartmentemployee').success(function (data) {
                     $scope.departments = data;
-                }).error(function (data,status,header,config){
-                    
+                }).error(function (data, status, header, config) {
+
                 });
-            };
-            
+            }
+            ;
+
             $scope.saveDepartment = function () {
-              $http.post('/savedepartmentemployee',$scope.department).success(function (data){
+                $http.post('/savedepartmentemployee', $scope.department).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
                     loadDepartment();
                     $scope.department = {};
-              }).error(function (data,status,header,config){
+                }).error(function (data, status, header, config) {
+                    $scope.error = data;
                     alert('saveข้อมูลล้มเหลว');
-              });                   
+                });
             };
-            
-            $scope.delectDepartment = function (rowdepartment){
-               $http.post('/deletedepartmentemployee',rowdepartment).success(function (data){
+
+            $scope.delectDepartment = function (rowdepartment) {
+                $http.post('/deletedepartmentemployee', rowdepartment).success(function (data) {
                     loadDepartment();
                     alert('ลบข้อมูลเรียบร้อย');
-               }).error(function (data,status,header,config){
-                   alert('ลบข้อมูลล้มเหลว');
-               });
+                }).error(function (data, status, header, config) {
+                    alert('ลบข้อมูลล้มเหลว');
+                });
             };
-            
+
         });
 
 

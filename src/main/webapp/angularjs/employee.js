@@ -6,6 +6,8 @@ angular.module('Employee',['checklist-model'])
 
             $scope.departments = {};
             $scope.authorities = {};
+            
+             $scope.error = {};
 
 
             loadEmployee();
@@ -22,6 +24,7 @@ angular.module('Employee',['checklist-model'])
                     alert('saveข้อมูลเรียบร้อย');
                     $scope.employee = {};
                 }).error(function (data, status, header, config) {
+                    $scope.error = data;
                     alert('saveข้อมูลล้มเหลว');
                 });
             };

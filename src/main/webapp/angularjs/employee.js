@@ -15,12 +15,12 @@ angular.module('Employee',['checklist-model'])
                 }).error(function (data, status, header, config) {
 
                 });
-            }
-            ;
+            };
 
             $scope.saveEmployee = function () {
                 $http.post('/saveStaff', $scope.employee).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
+                    $scope.employee = {};
                 }).error(function (data, status, header, config) {
                     alert('saveข้อมูลล้มเหลว');
                 });

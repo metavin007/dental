@@ -19,6 +19,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -64,12 +65,14 @@ public class Customer implements Serializable {
     @Column(name = "TEL")
     private String tel;
 
+    @NotBlank(message = "Mobile not Empty")
     @Column(name = "MOBILE")
     private String mobile;
 
     @Column(name = "JOB")
     private String job;
 
+    @NotBlank(message = "E-Mail not Empty")
     @Column(name = "EMAIL")
     private String email;
 

@@ -18,6 +18,7 @@ angular.module('Department', [])
               $http.post('/savedepartmentemployee',$scope.department).success(function (data){
                     alert('saveข้อมูลเรียบร้อย');
                     loadDepartment();
+                    $scope.department = {};
               }).error(function (data,status,header,config){
                     alert('saveข้อมูลล้มเหลว');
               });                   

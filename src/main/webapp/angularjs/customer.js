@@ -4,6 +4,9 @@ angular.module('Customer', ['checklist-model'])
             $scope.customer = {};
             $scope.customers = {};
             $scope.medicalhistorys = {};
+            
+            $scope.error = {};
+            
 
             loadCustomer();
             function loadCustomer() {
@@ -16,6 +19,7 @@ angular.module('Customer', ['checklist-model'])
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
+                    $scope.customer = {};
                 }).error(function (data) {
                     $scope.error = data;
                     alert('คุณกรอกข้อมูลไม่เรียบร้อย');
@@ -39,6 +43,7 @@ angular.module('Customer', ['checklist-model'])
                     
                 });
             }
+            
         });
 
 

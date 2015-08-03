@@ -19,6 +19,7 @@ import th.co.geniustree.web.dental.model.MedicalHistory;
 import th.co.geniustree.web.dental.repo.CustomerRepo;
 import th.co.geniustree.web.dental.repo.MedicalHistoryRepo;
 
+
 /**
  *
  * @author Jasin007
@@ -30,6 +31,9 @@ public class CustomerController {
     private CustomerRepo customerRepo;
     @Autowired
     private MedicalHistoryRepo medicalHistoryRepo;
+    
+//    @Autowired
+//    private CustomerService custumerService;
     
     @RequestMapping(value = "/customer")
     public Page<Customer> getCustomer(Pageable pageable){
@@ -43,6 +47,7 @@ public class CustomerController {
     
     @RequestMapping(value = "/customerdelete", method = RequestMethod.POST)
     public void deleteCutomer(@RequestBody Customer customer){
+//        Customer cus = custumerService.findByName("John");
         customerRepo.delete(customer.getId());
     }
     

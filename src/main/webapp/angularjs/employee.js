@@ -15,7 +15,7 @@ angular.module('Employee',['checklist-model'])
                 $http.get('/loadstaff').success(function (data) {
                     $scope.employees = data;
                 }).error(function (data, status, header, config) {
-
+alert('xxxxxx');
                 });
             };
 

@@ -5,6 +5,7 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,7 @@ public class DepartmentEmployee implements Serializable{
     @Column(name = "NAME")
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "departmentEmployee")
     private List<Staff> staffs;
 

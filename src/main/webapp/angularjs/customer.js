@@ -4,9 +4,9 @@ angular.module('Customer', ['checklist-model'])
             $scope.customer = {};
             $scope.customers = {};
             $scope.medicalhistorys = {};
-            
+
             $scope.error = {};
-            
+
 
             loadCustomer();
             function loadCustomer() {
@@ -25,25 +25,37 @@ angular.module('Customer', ['checklist-model'])
                     alert('คุณกรอกข้อมูลไม่เรียบร้อย');
                 });
             };
-            
-            $scope.deleteCustomer = function (rowcustomer){
-                $http.post('/customerdelete',rowcustomer).success(function (data){
+
+            $scope.deleteCustomer = function (rowcustomer) {
+                $http.post('/customerdelete', rowcustomer).success(function (data) {
                     loadCustomer();
-                   alert('ลบข้อมูลเรียบร้อย'); 
-                }).error(function (data, status, header, config){
-                   alert('ลบไม่สำเร็จ'); 
+                    alert('ลบข้อมูลเรียบร้อย');
+                }).error(function (data, status, header, config) {
+                    alert('ลบไม่สำเร็จ');
                 });
             };
-            
+
             loadMedicalHistory();
-            function loadMedicalHistory(){
-                $http.get('/medicalhistory').success(function (data){
-                   $scope.medicalhistorys = data; 
-                }).error(function (data, status, header, config){
-                    
+            function loadMedicalHistory() {
+                $http.get('/medicalhistory').success(function (data) {
+                    $scope.medicalhistorys = data;
+                }).error(function (data, status, header, config) {
+
                 });
             }
-            
+
+
+            $scope.keyword = null;
+            $scope.searchCustomer = function () {
+                
+                if (!$scope.keyword) {
+                   loadCustomer(); 
+                }
+                $http.post('/customer/search', $scope.keyword).success(function (data) {
+                     $scope.customers = data;
+                });
+            };
+
         });
 
 

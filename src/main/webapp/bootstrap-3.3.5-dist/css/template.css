@@ -1,16 +1,38 @@
-.col-md-12{    
-    height: 150px; 
+
+.col-md-2{
+    height: 1020px; 
     background-color: gray;
 }
-.col-md-3{
-    height: 1000px; 
-    background-color: gray;
-}
-.col-md-9{ 
-    height: 1000px;    
+.col-md-10{ 
+    height: 1020px;    
     background-color: gray;
 }
 body{
     padding:0 15px
 }
-
+#bodyinto{  
+    height: 1000px;
+    background-color: white;
+    margin-right: -20px;
+    position: relative;
+    right: 15px;
+    top: -10px;
+}
+.alert-danger{
+    padding: 2px 4px;
+    margin-left: 5px;
+}
+.panel-default{
+    margin: 20px;
+    position: relative;
+    top: 15px;
+}
+#inputsearch{
+    position: relative;
+    top: 10px;
+    left: 15px;
+    width: 300px;
+}
+.panel-body{
+    margin-top: 10px; 
+}

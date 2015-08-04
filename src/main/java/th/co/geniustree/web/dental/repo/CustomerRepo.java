@@ -7,12 +7,13 @@ package th.co.geniustree.web.dental.repo;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import th.co.geniustree.web.dental.model.Customer;
 
 /**
  *
  * @author Jasin007
  */
-public interface CustomerRepo extends  JpaRepository<Customer, Integer>{
+public interface CustomerRepo extends  JpaRepository<Customer, Integer>,JpaSpecificationExecutor<Customer>{
     
 }

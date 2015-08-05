@@ -5,6 +5,8 @@
  */
 package th.co.geniustree.web.dental.cotroller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +34,8 @@ public class CustomerController {
     private CustomerRepo customerRepo;
     @Autowired
     private MedicalHistoryRepo medicalHistoryRepo;
+    
+    private Customer selectCustomer;
 
 //    @Autowired
 //    private CustomerService custumerService;
@@ -50,6 +54,25 @@ public class CustomerController {
 //        Customer cus = custumerService.findByName("John");
         customerRepo.delete(customer.getId());
     }
+    
+    
+    @RequestMapping(value = "/selectdetailcustomer",method = RequestMethod.POST)
+    public void selectDetailCustomer(@RequestBody Customer customer){
+        selectCustomer = customer;
+    }
+    
+    @RequestMapping(value = "/loaddetailcustomer")
+    public Page<Customer> loaddetailcustomer(Pageable pageable){
+        while(selectCustomer == null){
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return  customerRepo.findByEmail(selectCustomer.getEmail(), pageable);
+    }
+    
 
     @RequestMapping(value = "/medicalhistory")
     public Page<MedicalHistory> getMedicalHistory(Pageable pageable) {

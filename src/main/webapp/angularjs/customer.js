@@ -15,7 +15,8 @@ angular.module('Customer', ['checklist-model'])
                 }).error(function (data, status, header, config) {
 
                 });
-            }
+            };
+            
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
@@ -35,6 +36,7 @@ angular.module('Customer', ['checklist-model'])
                 });
             };
 
+
             loadMedicalHistory();
             function loadMedicalHistory() {
                 $http.get('/medicalhistory').success(function (data) {
@@ -42,17 +44,30 @@ angular.module('Customer', ['checklist-model'])
                 }).error(function (data, status, header, config) {
 
                 });
-            }
+            };
+
+
+            $scope.selectDetail = {};
+            $scope.selectDetailCustomer = function (rowDetailCustomer) {
+                $http.post('/selectdetailcustomer', rowDetailCustomer).success(function (data) {
+                    $scope.selectDetail = data;  
+                }).error(function (data, status, header, config) {
+                });             
+            };
+            
+            
+            
+            
 
 
             $scope.keyword = null;
             $scope.searchCustomer = function () {
-                
+
                 if (!$scope.keyword) {
-                   loadCustomer(); 
+                    loadCustomer();
                 }
                 $http.post('/customer/search', $scope.keyword).success(function (data) {
-                     $scope.customers = data;
+                    $scope.customers = data;
                 });
             };
 

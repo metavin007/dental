@@ -4,17 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../angularjs/jquery-1.11.3.min.js"></script>
-        <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/template.css">
-        <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
-        <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="../materialize/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="../materialize/js/materialize.min.js"></script>
+ 
     </head>
     <body ng-app="route">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col s12 m12 l12">
+                <div ng-include="'../topber/topbar.html'"></div>
+            </div>
+            <div class="col s3 m3 l3">
                 <div ng-include="'../manuber/manuber.html'"></div>
             </div>
-            <div class="col-md-10">
+            <div class="col s9 m9 l9">
                 <div ng-view></div>
             </div>
         </div>

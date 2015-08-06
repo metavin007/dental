@@ -1,48 +1,47 @@
-<div id="bodyinto">
-    <h1 id="h1bodyintotablecustomer">ข้อมูลพนักงาน</h1>   
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            ตารางข้อมูลพนักงาน
-        </div>
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+        <h3 style="padding: 0px; margin: 0px;">ข้อมูลพนักงาน</h3>  
 
-        <div id="inputsearch" class="input-group custom-search-form">
-            <input type="text" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    ค้นหา
-                </button>
-            </span>
+        <div class="input-field col s6" style="margin-left: -10px">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" type="text" class="validate" ng-model="keyword">
+            <label for="icon_prefix">Email & First Name</label>    
         </div>
+        <br>
+        <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="searchCustomer()">
+            ค้นหา
+        </button>
+        <br>
+        <br>
 
-        <div class="panel-body">
-            <div class="dataTable_wrapper">
-                <table class="table table-striped table-bordered table-hover" >
-                    <tr>
-                        <td>ID</td>
-                        <td>EMAIL</td>
-                        <td>NAME</td>
-                        <td>MOBILE</td>
-                        <td>WORKSTATUS</td>
-                        <td></td>
-                    </tr>                                           
-                    <tbody>
-                        <tr ng-repeat="columnemployee in employees.content">
-                            <td>{{columnemployee.id}}</td>
-                            <td>{{columnemployee.email}}</td>
-                            <td>{{columnemployee.nameTh}}</td>
-                            <td>{{columnemployee.mobile}}</td>
-                            <td>{{columnemployee.workStatus}}</td>
-                            <td>
-                                <form method="post">
-                                    <input type="submit" value="Delete" class="btn btn-danger" ng-click="delectEmployee(columnemployee)"> 
-                                    <!-- <input type="submit" class="btn btn-primary" value="Update" ng-click="">-->
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>EMAIL</td>
+                    <td>NAME</td>
+                    <td>MOBILE</td>
+                    <td>WORKSTATUS</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr ng-repeat="columnemployee in employees.content">
+                    <td>{{columnemployee.id}}</td>
+                    <td>{{columnemployee.email}}</td>
+                    <td>{{columnemployee.nameTh}}</td>
+                    <td>{{columnemployee.mobile}}</td>
+                    <td>{{columnemployee.workStatus}}</td>
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" class="waves-effect waves-light btn deep-orange accent-4" ng-click="delectEmployee(columnemployee)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 

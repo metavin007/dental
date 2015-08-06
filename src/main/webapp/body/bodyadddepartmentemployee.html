@@ -1,68 +1,61 @@
-<div id="bodyinto">
-    <h1 id="h1bodyintoaddcustomer">เพิ่มข้อมูลแผนกพนักงาน</h1>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            ตารางกรอกข้อมูลแผนกพนักงาน
-        </div>
-        <div class="panel-body">
-            <!--//////////////////////////แถวซ้าย//////////////////////////////-->
-            <div class="row" >
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>เพิ่มแผนกพนักงาน</label>
-                        <span ng-show="error.violations.name.message" class="alert-danger">{{error.violations.name.message}}</span>
-                        <input class="form-control" ng-model="department.name">
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+
+        <h1 id="h1bodyintoaddcustomer">เพิ่มข้อมูลแผนกพนักงาน</h1>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">supervisor_account</i>
+                        <input id="icon_prefix" type="text" class="validate" ng-model="department.name">
+                        <label for="icon_prefix">NameDepartment</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveDepartment()">
+                            บันทึก
+                        </button>
                     </div>
                 </div>
+            </form>
+        </div>
 
-                <!--/////////////////////////////แถวขวา///////////////////////////-->
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <input type="submit" value="บันทึก" class="btn btn-success" style="margin-top: 25px;" ng-click="saveDepartment()">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">search</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">NameDepartment</label>
                     </div>
-
+                    <div class="input-field col s6">
+                        <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="searchCustomer()">
+                            ค้นหา
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            ตารางแผนกพนักงาน
-        </div>
-
-        <div id="inputsearch" class="input-group custom-search-form">
-            <input type="text" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    ค้นหา
-                </button>
-            </span>
-        </div>
-
-        <div class="panel-body">
-            <div class="dataTable_wrapper">
-                <table class="table table-striped table-bordered table-hover" >
-                    <tr>
-                        <td>ID</td>
-                        <td>NAME</td>
-                        <td></td>
-                    </tr>                                           
-                    <tbody>
-                        <tr ng-repeat="columndepartment in departments.content">
-                            <td>{{columndepartment.id}}</td>
-                            <td>{{columndepartment.name}}</td>   
-                            <td>
-                                <form method="post">
-                                    <input type="submit" value="Delete" class="btn btn-danger" ng-click="delectDepartment(columndepartment)"> 
-                                    <!-- <input type="submit" class="btn btn-primary" value="Update" ng-click="">-->
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="columndepartment in departments.content">
+                    <td>{{columndepartment.id}}</td>
+                    <td>{{columndepartment.name}}</td>   
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" class="waves-effect waves-light btn deep-orange accent-4" ng-click="delectDepartment(columndepartment)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
 

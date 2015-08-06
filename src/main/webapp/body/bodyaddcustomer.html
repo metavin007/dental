@@ -1,11 +1,164 @@
-<div id="bodyinto">
-    <h1 id="h1bodyintoaddcustomer">เพิ่มข้อมูลลูกค้า</h1>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            ตารางกรอกข้อมูลลูกค้า
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+        <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลลูกค้า</h3>
+        <br>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">HN</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">เลขประจำตัวประชาชน</label>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="panel-body">
-            <!--//////////////////////////แถวซ้าย//////////////////////////////-->
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">ชื่อ</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">วันเกิด</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+<!--                        <i class="material-icons prefix">account_circle</i>-->
+                        <!--                        <input id="icon_prefix" type="text" class="validate">-->
+                        <!--                        <label for="icon_prefix">เพศ</label>-->
+                        
+                        <!--                            <label style="margin-left: 0px;">
+                                                        <input type="radio" name="optradio" value="Male" ng-model="customer.sex" >ชาย</label>
+                                                    <label style="margin-left: 20px;">
+                                                        <input type="radio" name="optradio" value="Female" ng-model="customer.sex">หญิง</label>-->
+                        <input type="radio" class="with-gap" name="optradio"  id="test1" value="Male" ng-model="customer.sex" />
+                        <label for="test1">ชาย</label>
+                        <input type="radio" class="with-gap" name="optradio"  id="test2" value="Female" ng-model="customer.sex" />
+                        <label for="test2">หญิง</label>
+                   
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">กรุ๊ปเลือด</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">เชื่อชาติ</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">สัญชาติ</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">ที่อยู่</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">เบอร์โทร</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">เบอร์โทรศัพท์มือถือ</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">อีเมลล์</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">อาชีพ</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate">
+                        <label for="icon_telephone">ประวัติทางการแพทย์</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+
+                    </div>
+                    <div class="input-field col s6">
+                        <div class="form-group">
+                            <input type="submit" value="บันทึก" class="btn btn-success" style="margin-left: 75%" ng-click="saveCustomer()">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<!--    <div class="panel panel-default">
+        <div class="panel-heading">
+          
+        </div>-->
+<!--        <div class="panel-body">
+            //////////////////////////แถวซ้าย//////////////////////////////
             <div class="row" >
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -44,7 +197,7 @@
                     </div>
                 </div>
 
-                <!--/////////////////////////////แถวขวา///////////////////////////-->
+                /////////////////////////////แถวขวา///////////////////////////
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label>ชื่อ</label><span class="require"></span>
@@ -95,6 +248,4 @@
 
             </div>
         </div>
-    </div>
-</div>
-
+    </div>-->

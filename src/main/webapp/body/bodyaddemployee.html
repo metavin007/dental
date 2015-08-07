@@ -1,11 +1,246 @@
-<div class="card-panel grey lighten-2">
+<div class="card-panel grey lighten-2" ng-show="page === 1">
+    <div class="white" style="padding: 20px;" >
+        <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลพนักงาน</h3>
+        <br>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">อีเมลล์</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">พาสเวิร์ค</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">รหัสบัตรประจำตัวประชาชน</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">วันเกิด</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">ชื่อ-สกุล ไทย</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">ชื่อภาษาอังกฤษ</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">เพศ</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">กรุ๊ปเลือด</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">เชื่อชาติ</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">สัญชาติ</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">ที่อยู่บัตรประชาชน</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">ที่อยู่ปัจจุบัน</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">เบอร์โทรศัพท์บ้าน</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">เบอร์โทรศัพท์มือถือ</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">สถานะทางการทหาร</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">สถานะสมรส</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">วันเริ่มทำงาน</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">วันสิ้นสุดงาน</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">สถานะการทำงาน</label>
+            </div>
+            <div class="input-field col s6">
+                <div class="form-group">
+                    <input type="submit" value="ต่อไป" class="btn " style="margin-left: 80%;" ng-click="nextPage()">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="card-panel grey lighten-2" ng-show="page === 2">
+    <div class="white" style="padding: 20px;" >
+        <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลพนักงาน</h3>
+        <br>
+
+        <h4 style="padding: 0px; margin: 0px;">ข้อมูลผู้ติดต่อ</h4>
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">ชื่อ-สกุล</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">เกี่ยวข้องเป็น</label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">เบอร์โทรศัพท์</label>
+            </div>
+            <div class="input-field col s6">
+
+            </div>
+        </div>
+
+        <h4 style="padding: 0px; margin: 0px;">ข้อมูลบัญชีธนาคาร</h4>
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">ชื่อธนาคาร</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">เลขบัญชี</label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">ชื่อบัญชี้</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">ประเภทบัญชี</label>
+            </div>
+        </div>
+
+        <h4 style="padding: 0px; margin: 0px;">ข้อมูลแผนก</h4>
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">เลือกแผนก</label>
+            </div>
+            <div class="input-field col s6">
+               
+            </div>
+        </div>
+
+        <h4 style="padding: 0px; margin: 0px;">สิทธิการใช้งาน</h4>
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">clickbox</label>
+            </div>
+            <div class="input-field col s6">
+               
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+              
+            </div>
+            <div class="input-field col s6">
+                <div class="form-group">
+                    <input type="submit" value="กลับ" class="btn "  ng-click="backPage()" style="margin-left: 55%;"> 
+                    <input type="submit" value="บันทึก" class="btn "  ng-click="saveEmployee();"> 
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--<div class="card-panel grey lighten-2">
     <h1 id="h1bodyintoaddcustomer">เพิ่มข้อมูลพนักงาน</h1>
     <div class="panel panel-default">
         <div class="panel-heading">
             ตารางกรอกข้อมูลพนักงาน
         </div>
         <div class="panel-body" ng-show="page === 1">
-            <!--//////////////////////////แถวซ้าย//////////////////////////////-->
+            //////////////////////////แถวซ้าย//////////////////////////////
             <div ng-init="employee.stateEmployee = 'Staff'" ng-model="employee.stateEmployee" ></div>
             <div class="row" >
                 <div class="col-lg-6">
@@ -64,7 +299,7 @@
 
                 </div>
 
-                <!--/////////////////////////////แถวขวา///////////////////////////-->
+                /////////////////////////////แถวขวา///////////////////////////
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label>พาสเวิร์ค</label>
@@ -110,7 +345,7 @@
             </div>
         </div>
         <div class="panel-body" ng-show="page === 2">
-            <!--//////////////////////////แถวซ้าย//////////////////////////////-->
+            //////////////////////////แถวซ้าย//////////////////////////////
             <div class="row" >
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -118,6 +353,7 @@
                         <label>ชื่อ-สกุล</label>
                         <input class="form-control" ng-model="employee.contactpersion.name">
                     </div>
+ชื่อ-สกุล เกี่ยวข้องเป็น เบอร์โทรศัพท์
                     <div class="form-group">
                         <label>เกี่ยวข้องเป็น</label>
                         <input class="form-control" ng-model="employee.contactpersion.relation">
@@ -128,7 +364,7 @@
                     </div>
                     <h2>ข้อมูลแผนก</h2>
                     <div>
-                        <label>ชื่อแผนก</label>
+                        <label>เลือกแผนก</label>
                         <select class="form-control" 
                                 ng-model="employee.departmentEmployee"
                                 ng-options="department.name for department in departments.content" 
@@ -136,13 +372,14 @@
                         </select> 
                     </div>
                 </div>
-                <!--//////////////////////////แถวขวา//////////////////////////////-->
+                //////////////////////////แถวขวา//////////////////////////////
                 <div class="col-lg-6">
                     <div class="form-group">
                         <h2>ข้อมูลบัญชีธนาคาร</h2>
                         <label>เลขบัญชีธนาคาร</label>
                         <input class="form-control" ng-model="employee.bankaccount.addcountid">
                     </div>
+ชื่อธนาคาร เลขบัญชีธนาคาร ชื่อบัญชี้ ประเภทบัญชี 
                     <div class="form-group">
                         <label>ธนาคาร</label>
                         <input class="form-control" ng-model="employee.bankaccount.bankname">
@@ -171,5 +408,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 

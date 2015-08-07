@@ -28,8 +28,7 @@ angular.module('route')
                     .when('/detailcustomer',{
                         templateUrl: '../body/bodydetailcustomer.html',
                         controller: 'CustomerController2'})
-                   
-                    
+
                     .otherwise({redirecTo: '../body/bodymain.html'})
                     ;
         });

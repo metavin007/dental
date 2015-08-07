@@ -15,8 +15,9 @@ angular.module('Customer', ['checklist-model'])
                 }).error(function (data, status, header, config) {
 
                 });
-            };
-            
+            }
+            ;
+
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
@@ -44,20 +45,17 @@ angular.module('Customer', ['checklist-model'])
                 }).error(function (data, status, header, config) {
 
                 });
-            };
+            }
+            ;
 
 
             $scope.selectDetail = {};
             $scope.selectDetailCustomer = function (rowDetailCustomer) {
                 $http.post('/selectdetailcustomer', rowDetailCustomer).success(function (data) {
-                    $scope.selectDetail = data;  
+                    $scope.selectDetail = data;
                 }).error(function (data, status, header, config) {
-                });             
+                });
             };
-            
-            
-            
-            
 
 
             $scope.keyword = null;
@@ -70,6 +68,18 @@ angular.module('Customer', ['checklist-model'])
                     $scope.customers = data;
                 });
             };
+
+//tag select
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });
+           
+
 
         });
 

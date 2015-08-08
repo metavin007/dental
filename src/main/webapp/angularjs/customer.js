@@ -20,7 +20,6 @@ angular.module('Customer', ['checklist-model'])
 
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
-                    alert('saveข้อมูลเรียบร้อย');
                     Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded'); 
                     $scope.customer = {};
                 }).error(function (data) {

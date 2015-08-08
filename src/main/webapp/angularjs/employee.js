@@ -1,13 +1,13 @@
 angular.module('Employee', []);
-angular.module('Employee',['checklist-model'])
+angular.module('Employee', ['checklist-model'])
         .controller('EmployeeController', function ($scope, $http) {
             $scope.employees = {};
             $scope.employee = {};
 
             $scope.departments = {};
             $scope.authorities = {};
-            
-             $scope.error = {};
+
+            $scope.error = {};
 
 
             loadEmployee();
@@ -16,24 +16,25 @@ angular.module('Employee',['checklist-model'])
                     $scope.employees = data;
                 }).error(function (data, status, header, config) {
                 });
-            };
+            }
+            ;
 
             $scope.saveEmployee = function () {
                 $http.post('/saveStaff', $scope.employee).success(function (data) {
-                    alert('saveข้อมูลเรียบร้อย');
+                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded'); 
                     $scope.employee = {};
                 }).error(function (data, status, header, config) {
                     $scope.error = data;
-                    alert('saveข้อมูลล้มเหลว');
+                    Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
                 });
             };
 
             $scope.delectEmployee = function (rowemployee) {
                 $http.post('/deleteStaff', rowemployee).success(function (data) {
                     loadEmployee();
-                    alert('ลบข้อมูลเรียบร้อย');
+                    Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
                 }).error(function (data, status, header, config) {
-                    alert('ลบข้อมูลล้มเหลว');
+                    Materialize.toast('ลบไม่สำเร็จ', 3000, 'rounded');
                 });
             };
 
@@ -45,20 +46,22 @@ angular.module('Employee',['checklist-model'])
                 }).error(function (data, status, header, config) {
 
                 });
-            };
-            
-            
+            }
+            ;
+
+
             loadAuthority();
-            function loadAuthority(){
+            function loadAuthority() {
                 $http.get('/loadauthority').success(function (data) {
                     $scope.authorities = data;
-                    
-                }).error(function (data, status, header, config){
-                    
+
+                }).error(function (data, status, header, config) {
+
                 });
-            };
-            
-            
+            }
+            ;
+
+
             $scope.page = 1;
             $scope.nextPage = function () {
                 $scope.page = 2;
@@ -66,6 +69,13 @@ angular.module('Employee',['checklist-model'])
             $scope.backPage = function () {
                 $scope.page = 1;
             };
+
+            //  tag วันเกิด       
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });
+
 
         });
 

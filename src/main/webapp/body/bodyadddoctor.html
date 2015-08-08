@@ -5,127 +5,142 @@
 
         <div class="row" >
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">อีเมลล์</label>
+                <i class="material-icons prefix">email</i>
+                <span ng-show="error.violations.email.message" style="margin-left: 100px;">{{error.violations.email.message}}</span>
+                <input ng-model="customer.email" type="text">
+                <label>อีเมลล์</label>    
             </div>
             <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">พาสเวิร์ค</label>
+                <i class="material-icons prefix">network_locked</i>
+                <input type="text">
+                <label >พาสเวิร์ค</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">person_pin</i>
+                <input type="text" ng-model="customer.pid">
+                <label>เลขประจำตัวประชาชน</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">cake</i>
+                <input type="date" class="datepicker" ng-model="customer.birthday">
+                <label>วันเกิด</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">รหัสบัตรประจำตัวประชาชน</label>
+                <span ng-show="error.violations.name.message" style="margin-left: 70px; ">{{error.violations.name.message}}</span>
+                <input type="text" ng-model="customer.name">
+                <label>ชื่อ-สกุล-ไทย</label>
             </div>
             <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">วันเกิด</label>
+                <i class="material-icons prefix">account_circle</i>
+                 <input type="text" ng-model="customer.name">
+                <label>ชื่อ-สกุล-อังกฤษ</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">ชื่อ-สกุล ไทย</label>
+                <i class="material-icons prefix">wc</i>
+                <div style="margin-left: 70px;">
+                    <input  type="radio" class="with-gap" name="Male" value="Male" ng-model="customer.sex" id="Male" />
+                    <label for="Male">ชาย</label>
+                    <input type="radio" class="with-gap" name="Female"  value="Female" ng-model="customer.sex" id="Female"/>
+                    <label for="Female">หญิง</label>
+                </div>
+                <label>เพศ</label>
             </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">ชื่อภาษาอังกฤษ</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">เพศ</label>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">กรุ๊ปเลือด</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">เชื่อชาติ</label>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">สัญชาติ</label>
+            <div class="input-field col s6" >
+                <i class="material-icons prefix">blur_on</i>
+                <div style="margin-left: 40px; margin-top: 40px;" ng-init="customer.blood = 'A'">
+                    <select  class="browser-default" ng-model="customer.blood">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="AB">AB</option>
+                        <option value="O">O</option>
+                    </select>
+                    <label style="margin-left: 45px; font-size: 14px;">กรุ๊ปเลือด</label>
+                </div>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">ที่อยู่บัตรประชาชน</label>
+                <i class="material-icons prefix">blur_linear</i>
+                <input type="text" ng-model="customer.race">
+                <label>เชื่อชาติ</label>
             </div>
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">ที่อยู่ปัจจุบัน</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">เบอร์โทรศัพท์บ้าน</label>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">เบอร์โทรศัพท์มือถือ</label>
+                <i class="material-icons prefix">assistant_photo</i>
+                <input type="text" ng-model="customer.nation">
+                <label>สัญชาติ</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">สถานะทางการทหาร</label>
+                <i class="material-icons prefix">home</i>
+                <textarea class="materialize-textarea" ng-model="customer.address"></textarea>
+                <label>ที่อยู่ตามบัตรประชาชน</label>
             </div>
             <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">สถานะสมรส</label>
+                <i class="material-icons prefix">home</i>
+                <textarea class="materialize-textarea" ng-model="customer.address"></textarea>
+                <label>ที่อยู่ปัจจุบัน</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">วันเริ่มทำงาน</label>
+                <i class="material-icons prefix">phone</i>
+                <input type="text" ng-model="customer.tel">
+                <label>เบอร์โทรศัพท์บ้าน</label>
             </div>
             <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">วันสิ้นสุดงาน</label>
+                <i class="material-icons prefix">smartphone</i>
+                 <span ng-show="error.violations.mobile.message" style="margin-left: 175px; ">{{error.violations.mobile.message}}</span>
+                <input type="text" ng-model="customer.mobile">
+                <label>เบอร์โทรศัพท์มือถือ</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">local_play</i>
+                <input type="text">
+                <label>สถานะทางการทหาร</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">favorite_border</i>
+                <input type="text">
+                <label >สถานะสมรส</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">play_arrow</i>
+                <input type="text">
+                <label>วันเริ่มทำงาน</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">stop</i>
+                <input type="text">
+                <label>วันสิ้นสุดงาน</label>
             </div>
         </div>
 
 
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">สถานะการทำงาน</label>
+                <i class="material-icons prefix">add_alarm</i>
+                <input type="text" >
+                <label >สถานะการทำงาน</label>
             </div>
             <div class="input-field col s6">
                 <div class="form-group">
@@ -142,7 +157,21 @@
         <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลพนักงาน</h3>
         <br>
 
-        <h4 style="padding: 0px; margin: 0px;">ข้อมูลผู้ติดต่อ</h4>
+        <h4 style="padding: 0px; margin: 0px;">ข้อมูลCerfinication</h4>
+          <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">เลขที่ใบcerfinication</label>
+            </div> 
+            <div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">ประเภทใบcerfinication</label>
+            </div>
+        </div>
+        
+        <h4 style="padding: 0px; margin: 0px;">ข้อมูลผู้ติดต่อเพิ่มเติม</h4>
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
@@ -202,7 +231,7 @@
                 <label for="icon_prefix">เลือกแผนก</label>
             </div>
             <div class="input-field col s6">
-               
+
             </div>
         </div>
 
@@ -214,13 +243,13 @@
                 <label for="icon_prefix">clickbox</label>
             </div>
             <div class="input-field col s6">
-               
+
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-              
+
             </div>
             <div class="input-field col s6">
                 <div class="form-group">
@@ -349,7 +378,7 @@
             //////////////////////////แถวซ้าย//////////////////////////////
             <div class="row" >
                 <div class="col-lg-6">
-                    <h2>ข้อมูลCerfinication</h2>
+                    <h2>ข้อมูลCerfinication</h2>เลขที่ใบcerfinication ประเภทใบcerfinication
                     <div class="form-group">
                         <label>เลขที่ใบcerfinication</label>
                         <input class="form-control" ng-model="doctor.cerNo">

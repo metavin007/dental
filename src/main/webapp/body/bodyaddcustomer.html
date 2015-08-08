@@ -19,6 +19,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
+                <span ng-show="error.violations.name.message" style="margin-left: 70px; ">{{error.violations.name.message}}</span>
                 <input type="text" ng-model="customer.name">
                 <label>ชื่อ</label>
             </div>
@@ -76,20 +77,22 @@
             <div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
                 <input type="text" ng-model="customer.tel">
-                <label>เบอร์โทร</label>
+                <label>เบอร์โทรศัพท์บ้าน</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">smartphone</i>
+                 <span ng-show="error.violations.mobile.message" style="margin-left: 175px; ">{{error.violations.mobile.message}}</span>
                 <input type="text" ng-model="customer.mobile">
                 <label>เบอร์โทรศัพท์มือถือ</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
-                <input type="text" ng-model="customer.email">
-                <label>อีเมลล์</label>
+                <span ng-show="error.violations.email.message" style="margin-left: 100px;">{{error.violations.email.message}}</span>
+                <input ng-model="customer.email" type="text" >
+                <label>อีเมลล์</label>    
             </div>
         </div>
 
@@ -117,7 +120,7 @@
             </div>
             <div class="input-field col s6">
                 <div class="form-group">
-                    <input type="submit" value="บันทึก" class="btn btn-success" style="margin-left: 75%" ng-click="saveCustomer()">
+                    <input type="submit" value="บันทึก" class="waves-effect waves-light btn light-blue darken-4" style="margin-left: 75%" ng-click="saveCustomer()">
                 </div>
             </div>
         </div>

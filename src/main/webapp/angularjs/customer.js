@@ -21,19 +21,20 @@ angular.module('Customer', ['checklist-model'])
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
                     alert('saveข้อมูลเรียบร้อย');
+                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded'); 
                     $scope.customer = {};
                 }).error(function (data) {
-                    $scope.error = data;
-                    alert('คุณกรอกข้อมูลไม่เรียบร้อย');
+                    $scope.error = data;   
+                    Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
                 });
             };
 
             $scope.deleteCustomer = function (rowcustomer) {
                 $http.post('/customerdelete', rowcustomer).success(function (data) {
                     loadCustomer();
-                    alert('ลบข้อมูลเรียบร้อย');
+                    Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
                 }).error(function (data, status, header, config) {
-                    alert('ลบไม่สำเร็จ');
+                    Materialize.toast('ลบไม่สำเร็จ', 3000, 'rounded');
                 });
             };
 

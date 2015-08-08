@@ -6,12 +6,12 @@
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">business</i>
-                <input type="text">
+                <input type="text" ng-model="customer.hn">
                 <label>HN</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">person_pin</i>
-                <input type="text">
+                <input type="text" ng-model="customer.pid">
                 <label>เลขประจำตัวประชาชน</label>
             </div>
         </div>
@@ -19,12 +19,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="text">
+                <input type="text" ng-model="customer.name">
                 <label>ชื่อ</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">cake</i>
-                <input type="date" class="datepicker">
+                <input type="date" class="datepicker" ng-model="customer.birthday">
                 <label>วันเกิด</label>
             </div>
         </div>
@@ -42,8 +42,8 @@
             </div>
             <div class="input-field col s6" >
                 <i class="material-icons prefix">blur_on</i>
-                <div style="margin-left: 40px;">
-                    <select>
+                <div style="margin-left: 40px; margin-top: 40px;" ng-init="customer.blood = 'A'">
+                    <select  class="browser-default" ng-model="customer.blood">
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="AB">AB</option>
@@ -57,12 +57,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">blur_linear</i>
-                <input type="text">
+                <input type="text" ng-model="customer.race">
                 <label>เชื่อชาติ</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">assistant_photo</i>
-                <input type="text">
+                <input type="text" ng-model="customer.nation">
                 <label>สัญชาติ</label>
             </div>
         </div>
@@ -70,12 +70,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">home</i>
-                <textarea class="materialize-textarea"></textarea>
+                <textarea class="materialize-textarea" ng-model="customer.address"></textarea>
                 <label>ที่อยู่</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
-                <input type="text">
+                <input type="text" ng-model="customer.tel">
                 <label>เบอร์โทร</label>
             </div>
         </div>
@@ -83,12 +83,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">smartphone</i>
-                <input type="text">
+                <input type="text" ng-model="customer.mobile">
                 <label>เบอร์โทรศัพท์มือถือ</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
-                <input type="text">
+                <input type="text" ng-model="customer.email">
                 <label>อีเมลล์</label>
             </div>
         </div>
@@ -96,18 +96,18 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">card_travel</i>
-                <input type="text">
+                <input type="text" ng-model="customer.job">
                 <label>อาชีพ</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">assignment</i>
-                <form action="#">
-                    <p>
-                        <input type="checkbox" id="test5" />
-                        <label for="test5">Red</label>
-                    </p>
-                </form>
-                <label>ประวัติทางการแพทย์</label>
+                 <label>ประวัติทางการแพทย์</label>
+                 <br>
+                 <div ng-repeat="med in medicalhistorys.content">    
+                     <input type="checkbox" id="{{med.id}}" checklist-model="customer.medicalHistory" checklist-value="med"> 
+                     <label for="{{med.id}}">{{med.disease}}</label>
+                 </div>
+               
             </div>
         </div>
 

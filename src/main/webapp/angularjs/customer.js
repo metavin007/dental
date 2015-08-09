@@ -20,10 +20,10 @@ angular.module('Customer', ['checklist-model'])
 
             $scope.saveCustomer = function () {
                 $http.post('/customer', $scope.customer).success(function (data) {
-                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded'); 
+                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
                     $scope.customer = {};
                 }).error(function (data) {
-                    $scope.error = data;   
+                    $scope.error = data;
                     Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
                 });
             };
@@ -59,15 +59,17 @@ angular.module('Customer', ['checklist-model'])
 
 
             $scope.keyword = null;
-            $scope.searchCustomer = function () {
-
-                if (!$scope.keyword) {
+            $scope.searchCustomer = function (keyword) {
+                if (!keyword) {
                     loadCustomer();
                 }
-                $http.post('/customer/search', $scope.keyword).success(function (data) {
-                    $scope.customers = data;
-                });
+                else {
+                    $http.post('/customer/search', keyword).success(function (data) {
+                        $scope.customers = data;
+                    });
+                }
             };
+            
 
 //tag select
 //            $(document).ready(function () {

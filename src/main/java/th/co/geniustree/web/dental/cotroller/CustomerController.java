@@ -80,7 +80,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/customer/search",method = RequestMethod.POST)
-    public Page<Customer> searchCustomer(String keyword, Pageable pageable) {
+    public Page<Customer> searchCustomer(@RequestBody String keyword, Pageable pageable) {
         Specifications<Customer> specification = Specifications.where(CustomerSpec.likeName("%"+keyword+"%"))
                 .or(CustomerSpec.likeEmail("%"+keyword+"%"));
         return customerRepo.findAll(specification, pageable);

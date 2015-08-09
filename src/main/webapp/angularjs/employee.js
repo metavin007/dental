@@ -24,8 +24,8 @@ angular.module('Employee', ['checklist-model'])
                     Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded'); 
                     $scope.employee = {};
                 }).error(function (data, status, header, config) {
-                    $scope.error = data;
                     Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
+                    $scope.error = data;
                 });
             };
 

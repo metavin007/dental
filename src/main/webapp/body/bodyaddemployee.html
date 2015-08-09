@@ -2,7 +2,7 @@
     <div class="white" style="padding: 20px;" >
         <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลพนักงาน</h3>
         <br>
-
+        <div ng-init="employee.stateEmployee = 'Staff'" ng-model="employee.stateEmployee" ></div>
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <span ng-show="error.violations.nameTh.message" style="margin-left: 70px; ">{{error.violations.nameTh.message}}</span>
+                <span ng-show="error.violations.nameTh.message" style="margin-left: 140px; ">{{error.violations.nameTh.message}}</span>
                 <input type="text" ng-model="employee.nameTh">
                 <label>ชื่อ-สกุล-ไทย</label>
             </div>
@@ -214,12 +214,12 @@
             <div class="input-field col s6">
                 <i class="material-icons prefix">supervisor_account</i>
                 <div style="margin-left: 40px; margin-top: 40px;">
-                <select class="browser-default"
-                        ng-model="employee.departmentEmployee"
-                        ng-options="department.name for department in departments.content" 
-                        >
-                </select>
-                <label  style="margin-left: 45px; font-size: 14px;">เลือกแผนก</label>
+                    <select class="browser-default"
+                            ng-model="employee.departmentEmployee"
+                            ng-options="department.name for department in departments.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">เลือกแผนก</label>
                 </div>
             </div>
             <div class="input-field col s6">

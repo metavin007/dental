@@ -18,20 +18,20 @@ angular.module('Doctor')
 
             $scope.saveDoctor = function () {
                 $http.post('/savedoctor', $scope.doctor).success(function (data) {
-                    alert('saveข้อมูลเรียบร้อย');
+                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded'); 
                     $scope.doctor = {};
                 }).error(function (data, status, header, config) {
                     $scope.error = data;
-                    alert('saveข้อมูลล้มเหลว');
+                    Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
                 });
             };
 
             $scope.delectDoctor = function (rowdoctor) {
                 $http.post('/deletedoctor', rowdoctor).success(function (data) {
                     loadDoctor();
-                    alert('ลบข้อมูลเรียบร้อย');
+                    Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
                 }).error(function (data, status, header, config) {
-                    alert('ลบข้อมูลล้มเหลว');
+                    Materialize.toast('ลบไม่สำเร็จ', 3000, 'rounded');
                 });
             };
 

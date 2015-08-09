@@ -2,17 +2,17 @@
     <div class="white" style="padding: 20px;" >
         <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลหมอ</h3>
         <br>
-
+        <div ng-init="doctor.stateEmployee = 'Doctor'" ng-model="doctor.stateEmployee" ></div>
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
                 <span ng-show="error.violations.email.message" style="margin-left: 100px;">{{error.violations.email.message}}</span>
-                <input ng-model="customer.email" type="text">
+                <input type="text" ng-model="doctor.email">
                 <label>อีเมลล์</label>    
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">network_locked</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.password">
                 <label >พาสเวิร์ค</label>
             </div>
         </div>
@@ -20,12 +20,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">person_pin</i>
-                <input type="text" ng-model="customer.pid">
+                <input type="text" ng-model="doctor.pid">
                 <label>เลขประจำตัวประชาชน</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">cake</i>
-                <input type="date" class="datepicker" ng-model="customer.birthday">
+                <input type="date" class="datepicker" ng-model="doctor.birthDay">
                 <label>วันเกิด</label>
             </div>
         </div>
@@ -33,13 +33,13 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <span ng-show="error.violations.name.message" style="margin-left: 70px; ">{{error.violations.name.message}}</span>
-                <input type="text" ng-model="customer.name">
+                <span ng-show="error.violations.nameTh.message" style="margin-left: 140px; ">{{error.violations.nameTh.message}}</span>
+                <input type="text" ng-model="doctor.nameTh">
                 <label>ชื่อ-สกุล-ไทย</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="text" ng-model="customer.name">
+                <input type="text" ng-model="doctor.nameEng">
                 <label>ชื่อ-สกุล-อังกฤษ</label>
             </div>
         </div>
@@ -48,17 +48,17 @@
             <div class="input-field col s6">
                 <i class="material-icons prefix">wc</i>
                 <div style="margin-left: 70px;">
-                    <input  type="radio" class="with-gap" name="Male" value="Male" ng-model="customer.sex" id="Male" />
+                    <input  type="radio" class="with-gap" name="Male" value="Male" ng-model="doctor.sex" id="Male" />
                     <label for="Male">ชาย</label>
-                    <input type="radio" class="with-gap" name="Female"  value="Female" ng-model="customer.sex" id="Female"/>
+                    <input type="radio" class="with-gap" name="Female"  value="Female" ng-model="doctor.sex" id="Female"/>
                     <label for="Female">หญิง</label>
                 </div>
                 <label>เพศ</label>
             </div>
             <div class="input-field col s6" >
                 <i class="material-icons prefix">blur_on</i>
-                <div style="margin-left: 40px; margin-top: 40px;" ng-init="customer.blood = 'A'">
-                    <select  class="browser-default" ng-model="customer.blood">
+                <div style="margin-left: 40px; margin-top: 40px;" ng-init="doctor.blood = 'A'">
+                    <select  class="browser-default" ng-model="doctor.blood">
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="AB">AB</option>
@@ -72,12 +72,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">blur_linear</i>
-                <input type="text" ng-model="customer.race">
+                <input type="text" ng-model="doctor.race">
                 <label>เชื่อชาติ</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">assistant_photo</i>
-                <input type="text" ng-model="customer.nation">
+                <input type="text" ng-model="doctor.nation">
                 <label>สัญชาติ</label>
             </div>
         </div>
@@ -85,12 +85,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">home</i>
-                <textarea class="materialize-textarea" ng-model="customer.address"></textarea>
+                <textarea class="materialize-textarea" ng-model="doctor.addressPid"></textarea>
                 <label>ที่อยู่ตามบัตรประชาชน</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">home</i>
-                <textarea class="materialize-textarea" ng-model="customer.address"></textarea>
+                <textarea class="materialize-textarea" ng-model="doctor.address"></textarea>
                 <label>ที่อยู่ปัจจุบัน</label>
             </div>
         </div>
@@ -98,13 +98,13 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
-                <input type="text" ng-model="customer.tel">
+                <input type="text" ng-model="doctor.tel">
                 <label>เบอร์โทรศัพท์บ้าน</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">smartphone</i>
                 <span ng-show="error.violations.mobile.message" style="margin-left: 175px; ">{{error.violations.mobile.message}}</span>
-                <input type="text" ng-model="customer.mobile">
+                <input type="text" ng-model="doctor.mobile">
                 <label>เบอร์โทรศัพท์มือถือ</label>
             </div>
         </div>
@@ -112,12 +112,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">local_play</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.soldierStatus">
                 <label>สถานะทางการทหาร</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">favorite_border</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.marryStatus">
                 <label >สถานะสมรส</label>
             </div>
         </div>
@@ -125,12 +125,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">play_arrow</i>
-                <input type="text">
+                <input type="date" class="datepicker" ng-model="doctor.startWork">
                 <label>วันเริ่มทำงาน</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">stop</i>
-                <input type="text">
+                <input type="date" class="datepicker" ng-model="doctor.endWork">
                 <label>วันสิ้นสุดงาน</label>
             </div>
         </div>
@@ -139,7 +139,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">add_alarm</i>
-                <input type="text" >
+                <input type="text" ng-model="doctor.workStatus">
                 <label >สถานะการทำงาน</label>
             </div>
             <div class="input-field col s6">
@@ -161,12 +161,12 @@
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">plus_one</i>
-                <input  type="text">
+                <input  type="text" ng-model="doctor.cerNo">
                 <label>เลขที่ใบcerfinication</label>
             </div> 
             <div class="input-field col s6">
                 <i class="material-icons prefix">poll</i>
-                <input  type="text">
+                <input  type="text" ng-model="doctor.cerType">
                 <label>ประเภทใบcerfinication</label>
             </div>
         </div>
@@ -175,12 +175,12 @@
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">group_add</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.contactpersion.name">
                 <label>ชื่อ-สกุล</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">group</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.contactpersion.relation">
                 <label>เกี่ยวข้องเป็น</label>
             </div>
         </div>
@@ -188,7 +188,7 @@
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">phone_iphone</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.contactpersion.mobile">
                 <label >เบอร์โทรศัพท์</label>
             </div>
             <div class="input-field col s6">
@@ -200,12 +200,12 @@
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_balance</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.bankaccount.bankname">
                 <label >ชื่อธนาคาร</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
-                <input type="text" class="validate">
+                <input type="text" ng-model="doctor.bankaccount.addcountid">
                 <label>เลขบัญชี</label>
             </div>
         </div>
@@ -213,25 +213,13 @@
         <div class="row" >
             <div class="input-field col s6">
                 <i class="material-icons prefix">loyalty</i>
-                <input type="text" >
+                <input type="text" ng-model="doctor.bankaccount.addcountname">
                 <label>ชื่อบัญชี้</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">collections_bookmark</i>
-                <input type="text">
+                <input type="text" ng-model="doctor.bankaccount.addcounttype">
                 <label >ประเภทบัญชี</label>
-            </div>
-        </div>
-
-        <h4 style="padding: 0px; margin: 0px;">ข้อมูลแผนก</h4>
-        <div class="row" >
-            <div class="input-field col s6">
-                <i class="material-icons prefix">supervisor_account</i>
-                <input type="text" >
-                <label>เลือกแผนก</label>
-            </div>
-            <div class="input-field col s6">
-
             </div>
         </div>
 
@@ -240,11 +228,10 @@
             <i class="material-icons prefix">assignment</i>
             <label>ประวัติทางการแพทย์</label>
             <br>
-            <div ng-repeat="med in medicalhistorys.content">    
-                <input type="checkbox" id="{{med.id}}" checklist-model="customer.medicalHistory" checklist-value="med"> 
-                <label for="{{med.id}}">{{med.disease}}</label>
+            <div ng-repeat="auth in authorities.content"">    
+                <input type="checkbox" id="{{auth.role}}" checklist-model="doctor.authorities" checklist-value="auth" > 
+                <label for="{{auth.role}}">{{auth.role}}</label>
             </div>
-
         </div>
 
         <div class="row">
@@ -252,15 +239,18 @@
 
             </div>
             <div class="input-field col s6">
-                <div class="form-group">
-                    <input type="submit" value="กลับ" class="btn "  ng-click="backPage()" style="margin-left: 55%;"> 
-                    <input type="submit" value="บันทึก" class="btn "  ng-click="saveEmployee();"> 
+                <div style="margin-left: 55%; margin-top: 50%;">
+                    <input type="submit" value="กลับ" class="btn "  ng-click="backPage()"> 
+                    <input type="submit" value="บันทึก" class="btn "  ng-click="saveDoctor();"> 
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+
+
+
 
 
 <!--<div class="card-panel grey lighten-2">
@@ -382,6 +372,7 @@
                     <div class="form-group">
                         <label>เลขที่ใบcerfinication</label>
                         <input class="form-control" ng-model="doctor.cerNo">
+ng-model="doctor.cerNo" ng-model="doctor.cerType"
                     </div>
                     <div class="form-group">
                         <label>ประเภทใบcerfinication</label>

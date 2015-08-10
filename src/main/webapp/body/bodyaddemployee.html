@@ -142,9 +142,16 @@
                 <input type="text" ng-model="employee.workStatus">
                 <label >สถานะการทำงาน</label>
             </div>
+            
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s6">
+            
+            </div>
             <div class="input-field col s6">
                 <div class="form-group">
-                    <input type="submit" value="ต่อไป" class="btn " style="margin-left: 80%;" ng-click="nextPage()">
+                    <input type="submit" value="ต่อไป" class="btn " style="margin-left: 70%;" ng-click="nextPage()">
                 </div>
             </div>
 
@@ -243,7 +250,7 @@
 
             </div>
             <div class="input-field col s6">
-                <div style="margin-left: 55%; margin-top: 50%;">
+                <div style="margin-left: 47%; margin-top: 40%;">
                     <input type="submit" value="กลับ" class="btn "  ng-click="backPage()"> 
                     <input type="submit" value="บันทึก" class="btn "  ng-click="saveEmployee();"> 
                 </div>
@@ -252,180 +259,3 @@
         </div>
     </div>
 </div>
-<!--<div class="card-panel grey lighten-2">
-    <h1 id="h1bodyintoaddcustomer">เพิ่มข้อมูลพนักงาน</h1>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            ตารางกรอกข้อมูลพนักงาน
-        </div>
-        <div class="panel-body" ng-show="page === 1">
-            //////////////////////////แถวซ้าย//////////////////////////////
-            <div ng-init="employee.stateEmployee = 'Staff'" ng-model="employee.stateEmployee" ></div>
-            <div class="row" >
-                <div class="col-lg-6">
-                    <div class="form-group" >
-                        <label>อีเมล</label>
-                        <span ng-show="error.violations.email.message" class="alert-danger">{{error.violations.email.message}}</span>
-                        <input class="form-control" ng-model="employee.email">
-                    </div>
-                    <div class="form-group" >
-                        <label>ชื่อ-สกุล ไทย</label>
-                        <span ng-show="error.violations.nameTh.message" class="alert-danger">{{error.violations.nameTh.message}}</span>
-                        <input class="form-control" ng-model="employee.nameTh" >
-                    </div>
-                    <div class="form-group">
-                        <label>ชื่อภาษาอังกฤษ</label>
-                        <input class="form-control" ng-model="employee.nameEng">
-                    </div>
-                    <div class="form-group">
-                        <label>วันเกิด</label>
-                        <input class="form-control"ng-model="employee.birthDay" >
-                    </div>
-                    <div class ="form-group">
-                        <label>เพศ</label>
-                        <span class="radio">
-                            <label style="margin-left: 0px;">
-                                <input type="radio" name="optradio" value="Male" ng-model="employee.sex" >ชาย</label>
-                            <label style="margin-left: 20px;">
-                                <input type="radio" name="optradio" value="Female" ng-model="employee.sex" >หญิง</label>
-                        </span>
-                    </div>
-                    <div class="form-group" ng-init="employee.blood = 'A'">
-                        <label>กรุ๊ปเลือด</label>
-                        <select class="form-control" ng-model="employee.blood">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="O">O</option>
-                            <option value="AB">AB</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>เชื้อชาติ</label>
-                        <input class="form-control" ng-model="employee.race">
-                    </div>
-                    <div class="form-group">
-                        <label>สัญชาติ</label>
-                        <input class="form-control" ng-model="employee.nation">
-                    </div>
-                    <div class="form-group">
-                        <label>วันเริ่มทำงาน</label>
-                        <input class="form-control" ng-model="employee.startWork">
-                    </div>
-                    <div class="form-group">
-                        <label>วันสิ้นสุดงาน</label>
-                        <input class="form-control" ng-model="employee.endWork">
-                    </div>
-
-                </div>
-
-                /////////////////////////////แถวขวา///////////////////////////
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>พาสเวิร์ค</label>
-                        <input class="form-control" ng-model="employee.password">
-                    </div>
-                    <div class="form-group">
-                        <label>รหัสบัตรประจำตัวประชาชน</label>
-                        <input class="form-control" ng-model="employee.pid">
-                    </div>
-                    <div class="form-group">
-                        <label>ที่อยู่บัตรประชาชน</label>
-                        <textarea class="form-control" rows="3" ng-model="employee.addressPid"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>ที่อยู่ปัจจุบัน</label>
-                        <textarea class="form-control" rows="3" ng-model="employee.address"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>เบอร์โทรศัพท์บ้าน</label>
-                        <input class="form-control" ng-model="employee.tel">
-                    </div>
-                    <div class="form-group">
-                        <label>เบอร์โทรศัพท์มือถือ</label>
-                        <span ng-show="error.violations.mobile.message" class="alert-danger">{{error.violations.mobile.message}}</span>
-                        <input class="form-control" ng-model="employee.mobile">
-                    </div>
-                    <div class="form-group">
-                        <label>สถานะทางการทหาร</label>
-                        <input class="form-control" ng-model="employee.soldierStatus">
-                    </div>
-                    <div class="form-group">
-                        <label>สถานะสมรส</label>
-                        <input class="form-control" ng-model="employee.marryStatus">
-                    </div>
-                    <div class="form-group">
-                        <label>สถานะการทำงาน</label>
-                        <input class="form-control" ng-model="employee.workStatus">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="ต่อไป" class="btn btn-success" style="margin-left: 90%" ng-click="nextPage()">
-                </div>
-            </div>
-        </div>
-        <div class="panel-body" ng-show="page === 2">
-            //////////////////////////แถวซ้าย//////////////////////////////
-            <div class="row" >
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <h2>ข้อมูลผู้ติดต่อ</h2>
-                        <label>ชื่อ-สกุล</label>
-                        <input class="form-control" ng-model="employee.contactpersion.name">
-                    </div>
-ชื่อ-สกุล เกี่ยวข้องเป็น เบอร์โทรศัพท์
-                    <div class="form-group">
-                        <label>เกี่ยวข้องเป็น</label>
-                        <input class="form-control" ng-model="employee.contactpersion.relation">
-                    </div>
-                    <div class="form-group">
-                        <label>เบอร์โทรศัพท์</label>
-                        <input class="form-control" ng-model="employee.contactpersion.mobile">
-                    </div>
-                    <h2>ข้อมูลแผนก</h2>
-                    <div>
-                        <label>เลือกแผนก</label>
-                        <select class="form-control" 
-                                ng-model="employee.departmentEmployee"
-                                ng-options="department.name for department in departments.content" 
-                                >
-                        </select> 
-                    </div>
-                </div>
-                //////////////////////////แถวขวา//////////////////////////////
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <h2>ข้อมูลบัญชีธนาคาร</h2>
-                        <label>เลขบัญชีธนาคาร</label>
-                        <input class="form-control" ng-model="employee.bankaccount.addcountid">
-                    </div>
-ชื่อธนาคาร เลขบัญชีธนาคาร ชื่อบัญชี้ ประเภทบัญชี 
-                    <div class="form-group">
-                        <label>ธนาคาร</label>
-                        <input class="form-control" ng-model="employee.bankaccount.bankname">
-                    </div>
-
-                    <div class="form-group">
-                        <label>ชื่อบัญชี้</label>
-                        <input class="form-control" ng-model="employee.bankaccount.addcountname">
-                    </div>
-                    <div class="form-group">
-                        <label>ประเภทบัญชี</label>
-                        <input class="form-control" ng-model="employee.bankaccount.addcounttype">
-                    </div>                        
-                    <h2>สิทธิการใช้งาน</h2>
-                    <div class="form-group">
-                        <div  ng-repeat="auth in authorities.content">
-                            <input type="checkbox" checklist-model="employee.authorities"
-                                   checklist-value="auth"> {{auth.role}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="กลับ" class="btn btn-danger" style="margin-left: 85%" ng-click="backPage()"> 
-                <input type="submit" value="บันทึก" class="btn btn-success"  ng-click="saveEmployee();">    
-            </div>
-        </div>
-    </div>
-</div>-->
-

@@ -2,14 +2,38 @@
     <nav class="white">
         <div class="nav-wrapper">
             <ul class="left hide-on-med-and-down">
-                <li><a href=""><i class="material-icons" style="color: black;">store</i></a></li>  
-            </ul>
-            <ul class="right hide-on-med-and-down">
                 <li><a href=""><i class="material-icons" style="color: black;">info</i></a></li>
                 <li><a href=""><i class="material-icons" style="color: black;">call</i></a></li>
                 <li><a href=""><i class="material-icons" style="color: black;">settings</i></a></li>
-                <li><a href=""><i class="material-icons" style="color: black;">perm_identity</i></a></li>
+                <li><a href=""><i class="material-icons" style="color: black;">perm_identity</i></a></li>              
+            </ul>
+            <ul  class="right hide-on-med-and-down">
+                <li><a href=""><i data-activates="slide-out" class="material-icons button-collapse" style="color: black;">store</i></a></li>   
             </ul>
         </div>
     </nav>
 </div>
+
+<div id="slide-out" class="collection side-nav">
+    <img class="responsive-img"  src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/1779152_777273785653414_3840362781571422958_n.jpg?oh=863763e9958f1c7ab9bd2326dfba50f3&oe=563EF51F&__gda__=1447376674_27997d9f78bd140cdb62afd11fc86caf">
+    <a href="#/" class="collection-item ">
+        <i class="material-icons" style="color: black;">home</i>
+    </a>
+    <a href="#/addcustomer" class="collection-item">เพิ่มข้อมูลลูกค้า</a>
+    <a href="#/tablecustomer" class="collection-item">ตารางข้อมูลลูกค้า</a>
+    <a href="#/addemployee" class="collection-item">เพิ่มข้อมูลพนักงาน</a>
+    <a href="#/tableemployee" class="collection-item">ตารางข้อมูลพนักงาน</a>
+    <a href="#/adddepartmentemployee" class="collection-item">จัดการข้อมูลแผนกพนักงาน</a>
+    <a href="#/adddoctor" class="collection-item">เพิ่มข้อมูลหมอ</a>
+    <a href="#/tabledoctor" class="collection-item">ตารางข้อมูลหมอ</a>                    
+</div> 
+
+<script>
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 240
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+    );
+
+</script>

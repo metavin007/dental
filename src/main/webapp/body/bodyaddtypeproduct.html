@@ -1,16 +1,67 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>เพิ่มข้อมูลประเภทสินค้า</div>
-    </body>
-</html>
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+
+        <h3 style="padding: 0px; margin: 0px;">จัดการข้อมูลประเภทสินค้า</h3>
+        <br>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">queue</i>
+                        <span ng-show="error.violations.name.message" style="margin-left: 160px; ">{{error.violations.name.message}}</span>
+                        <input  type="text" ng-model="typeProdunt.name">                   
+                        <label>ชื่อประเภทสินค้า</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveTypeProduct()">
+                            บันทึก
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text">
+                        <label>ชื่อประเภทสินค้า</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="">
+                            ค้นหา
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>CREATE_DATE</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="columntypeproduct in typeProdunts.content">
+                    <td>{{columntypeproduct.id}}</td>
+                    <td>{{columntypeproduct.name}}</td> 
+                    <td>{{columntypeproduct.create_Date}}</td>  
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" 
+                                   class="waves-effect waves-light btn deep-orange 
+                                   accent-4" ng-click="deleteTypeProduct(columntypeproduct)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

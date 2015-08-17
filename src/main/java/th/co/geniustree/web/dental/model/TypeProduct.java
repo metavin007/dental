@@ -20,6 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -34,9 +35,11 @@ public class TypeProduct implements Serializable {
     @GeneratedValue(generator = "TYPEPRODUCT", strategy = GenerationType.AUTO)
     private Integer id;
 
+    @NotBlank(message = "Name not Empty")
     @Column(name = "NAME")
     private String name;
 
+    @NotBlank(message = "Date not Empty")
     @Temporal(TemporalType.DATE)
     @Column(name = "CREATE_DATE")
     private Date create_Date;

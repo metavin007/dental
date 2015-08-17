@@ -18,21 +18,21 @@ angular.module('Department', [])
 
             $scope.saveDepartment = function () {
                 $http.post('/savedepartmentemployee', $scope.department).success(function (data) {
-                    alert('saveข้อมูลเรียบร้อย');
+                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
                     loadDepartment();
                     $scope.department = {};
                 }).error(function (data, status, header, config) {
                     $scope.error = data;
-                    alert('saveข้อมูลล้มเหลว');
+                    Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
                 });
             };
 
             $scope.delectDepartment = function (rowdepartment) {
                 $http.post('/deletedepartmentemployee', rowdepartment).success(function (data) {
                     loadDepartment();
-                    alert('ลบข้อมูลเรียบร้อย');
+                    Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
                 }).error(function (data, status, header, config) {
-                    alert('ลบข้อมูลล้มเหลว');
+                    Materialize.toast('ลบไม่สำเร็จ', 3000, 'rounded');
                 });
             };
 

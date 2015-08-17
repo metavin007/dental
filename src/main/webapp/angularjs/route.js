@@ -1,4 +1,4 @@
-angular.module('route', ['ngRoute', 'Customer', 'Department', 'Employee', 'Doctor', 'Customer2']);
+angular.module('route', ['ngRoute', 'Customer', 'Department', 'Employee', 'Doctor', 'Customer2','TypeProduct','Unit']);
 angular.module('route')
         .config(function ($routeProvider) {
             $routeProvider

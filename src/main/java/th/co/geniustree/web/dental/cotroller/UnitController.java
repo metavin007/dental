@@ -8,6 +8,7 @@ package th.co.geniustree.web.dental.cotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,7 +32,7 @@ public class UnitController {
     }
     
     @RequestMapping(value = "/saveunit",method = RequestMethod.POST)
-    public void saveUnit(@RequestBody Unit unit){
+    public void saveUnit(@Validated @RequestBody Unit unit){
        unitRepo.save(unit);
     }
     

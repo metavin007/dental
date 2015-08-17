@@ -1,4 +1,4 @@
-angular.module('route', ['ngRoute', 'Customer', 'Department','Employee','Doctor','Customer2']);
+angular.module('route', ['ngRoute', 'Customer', 'Department', 'Employee', 'Doctor', 'Customer2']);
 angular.module('route')
         .config(function ($routeProvider) {
             $routeProvider
@@ -25,12 +25,27 @@ angular.module('route')
                     .when('/tabledoctor', {
                         templateUrl: '../body/bodytabledoctor.html',
                         controller: 'DoctorController'})
-                    .when('/detailcustomer',{
+                    .when('/detailcustomer', {
                         templateUrl: '../body/bodydetailcustomer.html',
                         controller: 'CustomerController2'})
 
+
+                    .when('/addtypeproduct', {
+                        templateUrl: '../body/bodyaddtypeproduct.html',
+                        controller: 'TypeProductController'})
+                    .when('/addunit', {
+                        templateUrl: '../body/bodyaddunit.html',
+                        controller: 'UnitController'})
+                    .when('/addproduct', {
+                        templateUrl: '../body/bodyaddproduct.html',
+                        controller: 'ProductController'})
+                    .when('/tableproduct', {
+                        templateUrl: '../body/bodytableproduct.html',
+                        controller: 'ProductController'})
+
+
                     .otherwise({redirecTo: '../body/bodymain.html'})
                     ;
-                    
-                    
+
+
         });

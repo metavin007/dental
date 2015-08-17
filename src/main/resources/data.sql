@@ -31,4 +31,11 @@ INSERT INTO AUTHORITY(ROLES) values('add');
 INSERT INTO AUTHORITY(ROLES) values('update');
 INSERT INTO AUTHORITY(ROLES) values('delete');
 
+INSERT INTO TYPEPRODUCT(NAME,CREATE_DATE) values('drug','2014-05-21');
+INSERT INTO TYPEPRODUCT(NAME,CREATE_DATE) values('equipment','2014-05-22');
+
+INSERT INTO UNIT(NAME) values('piece');
+INSERT INTO UNIT(NAME) values('seed');
+INSERT INTO UNIT(NAME) values('milliliter');
+INSERT INTO UNIT(NAME) values('gram');
 

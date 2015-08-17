@@ -7,12 +7,12 @@ package th.co.geniustree.web.dental.repo;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import th.co.geniustree.web.dental.model.MedicalHistory;
+import th.co.geniustree.web.dental.model.PriceProduct;
 
 /**
  *
  * @author Jasin007
  */
-public interface MedicalHistoryRepo extends JpaRepository<MedicalHistory, Integer>{
+public interface PriceProductRepo extends JpaRepository<PriceProduct,Integer>{
     
 }

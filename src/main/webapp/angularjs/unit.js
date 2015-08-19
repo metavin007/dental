@@ -16,7 +16,7 @@ angular.module('Unit')
                 });
             }
 
-            $scope.saveunit = function () {
+            $scope.saveUnit = function () {
                 $http.post('/saveunit', $scope.unit).success(function (data) {
                     $scope.unit = {};
                     loadunit();
@@ -27,7 +27,7 @@ angular.module('Unit')
                 });
             };
 
-            $scope.deleteunit = function (rowunit) {
+            $scope.deleteUnit = function (rowunit) {
                 $http.post('/deleteunit', rowunit).success(function (data) {
                     loadunit();
                     Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');

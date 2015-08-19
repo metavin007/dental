@@ -6,7 +6,7 @@ angular.module('TypeProduct')
             $scope.typeProdunt = {};
 
             $scope.error = {};
-            
+
             loadTypeProduct();
             function loadTypeProduct() {
                 $http.get('/loadtypeproduct').success(function (data) {
@@ -36,6 +36,12 @@ angular.module('TypeProduct')
                     Materialize.toast('ลบไม่สำเร็จ', 3000, 'rounded');
                 });
             };
+            //  tag วัน   
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });
+
         });
 
 

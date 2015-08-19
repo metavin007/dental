@@ -1,16 +1,46 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>ตารางข้อมุลสินค้า</div>
-    </body>
-</html>
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+        <h3 style="padding: 0px; margin: 0px;">ข้อมูลสินค้า</h3>  
+
+        <div class="input-field col s6" style="margin-left: -10px">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" type="text" class="validate" ng-model="">
+            <label for="icon_prefix">Email & First Name</label>    
+        </div>
+        <br>
+        <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="">
+            ค้นหา
+        </button>
+        <br>
+        <br>
+        
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>BARCODE_MAIN</td>
+                    <td>BARCODE_SUB</td> 
+                    <td>EXPIRE</td>    
+                    <td></td> 
+                </tr> 
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="columnproduct in products.content">
+                    <td>{{columnproduct.id}}</td>
+                    <td>{{columnproduct.name}}</td>
+                    <td>{{columnproduct.barCode_Main}}</td>
+                    <td>{{columnproduct.barCode_Sub}}</td>
+                    <td>{{columnproduct.expire}}</td>
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" class="waves-effect waves-light btn deep-orange accent-4" ng-click="deleteProduct(columnproduct)"> 
+<!--                            <a href="#/detailcustomer" class="waves-effect waves-light btn green darken-4" ng-click="selectDetailCustomer(columncustomer)">Detail</a>-->
+                        </form>
+                    </td>
+                </tr>  
+            </tbody>
+        </table>
+    </div>
+</div>

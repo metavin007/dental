@@ -9,14 +9,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,8 +27,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Table(name = "UNIT")
 public class Unit implements Serializable {
 
-    @SequenceGenerator(name = "UNIT", sequenceName = "UNIT_SEQ", allocationSize = 1)
-    @GeneratedValue(generator = "UNIT", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Integer id;
 
@@ -41,14 +37,14 @@ public class Unit implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "unit")
-    private List<Product> Products;
+    private List<Product> unitProducts;
 
-    public List<Product> getProducts() {
-        return Products;
+    public List<Product> getUnitProducts() {
+        return unitProducts;
     }
 
-    public void setProducts(List<Product> Products) {
-        this.Products = Products;
+    public void setUnitProducts(List<Product> unitProducts) {
+        this.unitProducts = unitProducts;
     }
 
     public Integer getId() {

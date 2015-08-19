@@ -5,38 +5,40 @@
         <br>
 
         <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">queue</i>
-                        <span ng-show="error.violations.name.message" style="margin-left: 160px; ">{{error.violations.name.message}}</span>
-                        <input  type="text" ng-model="typeProdunt.name">                   
-                        <label>ชื่อประเภทสินค้า</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveTypeProduct()">
-                            บันทึก
-                        </button>
-                    </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">queue</i>
+                    <span ng-show="error.violations.name.message" style="margin-left: 160px; ">{{error.violations.name.message}}</span>
+                    <input  type="text" ng-model="typeProdunt.name">                   
+                    <label>ชื่อประเภทสินค้า</label>
                 </div>
-            </form>
-        </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">snooze</i>
+                    <input type="date" class="datepicker" ng-model="typeProdunt.create_Date" >
+                    <label>วันสร้างประเภทสินค้า</label>
+                </div>
+            </div>
+        </div>      
+        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveTypeProduct()"
+                style="margin-top: -40px; margin-left: 88%;">
+            บันทึก
+        </button>
 
+
+        <br>
         <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">search</i>
-                        <input type="text">
-                        <label>ชื่อประเภทสินค้า</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="">
-                            ค้นหา
-                        </button>
-                    </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text">
+                    <label>ชื่อประเภทสินค้า</label>
                 </div>
-            </form>
+                <div class="input-field col s6">
+                    <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="">
+                        ค้นหา
+                    </button>
+                </div>
+            </div>
         </div>
         <table class="hoverable">
             <thead>

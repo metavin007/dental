@@ -1,16 +1,74 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>เพิ่มสินค้า</div>
-    </body>
-</html>
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+        <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลสินค้า</h3>
+        <br>
+
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">add_shopping_cart</i>
+                <span ng-show="error.violations.name.message" style="margin-left: 140px; ">{{error.violations.name.message}}</span>
+                <input type="text" ng-model="product.name">
+                <label>ชื่อสินค้า</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">alarm_off</i>
+                <input type="date" class="datepicker" ng-model="product.expire">
+                <label>วันหมดอายุ</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">center_focus_strong</i>
+                <input type="text" ng-model="product.barCode_Main">
+                <label>บาร์โค้ดหลัก</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">center_focus_weak</i>
+                <input type="text" ng-model="product.barCode_Sub">
+                <label>บาร์โค้ดย่อย</label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">queue</i>
+                <div style="margin-left: 40px; margin-top: 40px;">
+                    <select class="browser-default"
+                            ng-model="product.typeProduct"
+                            ng-options="typeProduct.name for typeProduct in typeProducts.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">เลือกประเภทสินค้า</label>
+                </div>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">format_underlined</i>
+                <div style="margin-left: 40px; margin-top: 40px;">
+                    <select class="browser-default"
+                            ng-model="product.unit"
+                            ng-options="unitProduct.name for unitProduct in unitProducts.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">เลือกหน่วยสินค้า</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s6">
+
+            </div>
+            <div class="input-field col s6">
+                <div class="form-group">
+                    <input type="submit" value="บันทึก" class="waves-effect waves-light btn light-blue darken-4" style="margin-left: 75%" ng-click="saveProduct()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

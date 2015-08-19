@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Product implements Serializable {
     @GeneratedValue(generator = "PRODUCT", strategy = GenerationType.AUTO)
     private Integer Id;
 
+    @NotBlank(message = "Name not Empty")
     @Column(name = "NAME")
     private String name;
 

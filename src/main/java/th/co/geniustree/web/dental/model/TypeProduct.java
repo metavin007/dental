@@ -31,29 +31,27 @@ import org.hibernate.validator.constraints.NotBlank;
 public class TypeProduct implements Serializable {
 
     @Id
-    @SequenceGenerator(name = "TYPEPRODUCT", sequenceName = "TYPE_PRODUCT_SEQ", allocationSize = 1)
-    @GeneratedValue(generator = "TYPEPRODUCT", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotBlank(message = "Name not Empty")
     @Column(name = "NAME")
     private String name;
 
-    @NotBlank(message = "Date not Empty")
     @Temporal(TemporalType.DATE)
     @Column(name = "CREATE_DATE")
     private Date create_Date;
 
     @JsonIgnore
     @OneToMany(mappedBy = "typeProduct")
-    private List<Product> Products;
+    private List<Product> typeProducts;
 
-    public List<Product> getProducts() {
-        return Products;
+    public List<Product> getTypeProducts() {
+        return typeProducts;
     }
 
-    public void setProducts(List<Product> Products) {
-        this.Products = Products;
+    public void setTypeProducts(List<Product> typeProducts) {
+        this.typeProducts = typeProducts;
     }
 
     public Integer getId() {

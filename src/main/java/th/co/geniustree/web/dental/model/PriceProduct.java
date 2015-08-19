@@ -29,28 +29,25 @@ import javax.persistence.TemporalType;
 public class PriceProduct implements Serializable {
 
     @Id
-    @SequenceGenerator(name = "PRICEPRODUCT", sequenceName = "PRICEPRODUCT_SEQ", allocationSize = 1)
-    @GeneratedValue(generator = "PRICEPRODUCT", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "PRICE")
-    private Double price;
+    @Column(name = "SELLPRICE")
+    private Double sellPrice;
+
+    @Column(name = "BUYPRICE")
+    private Double buyPrice;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CREATE_DATE")
-    private Date create_Date;
+    @Column(name = "datePrice")
+    private Date datePrice;
+    
+    @Column(name = "STATUS")
+    private boolean status;
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     private Product products;
-
-    public Product getProducts() {
-        return products;
-    }
-
-    public void setProducts(Product products) {
-        this.products = products;
-    }
 
     public Integer getId() {
         return id;
@@ -60,26 +57,42 @@ public class PriceProduct implements Serializable {
         this.id = id;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getSellPrice() {
+        return sellPrice;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setSellPrice(Double sellPrice) {
+        this.sellPrice = sellPrice;
     }
 
-    public Date getCreate_Date() {
-        return create_Date;
+    public Double getBuyPrice() {
+        return buyPrice;
     }
 
-    public void setCreate_Date(Date create_Date) {
-        this.create_Date = create_Date;
+    public void setBuyPrice(Double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public Date getDatePrice() {
+        return datePrice;
+    }
+
+    public void setDatePrice(Date datePrice) {
+        this.datePrice = datePrice;
+    }
+
+    public Product getProducts() {
+        return products;
+    }
+
+    public void setProducts(Product products) {
+        this.products = products;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -97,5 +110,7 @@ public class PriceProduct implements Serializable {
         }
         return true;
     }
+    
+    
 
 }

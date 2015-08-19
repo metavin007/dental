@@ -13,8 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -25,36 +23,22 @@ import javax.persistence.TemporalType;
  * @author Jasin007
  */
 @Entity
-@Table(name = "VALUEPRODUCT")
-public class ValueProduct implements Serializable {
-
+@Table(name = "LOT")
+public class Lot implements Serializable{
     @Id
-    @SequenceGenerator(name = "VALUEPRODUCT", sequenceName = "VALUEPRODUCT_SEQ", allocationSize = 1)
-    @GeneratedValue(generator = "VALUEPRODUCT", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(name = "VALUE")
-    private Integer value;
-
+    
     @Temporal(TemporalType.DATE)
-    @Column(name = "DATE_IN")
-    private Date date_In;
-
+    @Column(name = "DATEINPRODUCT")
+    private Date dateInProduct;
+    
+    @Column(name = "DATEOUTPRODUCT")
     @Temporal(TemporalType.DATE)
-    @Column(name = "DATE_out")
-    private Date date_out;
-
-    @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
-    private Product products;
-
-    public Product getProducts() {
-        return products;
-    }
-
-    public void setProducts(Product products) {
-        this.products = products;
-    }
+    private Date dateOutProduct;
+    
+    @Column(name = "NAMESAFFREAM")
+    private String nameSaffReam;
 
     public Integer getId() {
         return id;
@@ -64,34 +48,34 @@ public class ValueProduct implements Serializable {
         this.id = id;
     }
 
-    public Integer getValue() {
-        return value;
+    public Date getDateInProduct() {
+        return dateInProduct;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public void setDateInProduct(Date dateInProduct) {
+        this.dateInProduct = dateInProduct;
     }
 
-    public Date getDate_In() {
-        return date_In;
+    public Date getDateOutProduct() {
+        return dateOutProduct;
     }
 
-    public void setDate_In(Date date_In) {
-        this.date_In = date_In;
+    public void setDateOutProduct(Date dateOutProduct) {
+        this.dateOutProduct = dateOutProduct;
     }
 
-    public Date getDate_out() {
-        return date_out;
+    public String getNameSaffReam() {
+        return nameSaffReam;
     }
 
-    public void setDate_out(Date date_out) {
-        this.date_out = date_out;
+    public void setNameSaffReam(String nameSaffReam) {
+        this.nameSaffReam = nameSaffReam;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.id);
+        hash = 61 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -103,11 +87,12 @@ public class ValueProduct implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ValueProduct other = (ValueProduct) obj;
+        final Lot other = (Lot) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
-
+    
+    
 }

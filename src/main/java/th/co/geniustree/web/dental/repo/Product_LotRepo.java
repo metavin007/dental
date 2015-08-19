@@ -5,13 +5,14 @@
  */
 package th.co.geniustree.web.dental.repo;
 
+import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import th.co.geniustree.web.dental.model.ValueProduct;
+import th.co.geniustree.web.dental.model.Product_Lot;
 
 /**
  *
  * @author Jasin007
  */
-public interface ValueProductRepo extends JpaRepository<ValueProduct,Integer>{
+public interface Product_LotRepo extends JpaRepository<Product_Lot, Integer>{
     
 }

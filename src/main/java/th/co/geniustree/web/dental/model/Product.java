@@ -46,10 +46,6 @@ public class Product implements Serializable {
     @Column(name = "BARCODE_SUB")
     private String barCode_Sub;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "EXPIRE")
-    private Date expire;
-
     @ManyToOne
     @JoinColumn(name = "TYPEPRODUCT_ID")
     private TypeProduct typeProduct;
@@ -62,24 +58,12 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "products")
     private List<PriceProduct> priceProducts;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "products")
-    private List<ValueProduct> valueProducts;
-
     public List<PriceProduct> getPriceProducts() {
         return priceProducts;
     }
 
     public void setPriceProducts(List<PriceProduct> priceProducts) {
         this.priceProducts = priceProducts;
-    }
-
-    public List<ValueProduct> getValueProducts() {
-        return valueProducts;
-    }
-
-    public void setValueProducts(List<ValueProduct> valueProducts) {
-        this.valueProducts = valueProducts;
     }
 
     public TypeProduct getTypeProduct() {
@@ -128,14 +112,6 @@ public class Product implements Serializable {
 
     public void setBarCode_Sub(String barCode_Sub) {
         this.barCode_Sub = barCode_Sub;
-    }
-
-    public Date getExpire() {
-        return expire;
-    }
-
-    public void setExpire(Date expire) {
-        this.expire = expire;
     }
 
     @Override

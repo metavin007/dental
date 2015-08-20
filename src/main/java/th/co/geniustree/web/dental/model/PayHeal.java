@@ -6,33 +6,30 @@
 package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Jasin007
  */
 @Entity
-@Table(name = "PRODUCT_LOT")
-public class Product_Lot implements Serializable{
-    
-    @GeneratedValue
+@Table(name = "PAYHEAL")
+public class PayHeal implements Serializable {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Integer id;
     
-    @Temporal(TemporalType.DATE)
-    private Date expire;
+    @Column(name = "NAME")
+    private String name;
     
-    @Column(name = "VALUE")
-    private Integer value;
+    @Column(name = "PRICEPAYNAME")
+    private Double pricePayname;
 
     public Integer getId() {
         return id;
@@ -42,28 +39,26 @@ public class Product_Lot implements Serializable{
         this.id = id;
     }
 
-    public Date getExpire() {
-        return expire;
+    public String getName() {
+        return name;
     }
 
-    public void setExpire(Date expire) {
-        this.expire = expire;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getValue() {
-        return value;
+    public Double getPricePayname() {
+        return pricePayname;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public void setPricePayname(Double pricePayname) {
+        this.pricePayname = pricePayname;
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -75,7 +70,7 @@ public class Product_Lot implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Product_Lot other = (Product_Lot) obj;
+        final PayHeal other = (PayHeal) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

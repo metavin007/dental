@@ -6,33 +6,26 @@
 package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Jasin007
  */
 @Entity
-@Table(name = "PRODUCT_LOT")
-public class Product_Lot implements Serializable{
+@Table(name = "NOTICEIMPORTPRODUCT")
+public class NoticeImportProduct implements Serializable {
     
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Integer id;
     
-    @Temporal(TemporalType.DATE)
-    private Date expire;
-    
-    @Column(name = "VALUE")
-    private Integer value;
+    private Double totalPriceProduct;
 
     public Integer getId() {
         return id;
@@ -42,28 +35,18 @@ public class Product_Lot implements Serializable{
         this.id = id;
     }
 
-    public Date getExpire() {
-        return expire;
+    public Double getTotalPriceProduct() {
+        return totalPriceProduct;
     }
 
-    public void setExpire(Date expire) {
-        this.expire = expire;
+    public void setTotalPriceProduct(Double totalPriceProduct) {
+        this.totalPriceProduct = totalPriceProduct;
     }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -75,12 +58,13 @@ public class Product_Lot implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Product_Lot other = (Product_Lot) obj;
+        final NoticeImportProduct other = (NoticeImportProduct) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+    
     
     
 }

@@ -7,11 +7,12 @@ package th.co.geniustree.web.dental.repo;
 
 import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import th.co.geniustree.web.dental.model.NoticeImportProduct;
 
 /**
  *
  * @author Jasin007
  */
-public interface CutAmountProduct extends JpaRepository<CutAmountProduct, Integer>{
+public interface NoticeImportProductRepo extends JpaRepository<NoticeImportProduct, Integer>{
     
 }

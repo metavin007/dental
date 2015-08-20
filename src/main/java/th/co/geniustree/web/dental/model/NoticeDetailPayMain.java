@@ -11,6 +11,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,18 +22,19 @@ import javax.persistence.TemporalType;
  * @author Jasin007
  */
 @Entity
-@Table(name = "PRODUCT_LOT")
-public class Product_Lot implements Serializable{
+@Table(name = "NOTICEDETAILPAYMAIN")
+public class NoticeDetailPayMain implements Serializable {
     
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Integer id;
     
-    @Temporal(TemporalType.DATE)
-    private Date expire;
+    @Column(name = "CODEPAY")
+    private String codePay;
     
-    @Column(name = "VALUE")
-    private Integer value;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "DATAPRICE")
+    private Date dataPrice;
 
     public Integer getId() {
         return id;
@@ -42,28 +44,26 @@ public class Product_Lot implements Serializable{
         this.id = id;
     }
 
-    public Date getExpire() {
-        return expire;
+    public String getCodePay() {
+        return codePay;
     }
 
-    public void setExpire(Date expire) {
-        this.expire = expire;
+    public void setCodePay(String codePay) {
+        this.codePay = codePay;
     }
 
-    public Integer getValue() {
-        return value;
+    public Date getDataPrice() {
+        return dataPrice;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public void setDataPrice(Date dataPrice) {
+        this.dataPrice = dataPrice;
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -75,12 +75,13 @@ public class Product_Lot implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Product_Lot other = (Product_Lot) obj;
+        final NoticeDetailPayMain other = (NoticeDetailPayMain) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+    
     
     
 }

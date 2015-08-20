@@ -7,25 +7,22 @@ package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Jasin007
  */
 @Entity
-public class CutAmountProduct implements Serializable {
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@Table(name = "BUYPRODUCT")
+public class BuyProduct implements Serializable {
+    
+    @GeneratedValue
     @Id
     private Integer id;
-
-    @Column(name = "VALUE")
-    private Integer value;
 
     public Integer getId() {
         return id;
@@ -35,18 +32,10 @@ public class CutAmountProduct implements Serializable {
         this.id = id;
     }
 
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 53 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -58,7 +47,7 @@ public class CutAmountProduct implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CutAmountProduct other = (CutAmountProduct) obj;
+        final BuyProduct other = (BuyProduct) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -66,5 +55,5 @@ public class CutAmountProduct implements Serializable {
     }
     
     
-
+    
 }

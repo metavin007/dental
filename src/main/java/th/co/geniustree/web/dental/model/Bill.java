@@ -9,19 +9,18 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author Jasin007
  */
 @Entity
-@Table(name = "BUYPRODUCT")
-public class BuyProduct implements Serializable {
-    
-    @GeneratedValue
+public class Bill implements Serializable {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     public Integer getId() {
@@ -35,7 +34,7 @@ public class BuyProduct implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -47,13 +46,11 @@ public class BuyProduct implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final BuyProduct other = (BuyProduct) obj;
+        final Bill other = (Bill) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
-    
-    
-    
+
 }

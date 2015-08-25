@@ -54,18 +54,6 @@ public class Product implements Serializable {
     @JoinColumn(name = "UNIT_ID")
     private Unit unit;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "products")
-    private List<PriceProduct> priceProducts;
-
-    public List<PriceProduct> getPriceProducts() {
-        return priceProducts;
-    }
-
-    public void setPriceProducts(List<PriceProduct> priceProducts) {
-        this.priceProducts = priceProducts;
-    }
-
     public TypeProduct getTypeProduct() {
         return typeProduct;
     }

@@ -12,6 +12,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,17 +24,63 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "PRODUCT_LOT")
-public class Product_Lot implements Serializable{
-    
+public class Product_Lot implements Serializable {
+
     @GeneratedValue
     @Id
     private Integer id;
-    
+
     @Temporal(TemporalType.DATE)
     private Date expire;
-    
+
     @Column(name = "VALUE")
     private Integer value;
+
+    @Column(name = "PRICEBUY")
+    private Double priceBuy;
+
+    @Column(name = "PRICESELL")
+    private Double priceSell;
+
+    @ManyToOne
+    @JoinColumn(name = "LOT_ID")
+    private Lot lot;
+
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
+
+    public Double getPriceBuy() {
+        return priceBuy;
+    }
+
+    public void setPriceBuy(Double priceBuy) {
+        this.priceBuy = priceBuy;
+    }
+
+    public Double getPriceSell() {
+        return priceSell;
+    }
+
+    public void setPriceSell(Double priceSell) {
+        this.priceSell = priceSell;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Lot getLot() {
+        return lot;
+    }
+
+    public void setLot(Lot lot) {
+        this.lot = lot;
+    }
 
     public Integer getId() {
         return id;
@@ -57,8 +105,6 @@ public class Product_Lot implements Serializable{
     public void setValue(Integer value) {
         this.value = value;
     }
-    
-    
 
     @Override
     public int hashCode() {
@@ -81,6 +127,5 @@ public class Product_Lot implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

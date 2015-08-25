@@ -1,0 +1,101 @@
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+
+        <h3 style="padding: 0px; margin: 0px;">จัดการข้อมูลProductLot</h3>
+        <br>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">queue</i>
+                <div style="margin-left: 40px; margin-top: 40px;">
+                    <select class="browser-default"
+                            ng-model="productLot.lot"
+                            ng-options="lots.dateIn for lots in lots.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">วันที่LOTเข้า</label>
+                </div>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">format_underlined</i>
+                <div style="margin-left: 40px; margin-top: 40px;">
+                    <select class="browser-default"
+                            ng-model="productLot.product"
+                            ng-options="products.name for products in products.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อสินค้า</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">business</i>
+                <input type="text" ng-model="productLot.value">
+                <label>จำนวนที่เข้าต่อหน่วย</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">snooze</i>
+                <input type="date" class="datepicker" ng-model="productLot.expire" >
+                <label>วันหมดอายุ</label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">business</i>
+                <input type="text" ng-model="productLot.priceBuy">
+                <label>ราคาชื่อต่อหน่วย</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">person_pin</i>
+                <input type="text" ng-model="productLot.priceSell">
+                <label>ราคาขายต่อหน่วย</label>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveProductLot()"
+                style="margin-top: -40px; margin-left: 88%;">
+            บันทึก
+        </button>
+
+        <br>
+        <br>
+
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>ID_LOT</td>
+                    <td>ID_PRO</td>
+                    <td>VALUE</td>
+                    <td>EXPIRE</td>
+                    <td>PRICEBUY</td>
+                    <td>PRICESELL</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="columnproductLot in productLots.content">
+                    <td>{{columnproductLot.id}}</td>
+                    <td>{{columnproductLot.lot.dateIn}}</td> 
+                    <td>{{columnproductLot.product.name}}</td>  
+                    <td>{{columnproductLot.value}}</td>
+                    <td>{{columnproductLot.expire}}</td> 
+                    <td>{{columnproductLot.priceBuy}}</td>  
+                    <td>{{columnproductLot.priceSell}}</td>
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" 
+                                   class="waves-effect waves-light btn deep-orange 
+                                   accent-4" ng-click="deleteProductLot(columnproductLot)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

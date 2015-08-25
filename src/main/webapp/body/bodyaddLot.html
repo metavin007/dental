@@ -1,0 +1,54 @@
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+
+        <h3 style="padding: 0px; margin: 0px;">จัดการข้อมูลLot</h3>
+        <br>
+
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">snooze</i>
+                    <input type="date" class="datepicker" ng-model="lot.dateIn" >
+                    <label>วันนำเข้าLot</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">snooze</i>
+                    <input type="date" class="datepicker" ng-model="lot.dateOut" >
+                    <label>วันนำออกLot</label>
+                </div>
+            </div>
+        </div>      
+        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveLot()"
+                style="margin-top: -40px; margin-left: 88%;">
+            บันทึก
+        </button>
+
+        <br>
+
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>DATE_IN</td>
+                    <td>DATE_OUT</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="columnLot in lots.content">
+                    <td>{{columnLot.id}}</td>
+                    <td>{{columnLot.dateIn}}</td> 
+                    <td>{{columnLot.dateOut}}</td>  
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" 
+                                   class="waves-effect waves-light btn deep-orange 
+                                   accent-4" ng-click="deleteLot(columnLot)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

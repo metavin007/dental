@@ -54,6 +54,18 @@ public class Product implements Serializable {
     @JoinColumn(name = "UNIT_ID")
     private Unit unit;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<Product_Lot> product_Lots_Product_Id;
+
+    public List<Product_Lot> getProduct_Lots_Product_Id() {
+        return product_Lots_Product_Id;
+    }
+
+    public void setProduct_Lots_Product_Id(List<Product_Lot> product_Lots_Product_Id) {
+        this.product_Lots_Product_Id = product_Lots_Product_Id;
+    }
+
     public TypeProduct getTypeProduct() {
         return typeProduct;
     }

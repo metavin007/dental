@@ -5,13 +5,22 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,7 +34,56 @@ public class DetailHeal implements Serializable {
     @Id
     private Integer id;
 
+    @Column(name = "DETAIL")
     private String detail;
+
+    @Column(name = "DATEHEAL")
+    @Temporal(TemporalType.DATE)
+    private Date dateHeal;
+
+    @ManyToOne
+    @JoinColumn(name = "CUSTOMER_ID")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "DUCTOR_ID")
+    private Doctor doctor;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "detailHeal")
+    private List<PayHeal> payHeals_DetailHeal;
+
+    public List<PayHeal> getPayHeals_DetailHeal() {
+        return payHeals_DetailHeal;
+    }
+
+    public void setPayHeals_DetailHeal(List<PayHeal> payHeals_DetailHeal) {
+        this.payHeals_DetailHeal = payHeals_DetailHeal;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Date getDateHeal() {
+        return dateHeal;
+    }
+
+    public void setDateHeal(Date dateHeal) {
+        this.dateHeal = dateHeal;
+    }
 
     public String getDetail() {
         return detail;

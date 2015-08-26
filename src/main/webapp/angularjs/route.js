@@ -1,5 +1,5 @@
 angular.module('route', ['ngRoute', 'Customer', 'Department', 'Employee', 'Doctor', 'Customer2',
-    'TypeProduct','Unit','Product','Lot','ProductLot']);
+    'TypeProduct','Unit','Product','Lot','ProductLot','ListPayHeal','DetailHealAndPayheal']);
 angular.module('route')
         .config(function ($routeProvider) {
             $routeProvider
@@ -51,6 +51,14 @@ angular.module('route')
                     .when('/addproductlot', {
                         templateUrl: '../body/bodyaddproductlot.html',
                         controller: 'ProductLotController'})
+                    
+                    
+                    .when('/addlistpayheal', {
+                        templateUrl: '../body/bodyaddlistpayheal.html',
+                        controller: 'ListPayHealController'})
+                    .when('/adddetailheal-and-payheal', {
+                        templateUrl: '../body/bodyadddetailheal-and-payheal.html',
+                        controller: 'DetailHealAndPayhealController'})
 
 
                     .otherwise({redirecTo: '../body/bodymain.html'})

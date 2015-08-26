@@ -5,11 +5,14 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -97,6 +100,10 @@ public class Doctor extends SuperEmployee implements Serializable {
 
     @Column(name = "ENABLED")
     private boolean enabled = true;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "doctor")
+    private List<DetailHeal> detailHeals_Doctor;
 
     public String getCerNo() {
         return cerNo;
@@ -273,7 +280,5 @@ public class Doctor extends SuperEmployee implements Serializable {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-    
-    
 
 }

@@ -5,6 +5,7 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -81,6 +83,18 @@ public class Customer implements Serializable {
 
     @ManyToMany
     private List<MedicalHistory> medicalHistory;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer")
+    private List<DetailHeal> detailHeals_Customer;
+
+    public List<DetailHeal> getDetailHeals_Customer() {
+        return detailHeals_Customer;
+    }
+
+    public void setDetailHeals_Customer(List<DetailHeal> detailHeals_Customer) {
+        this.detailHeals_Customer = detailHeals_Customer;
+    }
 
     public List<MedicalHistory> getMedicalHistory() {
         return medicalHistory;

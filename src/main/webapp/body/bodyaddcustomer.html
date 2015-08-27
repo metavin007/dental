@@ -4,12 +4,12 @@
         <br>
 
         <div class="row" >
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">business</i>
                 <input type="text" ng-model="customer.hn">
                 <label>HN</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">person_pin</i>
                 <input type="text" ng-model="customer.pid">
                 <label>เลขประจำตัวประชาชน</label>
@@ -17,13 +17,13 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">account_circle</i>
                 <span ng-show="error.violations.name.message" style="margin-left: 140px; ">{{error.violations.name.message}}</span>
                 <input type="text" ng-model="customer.name">
                 <label>ชื่อ-นามสกุล</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">cake</i>
                 <input type="date" class="datepicker" ng-model="customer.birthday" >
                 <label>วันเกิด</label>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">wc</i>
                 <div style="margin-left: 70px;">
                     <input  type="radio" class="with-gap" name="Male" value="Male" ng-model="customer.sex" id="Male" />
@@ -41,7 +41,7 @@
                 </div>
                 <label>เพศ</label>
             </div>
-            <div class="input-field col s6" >
+            <div class="input-field col m6" >
                 <i class="material-icons prefix">blur_on</i>
                 <div style="margin-left: 40px; margin-top: 40px;" ng-init="customer.blood = 'A'">
                     <select  class="browser-default" ng-model="customer.blood">
@@ -56,12 +56,12 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">blur_linear</i>
                 <input type="text" ng-model="customer.race">
                 <label>เชื่อชาติ</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">assistant_photo</i>
                 <input type="text" ng-model="customer.nation">
                 <label>สัญชาติ</label>
@@ -69,12 +69,12 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">home</i>
                 <textarea class="materialize-textarea" ng-model="customer.address"></textarea>
                 <label>ที่อยู่</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">phone</i>
                 <input type="text" ng-model="customer.tel">
                 <label>เบอร์โทรศัพท์บ้าน</label>
@@ -82,13 +82,13 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">smartphone</i>
                  <span ng-show="error.violations.mobile.message" style="margin-left: 175px; ">{{error.violations.mobile.message}}</span>
                 <input type="text" ng-model="customer.mobile">
                 <label>เบอร์โทรศัพท์มือถือ</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">email</i>
                 <span ng-show="error.violations.email.message" style="margin-left: 100px;">{{error.violations.email.message}}</span>
                 <input ng-model="customer.email" type="text" >
@@ -97,17 +97,18 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">card_travel</i>
                 <input type="text" ng-model="customer.job">
                 <label>อาชีพ</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <i class="material-icons prefix">assignment</i>
                  <label>ประวัติทางการแพทย์</label>
                  <br>
                  <div ng-repeat="med in medicalhistorys.content">    
-                     <input type="checkbox" id="{{med.id}}" checklist-model="customer.medicalHistory" checklist-value="med"> 
+                     <input type="checkbox" id="{{med.id}}" checklist-model="customer.medicalHistory" 
+                            checklist-value="med"> 
                      <label for="{{med.id}}">{{med.disease}}</label>
                  </div>
                
@@ -115,10 +116,10 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6">
 
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6">
                 <div class="form-group">
                     <input type="submit" value="บันทึก" class="waves-effect waves-light btn light-blue darken-4" style="margin-left: 75%" ng-click="saveCustomer()">
                 </div>

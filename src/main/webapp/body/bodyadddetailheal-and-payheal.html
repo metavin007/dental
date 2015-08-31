@@ -1,16 +1,137 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>bodyadddetailheal-and-payheal</div>
-    </body>
-</html>
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+
+        <h3 style="padding: 0px; margin: 0px;">บันทึกการรักษาและเลือกoperation</h3>
+        <br>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">android</i>
+                <div style="margin-left: 40px; margin-top: 40px;">
+                    <select class="browser-default"
+                            ng-model="detailHeal.customer"
+                            ng-options="customers.name for customers in customers.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อลูกค้า</label>
+                </div>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">android</i>
+                <div style="margin-left: 40px; margin-top: 40px;">
+                    <select class="browser-default"
+                            ng-model="detailHeal.doctor"
+                            ng-options="doctors.nameTh for doctors in doctors.content" 
+                            >
+                    </select>
+                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อหมอ</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s12">
+                <i class="material-icons prefix">android</i>
+                <textarea class="materialize-textarea" ng-model="detailHeal.detail"></textarea>
+                <label>รายละเอียดการรักษา</label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <i class="material-icons prefix">android</i>
+                <input type="date" class="datepicker" ng-model="detailHeal.dateHeal" >
+                <label>วันสร้างประเภทสินค้า</label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="input-field col s12">
+                <table  class="bordered">
+                    <thead>
+                        <tr>
+                            <th>ราการที่จัดทำ</th>
+                            <th>จำนวน</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>ถอนฟัน</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>อุดฟัน</td>
+                            <td>1</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row" >
+            <div class="input-field col s6">
+                <h5>เพิ่มรายการจัดทำ</h5>
+                <button class="btn-floating btn-large waves-effect waves-light btn modal-trigger red" href="#modal1">
+                    <i class="material-icons">add</i></button>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h1>เลือกซะ/h1>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" >
+            <div class="input-field col s6">
+
+            </div>
+            <div class="input-field col s6" style="left: 240px;">
+                <button class="waves-effect waves-light btn light-blue darken-4" 
+                        type="button" ng-click="saveDetailheal()">
+                    บันทึก
+                </button>
+            </div>
+        </div>
+
+
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>DETAILHEAL</td>
+                    <td>DATEHEAL</td>
+                    <td>CUSTOMER_NAME</td>
+                    <td>DUCTOR_NAME</td>
+
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="columndetailheal in detailHeals.content">
+                    <td>{{columndetailheal.id}}</td>
+                    <td>{{columndetailheal.detail}}</td> 
+                    <td>{{columndetailheal.dateHeal}}</td> 
+                    <td>{{columndetailheal.customer.name}}</td> 
+                    <td>{{columndetailheal.doctor.nameTh}}</td>  
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" 
+                                   class="waves-effect waves-light btn deep-orange 
+                                   accent-4" ng-click="deleteDetailheal(columndetailheal)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

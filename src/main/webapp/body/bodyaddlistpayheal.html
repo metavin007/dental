@@ -1,16 +1,69 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>bodyaddlistpayheal</div>
-    </body>
-</html>
+<div class="card-panel grey lighten-2">
+    <div class="white" style="padding: 20px;">
+
+        <h3 style="padding: 0px; margin: 0px;">จัดการชนิดการรักษา</h3>
+        <br>
+
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">android</i>
+                    <span ng-show="error.violations.name.message" style="margin-left: 160px; ">{{error.violations.name.message}}</span>
+                    <input  type="text" ng-model="listPayHeal.name">                   
+                    <label>ชื่อการรักษา</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">android</i>
+                    <input  type="text" ng-model="listPayHeal.price">                   
+                    <label>ราคา</label>
+                </div>
+            </div>
+        </div>      
+        <button class="waves-effect waves-light btn light-blue darken-4" type="button" ng-click="saveListPayHeal()"
+                style="margin-top: -40px; margin-left: 88%;">
+            บันทึก
+        </button>
+
+
+        <br>
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text">
+                    <label>ชื่อประเภทสินค้า</label>
+                </div>
+                <div class="input-field col s6">
+                    <button class="waves-effect waves-light btn brown yellow amber accent-4" type="button" ng-click="">
+                        ค้นหา
+                    </button>
+                </div>
+            </div>
+        </div>
+        <table class="hoverable">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>PRICE</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="columnlistpayheal in listPayHeals.content">
+                    <td>{{columnlistpayheal.id}}</td>
+                    <td>{{columnlistpayheal.name}}</td> 
+                    <td>{{columnlistpayheal.price}}</td>  
+                    <td>
+                        <form method="post">
+                            <input type="submit" value="Delete" 
+                                   class="waves-effect waves-light btn deep-orange 
+                                   accent-4" ng-click="deleteListPayHeal(columnlistpayheal)"> 
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

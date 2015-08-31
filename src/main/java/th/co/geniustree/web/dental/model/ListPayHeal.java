@@ -8,6 +8,7 @@ package th.co.geniustree.web.dental.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class ListPayHeal implements Serializable {
     private String name;
 
     @Column(name = "PRICE")
-    private Double Price;
+    private Double price;
 
     @JsonIgnore
     @OneToMany(mappedBy = "listPayHeal")
@@ -63,11 +64,35 @@ public class ListPayHeal implements Serializable {
     }
 
     public Double getPrice() {
-        return Price;
+        return price;
     }
 
-    public void setPrice(Double Price) {
-        this.Price = Price;
+    public void setPrice(Double price) {
+        this.price = price;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ListPayHeal other = (ListPayHeal) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+
 
 }

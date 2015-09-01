@@ -44,23 +44,20 @@
         </div>
 
         <div class="row" >
-            <div class="input-field col m12">
-                <table  class="bordered">
-                    <thead>
+            <div class="input-field col m12" >
+                <table  class="bordered" >
+                    <thead >
                         <tr>
                             <th>ราการที่จัดทำ</th>
                             <th>จำนวน</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        <tr>
-                            <td>ถอนฟัน</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>อุดฟัน</td>
-                            <td>1</td>
+                        <tr ng-repeat="columnListPay in rowDatas">
+                            <td>{{columnListPay.selectListName.name}}</td>
+                            <td>{{columnListPay.selectListamount}}</td>
+                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRow(columnListPay.selectListName.name)"/></td>
                         </tr>
 
                     </tbody>
@@ -82,9 +79,9 @@
                                 <i class="material-icons prefix">android</i>
                                 <div style="margin-left: 40px; margin-top: 40px;">
                                     <select class="browser-default"
-                                            ng-model=""
-                                            ng-options="listPayHeals.name for listPayHeals in listPayHeals.content" 
-                                            >
+                                            ng-model="nameListPayHeal"
+                                            ng-options="listPayHeals.name for listPayHeals in listPayHeals.content"      
+                                            >                                    
                                     </select>
                                     <label  style="margin-left: 45px; font-size: 14px;">ชื่อรายได้จัดทำ</label>
                                 </div>
@@ -92,14 +89,14 @@
 
                             <div class="input-field col m6">
                                 <i class="material-icons prefix">android</i>
-                                <input type="text" ng-model="customer.pid" style="margin-top: 40px;">
+                                <input type="text" ng-model="amountListPayHeal" style="margin-top: 40px;">
                                 <label>จำนวน</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <a class=" modal-action modal-close waves-effect waves-green btn-flat ">ตกลง</a>
+                        <button class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="addRow(nameListPayHeal)">ตกลง</button>
                     </div>
                 </div>
 

@@ -71,12 +71,52 @@ angular.module('DetailHealAndPayheal')
             }
             ;
 
+            $scope.rowDatas = [];
+            $scope.addRow = function (name) {
+                if (!$scope.nameListPayHeal) {
+                    Materialize.toast('คุณไม่ระบุข้อมูล', 3000, 'rounded');
+                }
+                else {
+//                    var index = -1;
+//                    var rowData = eval($scope.rowDatas);
+//                    for (var i = 0; i < rowData.length; i++) {
+                        
+//                        if (rowData[i].selectListName.name !== name) {
+//                        index = i;
+                        $scope.rowDatas.push({'selectListName': $scope.nameListPayHeal,
+                            'selectListamount': $scope.amountListPayHeal});
+                        $scope.nameListPayHeal = '';
+                        $scope.amountListPayHeal = '';
+//                        break;
+//                    }
+//                        
+//                    }
+                }
+            };
+
+
+
+            $scope.removeRow = function (name) {
+                var index = -1;
+                var rowData = eval($scope.rowDatas);
+                for (var i = 0; i < rowData.length; i++) {
+                    if (rowData[i].selectListName.name === name) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index === -1) {
+                    Materialize.toast('บางอย่างผิดพลาด', 3000, 'rounded');
+                }
+                $scope.rowDatas.splice(index, 1);
+            };
+
             //  tag วัน   
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
                 selectYears: 15 // Creates a dropdown of 15 years to control year
             });
-            
+
             $(document).ready(function () {
                 $('.modal-trigger').leanModal();
             });

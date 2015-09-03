@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import static javax.persistence.CascadeType.MERGE;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class PayHeal implements Serializable {
     @Column(name = "VALUE")
     private Integer value;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name = "DETAILHEAL_ID")
     private DetailHeal detailHeal;
 
@@ -97,4 +98,11 @@ public class PayHeal implements Serializable {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "PayHeal{" + "id=" + id + ", value=" + value + ", detailHeal=" + detailHeal + ", listPayHeal=" + listPayHeal + '}';
+    }
+    
+    
 }

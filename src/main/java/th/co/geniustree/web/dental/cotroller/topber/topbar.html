@@ -1,0 +1,52 @@
+<div class="card-panel grey lighten-2" >
+    <nav class="white " >
+        <div class="nav-wrapper col m12">
+            <div class="row">
+                <div class="input-field col m12">    
+                    <ul>
+                        <li><a href=""><i class="material-icons" style="color: black;">info</i></a></li>
+                        <li><a href=""><i class="material-icons" style="color: black;">call</i></a></li>
+                        <li><a href=""><i class="material-icons" style="color: black;">settings</i></a></li>
+                        <li><a href=""><i class="material-icons" style="color: black;">perm_identity</i></a></li>              
+                    </ul>
+                    <ul>
+                        <li><a href=""><i data-activates="slide-out" class="material-icons button-collapse" style="color: black;">store</i></a></li>   
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div id="slide-out" class="collection side-nav" >
+    <a href="#/" class="collection-item ">
+        <i class="material-icons" style="color: black;">home</i>
+    </a>
+
+    <a href="#/adddetailheal-and-payheal" class="collection-item">บันทึกการรักษาพร้อมเลือกoperation</a>
+    <a href="#/addlistpayheal" class="collection-item">จัดการชนิดการรักษา</a>
+
+    <a href="#/addproductlot" class="collection-item">เพิ่มข้อมูลProductLot</a>
+    <a href="#/addlot" class="collection-item">เพิ่มข้อมูลLot</a>
+    <a href="#/addproduct" class="collection-item">เพิ่มข้อมูลสินค้า</a>
+    <a href="#/tableproduct" class="collection-item">ตารางข้อมูลสินค้า</a>
+
+    <a href="#/addcustomer" class="collection-item">เพิ่มข้อมูลลูกค้า</a>
+    <a href="#/tablecustomer" class="collection-item">ตารางข้อมูลลูกค้า</a>
+    <a href="#/addemployee" class="collection-item">เพิ่มข้อมูลพนักงาน</a>
+    <a href="#/tableemployee" class="collection-item">ตารางข้อมูลพนักงาน</a>
+    <a href="#/adddepartmentemployee" class="collection-item">จัดการข้อมูลแผนกพนักงาน</a>
+    <a href="#/adddoctor" class="collection-item">เพิ่มข้อมูลหมอ</a>
+    <a href="#/tabledoctor" class="collection-item">ตารางข้อมูลหมอ</a>    
+    <a href="#/addtypeproduct" class="collection-item">จัดการประเภทสินค้า</a> 
+    <a href="#/addunit" class="collection-item">จัดการหน่วยสินค้า</a>
+</div> 
+
+<script>
+    $('.button-collapse').sideNav({
+        menuWidth: 250, // Default is 240
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+    );
+</script>

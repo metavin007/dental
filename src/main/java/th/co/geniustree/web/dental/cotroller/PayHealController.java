@@ -5,6 +5,8 @@
  */
 package th.co.geniustree.web.dental.cotroller;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,11 +34,11 @@ public class PayHealController {
     }
 
     @RequestMapping(value = "/savepayheal", method = RequestMethod.POST)
-    public void saveDetailHeal(@Validated @RequestBody PayHeal payHeal) { 
-        System.out.println("------------------------------>"+payHeal.toString());
-        System.out.println("--------------------------------->"+payHeal.getListPayHeal());
-        System.out.println("--------------------------------->"+payHeal.getValue());
-        payHealRepo.save(payHeal);
+    public void saveDetailHeal(@RequestBody PayHeal[] payHeal) { 
+        System.out.println("---------------------------------------------------->"+payHeal[0]);
+        for(int i=0 ; i < payHeal.length;i++){
+         payHealRepo.save(payHeal[i]);   
+        } 
     }
 
     @RequestMapping(value = "/deletepayheal", method = RequestMethod.POST)

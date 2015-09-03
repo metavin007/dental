@@ -25,7 +25,7 @@ angular.module('DetailHealAndPayheal')
             }
 
             $scope.saveDetailheal = function () {
-                $http.post('/savedetailheal', $scope.detailHeal, $scope.payHeals).success(function (data) {
+                $http.post('/savepayheal',$scope.payHeals).success(function (data) {
                     Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
                     loadDetailHeal();
                     $scope.payHeals = [];
@@ -38,7 +38,7 @@ angular.module('DetailHealAndPayheal')
             };
 
             $scope.deleteDetailheal = function (rowdetailheal) {
-                $http.post('/deletedetailheal', rowdetailheal).success(function (data) {
+                $http.post('/deletepayheal', rowdetailheal).success(function (data) {
                     Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
                     loadDetailHeal();
                 }).error(function (data, status, header, config) {
@@ -83,16 +83,16 @@ angular.module('DetailHealAndPayheal')
                     Materialize.toast('คุณไม่ระบุข้อมูล', 3000, 'rounded');
                 } else {
                     if ($scope.payHeals.length === 0) {
-                        $scope.payHeals.push({'selectListName': $scope.nameListPayHeal,
-                            'selectListamount': $scope.amountListPayHeal});
+                        $scope.payHeals.push({'listPayHeal': $scope.nameListPayHeal,
+                            'value': $scope.amountListPayHeal});
                         $scope.nameListPayHeal = '';
                         $scope.amountListPayHeal = '';
                     } else {
                         var flag = false;
                         for (var i = 0; i < $scope.payHeals.length; i++) {
-                            if ($scope.payHeals[i].selectListName.name === name.name) {
-                                $scope.payHeals[i] = {'selectListName': $scope.nameListPayHeal,
-                                    'selectListamount': $scope.amountListPayHeal};
+                            if ($scope.payHeals[i].listPayHeal.name === name.name) {
+                                $scope.payHeals[i] = {'listPayHeal': $scope.nameListPayHeal,
+                                    'value': $scope.amountListPayHeal};
                                 $scope.nameListPayHeal = '';
                                 $scope.amountListPayHeal = '';
                                 flag = true;
@@ -100,8 +100,8 @@ angular.module('DetailHealAndPayheal')
                             }
                         }
                         if (flag === false) {
-                            $scope.payHeals.push({'selectListName': $scope.nameListPayHeal,
-                                'selectListamount': $scope.amountListPayHeal});
+                            $scope.payHeals.push({'listPayHeal': $scope.nameListPayHeal,
+                                'value': $scope.amountListPayHeal});
                             $scope.nameListPayHeal = '';
                             $scope.amountListPayHeal = '';
                         }

@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module('DetailHealAndPayheal', []);
 angular.module('DetailHealAndPayheal')
         .controller('DetailHealAndPayhealController', function ($scope, $http) {
@@ -7,9 +9,11 @@ angular.module('DetailHealAndPayheal')
 
             $scope.customers = {};
             $scope.doctors = {};
-            $scope.listPayHeals = {};
-            $scope.listPayHeal = {};
 
+            $scope.listPayHeals = {};
+
+            $scope.detailHeal = {};
+            $scope.payHeals = [];
 
             loadDetailHeal();
             function loadDetailHeal() {
@@ -21,13 +25,16 @@ angular.module('DetailHealAndPayheal')
             }
 
             $scope.saveDetailheal = function () {
-                $http.post('/savedetailheal', $scope.detailHeal).success(function (data) {
+                $http.post('/savedetailheal', $scope.detailHeal, $scope.payHeals).success(function (data) {
                     Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
                     loadDetailHeal();
-                    $scope.detailHeal = {};
+                    $scope.payHeals = [];
+                    $scope.nameListPayHeal = '';
+                    $scope.amountListPayHeal = '';
                 }).error(function (data, status, header, cofig) {
-                    Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
+                    Materialize.toast('ผิดพลาดsavedetailHeal', 3000, 'rounded');
                 });
+
             };
 
             $scope.deleteDetailheal = function (rowdetailheal) {
@@ -71,34 +78,42 @@ angular.module('DetailHealAndPayheal')
             }
             ;
 
-            $scope.rowDatas = [];
             $scope.addRow = function (name) {
                 if (!$scope.nameListPayHeal) {
                     Materialize.toast('คุณไม่ระบุข้อมูล', 3000, 'rounded');
-                }
-                else {
-//                    var index = -1;
-//                    var rowData = eval($scope.rowDatas);
-//                    for (var i = 0; i < rowData.length; i++) {
-                        
-//                        if (rowData[i].selectListName.name !== name) {
-//                        index = i;
-                        $scope.rowDatas.push({'selectListName': $scope.nameListPayHeal,
+                } else {
+                    if ($scope.payHeals.length === 0) {
+                        $scope.payHeals.push({'selectListName': $scope.nameListPayHeal,
                             'selectListamount': $scope.amountListPayHeal});
                         $scope.nameListPayHeal = '';
                         $scope.amountListPayHeal = '';
-//                        break;
-//                    }
-//                        
-//                    }
+                    } else {
+                        var flag = false;
+                        for (var i = 0; i < $scope.payHeals.length; i++) {
+                            if ($scope.payHeals[i].selectListName.name === name.name) {
+                                $scope.payHeals[i] = {'selectListName': $scope.nameListPayHeal,
+                                    'selectListamount': $scope.amountListPayHeal};
+                                $scope.nameListPayHeal = '';
+                                $scope.amountListPayHeal = '';
+                                flag = true;
+                                break;
+                            }
+                        }
+                        if (flag === false) {
+                            $scope.payHeals.push({'selectListName': $scope.nameListPayHeal,
+                                'selectListamount': $scope.amountListPayHeal});
+                            $scope.nameListPayHeal = '';
+                            $scope.amountListPayHeal = '';
+                        }
+                    }
+
                 }
+                console.log($scope.payHeals);
             };
-
-
 
             $scope.removeRow = function (name) {
                 var index = -1;
-                var rowData = eval($scope.rowDatas);
+                var rowData = eval($scope.payHeals);
                 for (var i = 0; i < rowData.length; i++) {
                     if (rowData[i].selectListName.name === name) {
                         index = i;
@@ -108,7 +123,7 @@ angular.module('DetailHealAndPayheal')
                 if (index === -1) {
                     Materialize.toast('บางอย่างผิดพลาด', 3000, 'rounded');
                 }
-                $scope.rowDatas.splice(index, 1);
+                $scope.payHeals.splice(index, 1);
             };
 
             //  tag วัน   

@@ -1,10 +1,12 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package th.co.geniustree.web.dental.cotroller;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,25 +26,31 @@ import th.co.geniustree.web.dental.repo.PayHealRepo;
  */
 @RestController
 public class DetailHealController {
-    
+
     @Autowired
     private DetailHealRepo detailHealRepo;
     
-//    @Autowired PayHealRepo payHealRepo;
+    @Autowired
+    private PayHealRepo payHealRepo;
     
+   
+    
+
     @RequestMapping(value = "/loaddetailheal")
-    public Page<DetailHeal> loadDetailHeal(Pageable pageable){
+    public Page<DetailHeal> loadDetailHeal(Pageable pageable) {
         return detailHealRepo.findAll(pageable);
     }
-    
-    @RequestMapping(value = "/savedetailheal",method = RequestMethod.POST)
-    public void saveDetailHeal(@Validated @RequestBody DetailHeal detailHeal){
-        detailHealRepo.save(detailHeal);
-//        payHealRepo.save(payHeal);
+
+    @RequestMapping(value = "/savedetailheal", method = RequestMethod.POST)
+    public void saveDetailHeal(@RequestBody DetailHeal detailHeal,PayHeal[] payHeals){
+        detailHealRepo.save(detailHeal);  
+        for(int i = 0 ; i < payHeals.length ; i ++ ){
+           payHealRepo.save(payHeals[i]); 
+        }  
     }
-    
-    @RequestMapping(value = "/deletedetailheal",method = RequestMethod.POST)
-    public void deleteDetailHeal(@RequestBody DetailHeal detailHeal){
+
+    @RequestMapping(value = "/deletedetailheal", method = RequestMethod.POST)
+    public void deleteDetailHeal(@RequestBody DetailHeal detailHeal) {
         detailHealRepo.delete(detailHeal.getId());
     }
 

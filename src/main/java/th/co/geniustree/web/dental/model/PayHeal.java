@@ -5,9 +5,11 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,14 +36,13 @@ public class PayHeal implements Serializable {
     @Column(name = "VALUE")
     private Integer value;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "DETAILHEAL_ID")
     private DetailHeal detailHeal;
 
     @ManyToOne
     @JoinColumn(name = "LISTPAYHEAL_ID")
     private ListPayHeal listPayHeal;
-    
 
     public DetailHeal getDetailHeal() {
         return detailHeal;
@@ -96,5 +97,4 @@ public class PayHeal implements Serializable {
         }
         return true;
     }
-
 }

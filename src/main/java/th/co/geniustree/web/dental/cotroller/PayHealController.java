@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import th.co.geniustree.web.dental.model.DetailHeal;
 import th.co.geniustree.web.dental.model.PayHeal;
+import th.co.geniustree.web.dental.repo.DetailHealRepo;
 import th.co.geniustree.web.dental.repo.PayHealRepo;
 
 /**
@@ -27,6 +29,10 @@ public class PayHealController {
 
     @Autowired
     private PayHealRepo payHealRepo;
+    @Autowired
+    private DetailHealRepo detailHealRepo;
+    
+    private DetailHeal id_detailHeal;
 
     @RequestMapping(value = "/loadpayheal")
     public Page<PayHeal> loadDetailHeal(Pageable pageable) {
@@ -35,10 +41,16 @@ public class PayHealController {
 
     @RequestMapping(value = "/savepayheal", method = RequestMethod.POST)
     public void saveDetailHeal(@RequestBody PayHeal[] payHeal) { 
-        System.out.println("---------------------------------------------------->"+payHeal[0]);
         for(int i=0 ; i < payHeal.length;i++){
+         payHeal[i].setDetailHeal(id_detailHeal);
          payHealRepo.save(payHeal[i]);   
         } 
+    }
+    
+     @RequestMapping(value = "/savedetailheal", method = RequestMethod.POST)
+    public void saveDetailHeal(@RequestBody DetailHeal detailHeal){
+        id_detailHeal = detailHeal;
+        detailHealRepo.save(detailHeal);  
     }
 
     @RequestMapping(value = "/deletepayheal", method = RequestMethod.POST)

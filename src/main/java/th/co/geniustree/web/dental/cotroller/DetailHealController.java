@@ -41,10 +41,10 @@ public class DetailHealController {
         return detailHealRepo.findAll(pageable);
     }
 
-    @RequestMapping(value = "/savedetailheal", method = RequestMethod.POST)
-    public void saveDetailHeal(@RequestBody DetailHeal detailHeal){
-        detailHealRepo.save(detailHeal);  
-    }
+//    @RequestMapping(value = "/savedetailheal", method = RequestMethod.POST)
+//    public void saveDetailHeal(@RequestBody DetailHeal detailHeal){
+//        detailHealRepo.save(detailHeal);  
+//    }
 
     @RequestMapping(value = "/deletedetailheal", method = RequestMethod.POST)
     public void deleteDetailHeal(@RequestBody DetailHeal detailHeal) {

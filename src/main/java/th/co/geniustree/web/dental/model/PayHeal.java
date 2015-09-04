@@ -37,7 +37,7 @@ public class PayHeal implements Serializable {
     @Column(name = "VALUE")
     private Integer value;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "DETAILHEAL_ID")
     private DetailHeal detailHeal;
 

@@ -25,16 +25,20 @@ angular.module('DetailHealAndPayheal')
             }
 
             $scope.saveDetailheal = function () {
-                $http.post('/savepayheal',$scope.payHeals).success(function (data) {
-                    Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
-                    loadDetailHeal();
-                    $scope.payHeals = [];
-                    $scope.nameListPayHeal = '';
-                    $scope.amountListPayHeal = '';
+                $http.post('/savedetailheal', $scope.detailHeal).success(function (data) {
+                     
                 }).error(function (data, status, header, cofig) {
-                    Materialize.toast('ผิดพลาดsavedetailHeal', 3000, 'rounded');
-                });
 
+                });
+                $http.post('/savepayheal',$scope.payHeals).success(function (data) {
+                        Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
+                        loadDetailHeal();
+                        $scope.payHeals = [];
+                        $scope.nameListPayHeal = '';
+                        $scope.amountListPayHeal = '';
+                    }).error(function (data, status, header, cofig) {
+                        Materialize.toast('ผิดพลาดsavedetailHeal', 3000, 'rounded');
+                    });
             };
 
             $scope.deleteDetailheal = function (rowdetailheal) {

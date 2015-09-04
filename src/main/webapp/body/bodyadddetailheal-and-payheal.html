@@ -7,7 +7,7 @@
                 <i class="material-icons prefix">android</i>
                 <div style="margin-left: 40px; margin-top: 40px;">
                     <select class="browser-default"
-                            ng-model="payHealss[i].detailHeal.customer"
+                            ng-model="detailHeal.customer"
                             ng-options="customers.name for customers in customers.content" 
                             >
                     </select>
@@ -18,7 +18,7 @@
                 <i class="material-icons prefix">android</i>
                 <div style="margin-left: 40px; margin-top: 40px;">
                     <select class="browser-default"
-                            ng-model="payHeals[i].detailHeal.doctor"
+                            ng-model="detailHeal.doctor"
                             ng-options="doctors.nameTh for doctors in doctors.content" 
                             >
                     </select>
@@ -30,7 +30,7 @@
         <div class="row" >
             <div class="input-field col m12">
                 <i class="material-icons prefix">android</i>
-                <textarea class="materialize-textarea" ng-model="payHeals[i].detailHeal.detail"></textarea>
+                <textarea class="materialize-textarea" ng-model="detailHeal.detail"></textarea>
                 <label>รายละเอียดการรักษา</label>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="row" >
             <div class="input-field col m6">
                 <i class="material-icons prefix">android</i>
-                <input type="date" class="datepicker" ng-model="payHeals[i].detailHeal.dateHeal" >
+                <input type="date" class="datepicker" ng-model="detailHeal.dateHeal" >
                 <label>วันสร้างประเภทสินค้า</label>
             </div>
         </div>

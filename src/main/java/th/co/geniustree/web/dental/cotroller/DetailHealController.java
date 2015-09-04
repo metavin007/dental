@@ -42,11 +42,8 @@ public class DetailHealController {
     }
 
     @RequestMapping(value = "/savedetailheal", method = RequestMethod.POST)
-    public void saveDetailHeal(@RequestBody DetailHeal detailHeal,PayHeal[] payHeals){
+    public void saveDetailHeal(@RequestBody DetailHeal detailHeal){
         detailHealRepo.save(detailHeal);  
-        for(int i = 0 ; i < payHeals.length ; i ++ ){
-           payHealRepo.save(payHeals[i]); 
-        }  
     }
 
     @RequestMapping(value = "/deletedetailheal", method = RequestMethod.POST)

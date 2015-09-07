@@ -94,10 +94,12 @@ angular.module('DetailHealAndPayheal')
                         $scope.amountListPayHeal = '';
                     } else {
                         var flag = false;
+                        var temp = 0;
                         for (var i = 0; i < $scope.payHeals.length; i++) {
                             if ($scope.payHeals[i].listPayHeal.name === name.name) {
+                                temp = Number($scope.payHeals[i].value) + Number($scope.amountListPayHeal);
                                 $scope.payHeals[i] = {'listPayHeal': $scope.nameListPayHeal,
-                                    'value': $scope.amountListPayHeal};
+                                    'value': temp};
                                 $scope.nameListPayHeal = '';
                                 $scope.amountListPayHeal = '';
                                 flag = true;

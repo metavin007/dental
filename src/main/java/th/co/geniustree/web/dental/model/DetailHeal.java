@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,7 +51,7 @@ public class DetailHeal implements Serializable {
     private Doctor doctor;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "detailHeal")
+    @OneToMany(mappedBy = "detailHeal",cascade = CascadeType.ALL)
     private List<PayHeal> payHeals_DetailHeal;
 
     public List<PayHeal> getPayHeals_DetailHeal() {

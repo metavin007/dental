@@ -7,6 +7,7 @@ package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,6 +51,17 @@ public class Product_Lot implements Serializable {
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
+
+    @OneToMany(mappedBy = "product_Lot")
+    private List<Order> orderProduct_Lots;
+
+    public List<Order> getOrderProduct_Lots() {
+        return orderProduct_Lots;
+    }
+
+    public void setOrderProduct_Lots(List<Order> orderProduct_Lots) {
+        this.orderProduct_Lots = orderProduct_Lots;
+    }
 
     public Double getPriceBuy() {
         return priceBuy;

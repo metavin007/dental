@@ -6,47 +6,56 @@
 package th.co.geniustree.web.dental.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Jasin007
  */
 @Entity
-@Table(name = "BILL")
-public class Bill implements Serializable {
+@Table(name = "ORDER")
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "DATEBILL")
-    private Date dateBill;
+    @Column(name = "ORDERNAME")
+    private String orderName;
 
-    @Column(name = "SUMPRICE")
-    private Double sumPrice;
+    @Column(name = "AMOUNT")
+    private Integer amount;
 
-    @OneToMany(mappedBy = "bill")
-    private List<Order> orderBills;
+    @ManyToOne
+    @JoinColumn(name = "BILL_ID")
+    private Bill bill;
 
-    public List<Order> getOrderBills() {
-        return orderBills;
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_LOT_ID")
+    private Product_Lot product_Lot;
+
+    public Bill getBill() {
+        return bill;
     }
 
-    public void setOrderBills(List<Order> orderBills) {
-        this.orderBills = orderBills;
+    public void setBill(Bill bill) {
+        this.bill = bill;
+    }
+
+    public Product_Lot getProduct_Lot() {
+        return product_Lot;
+    }
+
+    public void setProduct_Lot(Product_Lot product_Lot) {
+        this.product_Lot = product_Lot;
     }
 
     public Integer getId() {
@@ -57,26 +66,26 @@ public class Bill implements Serializable {
         this.id = id;
     }
 
-    public Date getDateBill() {
-        return dateBill;
+    public String getOrderName() {
+        return orderName;
     }
 
-    public void setDateBill(Date dateBill) {
-        this.dateBill = dateBill;
+    public void setOrderName(String orderName) {
+        this.orderName = orderName;
     }
 
-    public Double getSumPrice() {
-        return sumPrice;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setSumPrice(Double sumPrice) {
-        this.sumPrice = sumPrice;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -88,7 +97,7 @@ public class Bill implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Bill other = (Bill) obj;
+        final Order other = (Order) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

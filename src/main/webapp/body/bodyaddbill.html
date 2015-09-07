@@ -1,45 +1,12 @@
 <div class="card-panel grey lighten-2">
     <div class="white" style="padding: 20px;">
-                <h4>บันทึกการรักษาและเลือกoperation</h4>
-                
-        <div class="row" >
-            <div class="input-field col m6">
-                <i class="material-icons prefix">android</i>
-                <div style="margin-left: 40px; margin-top: 40px;">
-                    <select class="browser-default"
-                            ng-model="detailHeal.customer"
-                            ng-options="customers.name for customers in customers.content" 
-                            >
-                    </select>
-                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อลูกค้า</label>
-                </div>
-            </div>
-            <div class="input-field col m6">
-                <i class="material-icons prefix">android</i>
-                <div style="margin-left: 40px; margin-top: 40px;">
-                    <select class="browser-default"
-                            ng-model="detailHeal.doctor"
-                            ng-options="doctors.nameTh for doctors in doctors.content" 
-                            >
-                    </select>
-                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อหมอ</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" >
-            <div class="input-field col m12">
-                <i class="material-icons prefix">android</i>
-                <textarea class="materialize-textarea" ng-model="detailHeal.detail"></textarea>
-                <label>รายละเอียดการรักษา</label>
-            </div>
-        </div>
+        <h4>เพิ่มBill</h4>
 
         <div class="row" >
             <div class="input-field col m6">
                 <i class="material-icons prefix">android</i>
-                <input type="date" class="datepicker" ng-model="detailHeal.dateHeal" >
-                <label>วันสร้างประเภทสินค้า</label>
+                <input type="date" class="datepicker" ng-model="xxx" >
+                <label>วันออกbill</label>
             </div>
         </div>
 
@@ -48,16 +15,17 @@
                 <table  class="bordered" >
                     <thead >
                         <tr>
-                            <th>ราการที่จัดทำ</th>
+                            <th>Order</th>
                             <th>จำนวน</th>
-                            <th>Action</th>
+                            <th>ราคา</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="payHeal in payHeals">
-                            <td>{{payHeal.listPayHeal.name}}</td>
-                            <td>{{payHeal.value}}</td>
-                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRow(payHeal.listPayHeal.name)"/></td>
+                        <tr ng-repeat="">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRow()"/></td>
                         </tr>
 
                     </tbody>
@@ -79,24 +47,25 @@
                                 <i class="material-icons prefix">android</i>
                                 <div style="margin-left: 40px; margin-top: 40px;">
                                     <select class="browser-default"
-                                            ng-model="nameListPayHeal"
-                                            ng-options="listPayHeals.name for listPayHeals in listPayHeals.content"      
+                                            ng-model="nameProduct"
+                                            ng-options="orderProducts.product.name for orderProducts in orderProducts.content"      
                                             >                                    
                                     </select>
-                                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อรายได้จัดทำ</label>
+                                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อสินค้า</label>
                                 </div>
                             </div>
 
                             <div class="input-field col m6">
                                 <i class="material-icons prefix">android</i>
-                                <input type="text" ng-model="amountListPayHeal" style="margin-top: 40px;">
+                                <input type="text" ng-model="valueProduct" style="margin-top: 40px;">
                                 <label>จำนวน</label>
                             </div>
                         </div>
                     </div>
+                  
 
                     <div class="modal-footer">
-                        <button class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="addRow(nameListPayHeal)">ตกลง</button>
+                        <button class=" modal-action modal-close waves-effect waves-green btn-flat grey" ng-click="addRow(nameProduct)">ตกลง</button>
                     </div>
                 </div>
 
@@ -109,7 +78,7 @@
 
             </div>
             <div class="input-field col m4 " >
-                
+
             </div><div class="input-field col m2 " >
                 <button class="waves-effect waves-light btn light-blue darken-4" 
                         type="button" ng-click="saveDetailheal()">
@@ -118,7 +87,7 @@
             </div>
         </div>
 
-        <div class="row">
+<!--        <div class="row">
             <div class="input-field col m12">
                 <table class="hoverable">
                     <thead>
@@ -150,7 +119,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 

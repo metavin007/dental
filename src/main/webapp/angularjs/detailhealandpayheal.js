@@ -122,7 +122,7 @@ angular.module('DetailHealAndPayheal')
                 var index = -1;
                 var rowData = eval($scope.payHeals);
                 for (var i = 0; i < rowData.length; i++) {
-                    if (rowData[i].selectListName.name === name) {
+                    if (rowData[i].listPayHeal.name === name) {
                         index = i;
                         break;
                     }

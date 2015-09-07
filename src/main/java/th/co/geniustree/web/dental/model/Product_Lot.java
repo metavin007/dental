@@ -53,13 +53,13 @@ public class Product_Lot implements Serializable {
     private Product product;
 
     @OneToMany(mappedBy = "product_Lot")
-    private List<Order> orderProduct_Lots;
+    private List<OrderBill> orderProduct_Lots;
 
-    public List<Order> getOrderProduct_Lots() {
+    public List<OrderBill> getOrderProduct_Lots() {
         return orderProduct_Lots;
     }
 
-    public void setOrderProduct_Lots(List<Order> orderProduct_Lots) {
+    public void setOrderProduct_Lots(List<OrderBill> orderProduct_Lots) {
         this.orderProduct_Lots = orderProduct_Lots;
     }
 

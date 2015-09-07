@@ -7,12 +7,12 @@ package th.co.geniustree.web.dental.repo;
 
 import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import th.co.geniustree.web.dental.model.Order;
+import th.co.geniustree.web.dental.model.OrderBill;
 
 /**
  *
  * @author Jasin007
  */
-public interface OrderRepo extends JpaRepository<Order, Integer>{
+public interface OrderBillRepo extends JpaRepository<OrderBill, Integer>{
     
 }

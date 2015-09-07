@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,18 +22,15 @@ import javax.persistence.Table;
  * @author Jasin007
  */
 @Entity
-@Table(name = "ORDER")
-public class Order implements Serializable {
+@Table(name = "ORDERBILL")
+public class OrderBill implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "ORDERNAME")
-    private String orderName;
-
-    @Column(name = "AMOUNT")
-    private Integer amount;
+    @Column(name = "VALUE")
+    private Integer value;
 
     @ManyToOne
     @JoinColumn(name = "BILL_ID")
@@ -41,6 +39,10 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name = "PRODUCT_LOT_ID")
     private Product_Lot product_Lot;
+
+    @OneToOne
+    @JoinColumn(name = "DETAILHEAL_ID")
+    private DetailHeal detailHeal;
 
     public Bill getBill() {
         return bill;
@@ -66,20 +68,20 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public String getOrderName() {
-        return orderName;
+    public Integer getValue() {
+        return value;
     }
 
-    public void setOrderName(String orderName) {
-        this.orderName = orderName;
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public DetailHeal getDetailHeal() {
+        return detailHeal;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setDetailHeal(DetailHeal detailHeal) {
+        this.detailHeal = detailHeal;
     }
 
     @Override
@@ -97,7 +99,7 @@ public class Order implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Order other = (Order) obj;
+        final OrderBill other = (OrderBill) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

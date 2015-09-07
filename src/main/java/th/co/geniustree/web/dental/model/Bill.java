@@ -39,13 +39,13 @@ public class Bill implements Serializable {
     private Double sumPrice;
 
     @OneToMany(mappedBy = "bill")
-    private List<Order> orderBills;
+    private List<OrderBill> orderBills;
 
-    public List<Order> getOrderBills() {
+    public List<OrderBill> getOrderBills() {
         return orderBills;
     }
 
-    public void setOrderBills(List<Order> orderBills) {
+    public void setOrderBills(List<OrderBill> orderBills) {
         this.orderBills = orderBills;
     }
 

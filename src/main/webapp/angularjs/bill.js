@@ -10,6 +10,7 @@ angular.module('Bill', [])
 
             $scope.loadPayDetailHeals = {};
 
+
             loadOrderProducts();
             function loadOrderProducts() {
                 $http.get('/loadorderproduct').success(function (data) {
@@ -30,23 +31,19 @@ angular.module('Bill', [])
             }
             ;
 
-            var sumPriceDetailHeal = 0.0;
+
             $scope.addrowSelectPayHeal = function (nameDetailHeal) {
                 for (var i = 0; i < nameDetailHeal.payHeals_DetailHeal.length; i++) {
                     $scope.orderDetailHeals.push({
                         'name': nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.name,
                         'value': nameDetailHeal.payHeals_DetailHeal[i].value,
-                        'price': Number(nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.price)
-                                * Number(nameDetailHeal.payHeals_DetailHeal[i].value)
+                        'price': nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.price
                     });
-//                    sumPriceDetailHeal = sumPriceDetailHeal + Number(nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.price)
-//                            * Number(nameDetailHeal.payHeals_DetailHeal[i].value);
-//                    console(sumPriceDetailHeal);
                 }
 
             };
 
-            var sumPriceProduct = 0.0;
+
             $scope.addRowSelectProduct = function (nameProduct) {
                 if (!$scope.nameProduct) {
                     Materialize.toast('คุณไม่ระบุข้อมูล', 3000, 'rounded');
@@ -54,7 +51,6 @@ angular.module('Bill', [])
                     if ($scope.orderProducts.length === 0) {
                         $scope.orderProducts.push({'product_Lot': $scope.nameProduct,
                             'value': $scope.valueProduct});
-                        sumPriceProduct = sumPriceProduct + (nameProduct.priceSell * $scope.valueProduct);
                         $scope.nameProduct = '';
                         $scope.valueProduct = '';
                     } else {
@@ -65,7 +61,6 @@ angular.module('Bill', [])
                                 temp = Number($scope.orderProducts[i].value) + Number($scope.valueProduct);
                                 $scope.orderProducts[i] = {'product_Lot': $scope.nameProduct,
                                     'value': temp};
-                                sumPriceProduct = sumPriceProduct + (nameProduct.priceSell * temp);
                                 $scope.nameProduct = '';
                                 $scope.valueProduct = '';
                                 flag = true;
@@ -75,15 +70,13 @@ angular.module('Bill', [])
                         if (flag === false) {
                             $scope.orderProducts.push({'product_Lot': $scope.nameProduct,
                                 'value': $scope.valueProduct});
-                            sumPriceProduct = sumPriceProduct + (nameProduct.priceSell * $scope.valueProduct);
                             $scope.nameProduct = '';
                             $scope.valueProduct = '';
                         }
                     }
                 }
-                console.log(sumPriceProduct);
             };
-            console.log(sumPriceProduct);
+
 
             $scope.removeRowSelectProduct = function (name) {
                 var index = -1;
@@ -98,6 +91,16 @@ angular.module('Bill', [])
                     Materialize.toast('บางอย่างผิดพลาด', 3000, 'rounded');
                 }
                 $scope.orderProducts.splice(index, 1);
+            };
+
+            $scope.getTotal = function () {
+                var total = 0;
+                for (var i = 0; i < $scope.orderDetailHeals.length; i++) {
+                    var product = $scope.orderDetailHeals[i];
+                    console.log(product);
+                    total += $scope.orderDetailHeals[i].price * $scope.orderDetailHeals[i].value;
+                }
+                return total;
             };
 
 

@@ -21,24 +21,25 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <tr ng-repeat="orderDetailHeal in orderDetailHeals">
+                            <td>{{orderDetailHeal.name}}</td>
+                            <td>{{orderDetailHeal.value}}</td>
+                            <td>{{orderDetailHeal.price * orderDetailHeal.value}}</td>
+                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click=""/></td>
+                        </tr>
+
                         <tr ng-repeat="orderProduct in orderProducts">
                             <td>{{orderProduct.product_Lot.product.name}}</td>
                             <td>{{orderProduct.value}}</td>
                             <td>{{orderProduct.product_Lot.priceSell * orderProduct.value}}</td>
                             <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRowSelectProduct(orderProduct.product_Lot.product.name)"/></td>
                         </tr>
-
-                        <tr ng-repeat="orderDetailHeal in orderDetailHeals">
-                            <td>{{orderDetailHeal.name}}</td>
-                            <td>{{orderDetailHeal.value}}</td>
-                            <td>{{orderDetailHeal.price}}</td>
-                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click=""/></td>
-                        </tr>
-
+                        
                         <tr>
                             <td></td>
                             <td>รวมราคาสินค้าและค่ารักษา</td>
-                            <td>{{}}</td>
+                            <td>{{getTotal()}}</td>
                             <td></td>
                         </tr>
                     </tbody>

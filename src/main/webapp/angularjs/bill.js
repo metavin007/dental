@@ -2,37 +2,70 @@ angular.module('Bill', []);
 angular.module('Bill', [])
         .controller('BillController', function ($scope, $http) {
 
-            $scope.orderProducts = {};
-            $scope.orderProduct = {};
+            $scope.loadProducts = {};
+
+            $scope.orderProducts = [];
+
+            $scope.orderDetailHeals = [];
+
+            $scope.loadPayDetailHeals = {};
 
             loadOrderProducts();
             function loadOrderProducts() {
                 $http.get('/loadorderproduct').success(function (data) {
-                    $scope.orderProducts = data;
+                    $scope.loadProducts = data;
                 }).error(function (data, status, header, config) {
 
                 });
             }
             ;
 
+            loadPayDetailHeal();
+            function loadPayDetailHeal() {
+                $http.get('/loaddetailheal').success(function (data) {
+                    $scope.loadPayDetailHeals = data;
+                }).error(function (data, status, header, config) {
 
-            $scope.addRow = function (nameProduct) {
-                if (!$scope.nameListPayHeal) {
+                });
+            }
+            ;
+
+            var sumPriceDetailHeal = 0.0;
+            $scope.addrowSelectPayHeal = function (nameDetailHeal) {
+                for (var i = 0; i < nameDetailHeal.payHeals_DetailHeal.length; i++) {
+                    $scope.orderDetailHeals.push({
+                        'name': nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.name,
+                        'value': nameDetailHeal.payHeals_DetailHeal[i].value,
+                        'price': Number(nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.price)
+                                * Number(nameDetailHeal.payHeals_DetailHeal[i].value)
+                    });
+//                    sumPriceDetailHeal = sumPriceDetailHeal + Number(nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.price)
+//                            * Number(nameDetailHeal.payHeals_DetailHeal[i].value);
+//                    console(sumPriceDetailHeal);
+                }
+
+            };
+
+            var sumPriceProduct = 0.0;
+            $scope.addRowSelectProduct = function (nameProduct) {
+                if (!$scope.nameProduct) {
                     Materialize.toast('คุณไม่ระบุข้อมูล', 3000, 'rounded');
                 } else {
-                    if ($scope.orderProduct.length === 0) {
-                        $scope.orderProduct.push({'product_Lot': $scope.nameProduct,
+                    if ($scope.orderProducts.length === 0) {
+                        $scope.orderProducts.push({'product_Lot': $scope.nameProduct,
                             'value': $scope.valueProduct});
+                        sumPriceProduct = sumPriceProduct + (nameProduct.priceSell * $scope.valueProduct);
                         $scope.nameProduct = '';
                         $scope.valueProduct = '';
                     } else {
                         var flag = false;
                         var temp = 0;
-                        for (var i = 0; i < $scope.orderProduct.length; i++) {
-                            if ($scope.orderProduct[i].product_Lot.name === name.name) {
-                                temp = Number($scope.orderProduct[i].value) + Number($scope.valueProduct);
-                                $scope.orderProduct[i] = {'product_Lot': $scope.nameProduct,
+                        for (var i = 0; i < $scope.orderProducts.length; i++) {
+                            if ($scope.orderProducts[i].product_Lot.product.name === nameProduct.product.name) {
+                                temp = Number($scope.orderProducts[i].value) + Number($scope.valueProduct);
+                                $scope.orderProducts[i] = {'product_Lot': $scope.nameProduct,
                                     'value': temp};
+                                sumPriceProduct = sumPriceProduct + (nameProduct.priceSell * temp);
                                 $scope.nameProduct = '';
                                 $scope.valueProduct = '';
                                 flag = true;
@@ -40,21 +73,23 @@ angular.module('Bill', [])
                             }
                         }
                         if (flag === false) {
-                            $scope.orderProduct.push({'product_Lot': $scope.nameProduct,
+                            $scope.orderProducts.push({'product_Lot': $scope.nameProduct,
                                 'value': $scope.valueProduct});
+                            sumPriceProduct = sumPriceProduct + (nameProduct.priceSell * $scope.valueProduct);
                             $scope.nameProduct = '';
                             $scope.valueProduct = '';
                         }
                     }
-
                 }
+                console.log(sumPriceProduct);
             };
+            console.log(sumPriceProduct);
 
-            $scope.removeRow = function (name) {
+            $scope.removeRowSelectProduct = function (name) {
                 var index = -1;
-                var rowData = eval($scope.orderProduct);
+                var rowData = eval($scope.orderProducts);
                 for (var i = 0; i < rowData.length; i++) {
-                    if (rowData[i].product_Lot.name === name) {
+                    if (rowData[i].product_Lot.product.name === name) {
                         index = i;
                         break;
                     }
@@ -62,7 +97,7 @@ angular.module('Bill', [])
                 if (index === -1) {
                     Materialize.toast('บางอย่างผิดพลาด', 3000, 'rounded');
                 }
-                $scope.orderProduct.splice(index, 1);
+                $scope.orderProducts.splice(index, 1);
             };
 
 

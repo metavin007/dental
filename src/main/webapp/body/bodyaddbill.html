@@ -21,13 +21,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRow()"/></td>
+                        <tr ng-repeat="orderProduct in orderProducts">
+                            <td>{{orderProduct.product_Lot.product.name}}</td>
+                            <td>{{orderProduct.value}}</td>
+                            <td>{{orderProduct.product_Lot.priceSell * orderProduct.value}}</td>
+                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRowSelectProduct(orderProduct.product_Lot.product.name)"/></td>
                         </tr>
 
+                        <tr ng-repeat="orderDetailHeal in orderDetailHeals">
+                            <td>{{orderDetailHeal.name}}</td>
+                            <td>{{orderDetailHeal.value}}</td>
+                            <td>{{orderDetailHeal.price}}</td>
+                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click=""/></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>รวมราคาสินค้าและค่ารักษา</td>
+                            <td>{{}}</td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -36,7 +49,7 @@
 
         <div class="row" >
             <div class="input-field col m6">
-                <h5>เพิ่มรายการจัดทำ</h5>
+                <h5>เพิ่มรายการยา</h5>
                 <button class="btn-floating btn-large waves-effect waves-light btn modal-trigger red" href="#modal1">
                     <i class="material-icons">add</i></button>
 
@@ -48,7 +61,7 @@
                                 <div style="margin-left: 40px; margin-top: 40px;">
                                     <select class="browser-default"
                                             ng-model="nameProduct"
-                                            ng-options="orderProducts.product.name for orderProducts in orderProducts.content"      
+                                            ng-options="loadProducts.product.name for loadProducts in loadProducts.content"      
                                             >                                    
                                     </select>
                                     <label  style="margin-left: 45px; font-size: 14px;">ชื่อสินค้า</label>
@@ -62,14 +75,44 @@
                             </div>
                         </div>
                     </div>
-                  
+
 
                     <div class="modal-footer">
-                        <button class=" modal-action modal-close waves-effect waves-green btn-flat grey" ng-click="addRow(nameProduct)">ตกลง</button>
+                        <button class=" modal-action modal-close waves-effect waves-green btn-flat grey" ng-click="addRowSelectProduct(nameProduct)">ตกลง</button>
                     </div>
                 </div>
 
             </div>
+
+            <div class="input-field col m6">
+                <h5>เพิ่มรายการรักษา</h5>
+                <button class="btn-floating btn-large waves-effect waves-light btn modal-trigger red" href="#modal2">
+                    <i class="material-icons">add</i></button>
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <div class="row" >
+                            <div class="input-field col m12">
+                                <i class="material-icons prefix">android</i>
+                                <div style="margin-left: 40px; margin-top: 40px;">
+                                    <select class="browser-default"
+                                            ng-model="nameDetailHeal"
+                                            ng-options="loadPayDetailHeals.customer.name for loadPayDetailHeals in loadPayDetailHeals.content"      
+                                            >                                    
+                                    </select>
+                                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อสินค้า</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button class=" modal-action modal-close waves-effect waves-green btn-flat grey" ng-click="addrowSelectPayHeal(nameDetailHeal)">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
 
@@ -87,39 +130,39 @@
             </div>
         </div>
 
-<!--        <div class="row">
-            <div class="input-field col m12">
-                <table class="hoverable">
-                    <thead>
-                        <tr>
-                            <td>ID</td>
-                            <td>DETAILHEAL</td>
-                            <td>DATEHEAL</td>
-                            <td>CUSTOMER_NAME</td>
-                            <td>DUCTOR_NAME</td>
-
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="columndetailheal in detailHeals.content">
-                            <td>{{columndetailheal.id}}</td>
-                            <td>{{columndetailheal.detail}}</td> 
-                            <td>{{columndetailheal.dateHeal}}</td> 
-                            <td>{{columndetailheal.customer.name}}</td> 
-                            <td>{{columndetailheal.doctor.nameTh}}</td>  
-                            <td>
-                                <form method="post">
-                                    <input type="submit" value="Delete" 
-                                           class="waves-effect waves-light btn deep-orange 
-                                           accent-4" ng-click="deleteDetailheal(columndetailheal)"> 
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>-->
+        <!--        <div class="row">
+                    <div class="input-field col m12">
+                        <table class="hoverable">
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>DETAILHEAL</td>
+                                    <td>DATEHEAL</td>
+                                    <td>CUSTOMER_NAME</td>
+                                    <td>DUCTOR_NAME</td>
+        
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="columndetailheal in detailHeals.content">
+                                    <td>{{columndetailheal.id}}</td>
+                                    <td>{{columndetailheal.detail}}</td> 
+                                    <td>{{columndetailheal.dateHeal}}</td> 
+                                    <td>{{columndetailheal.customer.name}}</td> 
+                                    <td>{{columndetailheal.doctor.nameTh}}</td>  
+                                    <td>
+                                        <form method="post">
+                                            <input type="submit" value="Delete" 
+                                                   class="waves-effect waves-light btn deep-orange 
+                                                   accent-4" ng-click="deleteDetailheal(columndetailheal)"> 
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>-->
     </div>
 </div>
 

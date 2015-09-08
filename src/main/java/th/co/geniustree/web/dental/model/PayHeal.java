@@ -5,6 +5,7 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
@@ -37,6 +38,7 @@ public class PayHeal implements Serializable {
     @Column(name = "VALUE")
     private Integer value;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "DETAILHEAL_ID")
     private DetailHeal detailHeal;

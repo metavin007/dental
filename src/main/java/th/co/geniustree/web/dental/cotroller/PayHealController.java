@@ -35,10 +35,10 @@ public class PayHealController {
     
     private DetailHeal id_detailHeal;
 
-    @RequestMapping(value = "/loadpayheal")
-    public Page<PayHeal> loadDetailHeal(Pageable pageable) {
-        return payHealRepo.findAll(pageable);
-    }
+//    @RequestMapping(value = "/loadpayheal")
+//    public Page<PayHeal> loadDetailHeal(Pageable pageable) {
+//        return payHealRepo.findAll(pageable);
+//    }
 
     @RequestMapping(value = "/savepayheal", method = RequestMethod.POST)
     public void saveDetailHeal(@RequestBody PayHeal[] payHeal) { 

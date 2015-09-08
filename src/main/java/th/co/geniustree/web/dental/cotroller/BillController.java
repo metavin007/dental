@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import th.co.geniustree.web.dental.model.Bill;
 import th.co.geniustree.web.dental.model.OrderBill;
+import th.co.geniustree.web.dental.model.PayHeal;
 import th.co.geniustree.web.dental.model.Product_Lot;
 import th.co.geniustree.web.dental.repo.BillRepo;
 import th.co.geniustree.web.dental.repo.OrderBillRepo;
+import th.co.geniustree.web.dental.repo.PayHealRepo;
 import th.co.geniustree.web.dental.repo.Product_LotRepo;
 
 /**
@@ -34,15 +36,23 @@ public class BillController {
 
     @Autowired
     private Product_LotRepo product_LotRepo;
+
+    @Autowired
+    private PayHealRepo payHealRepo;
     
     @RequestMapping(value = "/loadorderproduct")
-    public Page<Product_Lot> loadOrderProduct(Pageable pageable){
+    public Page<Product_Lot> loadOrderProduct(Pageable pageable) {
         return product_LotRepo.findAll(pageable);
     }
 
     @RequestMapping(value = "/loadbill")
     public Page<Bill> loadBill(Pageable pageable) {
         return billRepo.findAll(pageable);
+    }
+
+    @RequestMapping(value = "/loadpayheal")
+    public Page<PayHeal> loadDetailHeal(Pageable pageable) {     
+        return payHealRepo.findAll(pageable);
     }
 
     @RequestMapping(value = "/saveorderbill", method = RequestMethod.POST)

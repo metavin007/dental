@@ -6,6 +6,7 @@
 package th.co.geniustree.web.dental.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -50,10 +51,10 @@ public class DetailHeal implements Serializable {
     @JoinColumn(name = "DUCTOR_ID")
     private Doctor doctor;
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "detailHeal",cascade = CascadeType.ALL)
     private List<PayHeal> payHeals_DetailHeal;
-
+    
     public List<PayHeal> getPayHeals_DetailHeal() {
         return payHeals_DetailHeal;
     }

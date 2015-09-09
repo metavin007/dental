@@ -10,7 +10,6 @@ angular.module('Bill', [])
 
             $scope.loadPayDetailHeals = {};
 
-
             loadOrderProducts();
             function loadOrderProducts() {
                 $http.get('/loadorderproduct').success(function (data) {
@@ -31,7 +30,6 @@ angular.module('Bill', [])
             }
             ;
 
-
             $scope.addrowSelectPayHeal = function (nameDetailHeal) {
                 for (var i = 0; i < nameDetailHeal.payHeals_DetailHeal.length; i++) {
                     $scope.orderDetailHeals.push({
@@ -40,9 +38,7 @@ angular.module('Bill', [])
                         'price': nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.price
                     });
                 }
-
             };
-
 
             $scope.addRowSelectProduct = function (nameProduct) {
                 if (!$scope.nameProduct) {
@@ -75,8 +71,23 @@ angular.module('Bill', [])
                         }
                     }
                 }
+
             };
 
+            $scope.removeRowSelectDetailHeal = function (name) {
+                var index = -1;
+                var rowData = eval($scope.orderDetailHeals);
+                for (var i = 0; i < rowData.length; i++) {
+                    if (rowData[i].name === name) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index === -1) {
+                    Materialize.toast('บางอย่างผิดพลาด', 3000, 'rounded');
+                }
+                $scope.orderDetailHeals.splice(index, 1);
+            };
 
             $scope.removeRowSelectProduct = function (name) {
                 var index = -1;
@@ -96,13 +107,13 @@ angular.module('Bill', [])
             $scope.getTotal = function () {
                 var total = 0;
                 for (var i = 0; i < $scope.orderDetailHeals.length; i++) {
-                    var product = $scope.orderDetailHeals[i];
-                    console.log(product);
                     total += $scope.orderDetailHeals[i].price * $scope.orderDetailHeals[i].value;
+                }
+                for (var i = 0; i < $scope.orderProducts.length; i++) {
+                    total += $scope.orderProducts[i].product_Lot.priceSell * $scope.orderProducts[i].value;
                 }
                 return total;
             };
-
 
 
             //  tag วันเกิด       

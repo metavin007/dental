@@ -15,31 +15,40 @@
                 <table  class="bordered" >
                     <thead >
                         <tr>
-                            <th>Order</th>
+                            <th>ลำดับ</th>
+                            <th>รายการ</th>
                             <th>จำนวน</th>
                             <th>ราคา</th>
+                            <th>หน่วย</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         <tr ng-repeat="orderDetailHeal in orderDetailHeals">
+                            <td>{{$index + 1}}</td>
                             <td>{{orderDetailHeal.name}}</td>
                             <td>{{orderDetailHeal.value}}</td>
                             <td>{{orderDetailHeal.price * orderDetailHeal.value}}</td>
-                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click=""/></td>
+                            <td>บาท</td>
+                            <td><input type="button" value="ลบ" class="btn btn-primary red" ng-click="removeRowSelectDetailHeal(orderDetailHeal.name)"/></td>
                         </tr>
 
                         <tr ng-repeat="orderProduct in orderProducts">
+                            <td>{{$index + orderDetailHeals.length + 1}}</td>
                             <td>{{orderProduct.product_Lot.product.name}}</td>
                             <td>{{orderProduct.value}}</td>
                             <td>{{orderProduct.product_Lot.priceSell * orderProduct.value}}</td>
-                            <td><input type="button" value="เอาออก" class="btn btn-primary" ng-click="removeRowSelectProduct(orderProduct.product_Lot.product.name)"/></td>
+                            <td>บาท</td>
+                            <td><input type="button" value="ลบ" class="btn btn-primary red" ng-click="removeRowSelectProduct(orderProduct.product_Lot.product.name)"/></td>
                         </tr>
                         
                         <tr>
                             <td></td>
+                            <td></td>
                             <td>รวมราคาสินค้าและค่ารักษา</td>
                             <td>{{getTotal()}}</td>
+                            <td>บาท</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -97,7 +106,7 @@
                                 <div style="margin-left: 40px; margin-top: 40px;">
                                     <select class="browser-default"
                                             ng-model="nameDetailHeal"
-                                            ng-options="loadPayDetailHeals.customer.name for loadPayDetailHeals in loadPayDetailHeals.content"      
+                                            ng-options="loadPayDetailHeals.customer.hn for loadPayDetailHeals in loadPayDetailHeals.content"      
                                             >                                    
                                     </select>
                                     <label  style="margin-left: 45px; font-size: 14px;">ชื่อสินค้า</label>

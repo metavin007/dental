@@ -10,6 +10,12 @@ angular.module('Bill', [])
 
             $scope.loadPayDetailHeals = {};
 
+            $scope.bills = {};
+
+            $scope.bill = {};
+
+            $scope.idPayheal = {};
+
             loadOrderProducts();
             function loadOrderProducts() {
                 $http.get('/loadorderproduct').success(function (data) {
@@ -31,6 +37,8 @@ angular.module('Bill', [])
             ;
 
             $scope.addrowSelectPayHeal = function (nameDetailHeal) {
+                $scope.idPayheal.detailHeal = nameDetailHeal;
+                console.log($scope.idPayheal.detailHeal);
                 for (var i = 0; i < nameDetailHeal.payHeals_DetailHeal.length; i++) {
                     $scope.orderDetailHeals.push({
                         'name': nameDetailHeal.payHeals_DetailHeal[i].listPayHeal.name,
@@ -112,8 +120,48 @@ angular.module('Bill', [])
                 for (var i = 0; i < $scope.orderProducts.length; i++) {
                     total += $scope.orderProducts[i].product_Lot.priceSell * $scope.orderProducts[i].value;
                 }
+                $scope.bill.sumPrice = total;
                 return total;
             };
+
+            loadBill();
+            function loadBill() {
+                $http.get('/loadbill').success(function (data) {
+                    $scope.bills = data;
+                }).error(function (data, status, header, config) {
+
+                });
+            }
+
+            $scope.saveBill = function () {
+                $http.post('/savebill', $scope.bill).success(function (data) {
+                    $http.post('/saveorderbill', $scope.orderProducts).success(function (data) {
+                        $http.post('/saveidpayheal', $scope.idPayheal).success(function (data) {
+                            Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
+                            $scope.orderProducts = [];
+                            $scope.orderDetailHeals = [];
+                            $scope.bill = {};
+                            loadBill();
+                        }).error(function (data, status, header, config) {
+
+                        });
+                    }).error(function (data, status, header, config) {
+
+                    });
+                }).error(function (data, status, header, config) {
+                    Materialize.toast('คุณกรอกข้อมูลไม่เรียบร้อย', 3000, 'rounded');
+                });
+            };
+
+            $scope.delectBill = function (columnBill) {
+                $http.post('/deletebill', columnBill).success(function (data) {
+                    Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
+                    loadBill();
+                }).error(function (data, status, header, config) {
+                    Materialize.toast('ลบไม่สำเร็จ', 3000, 'rounded');
+                });
+            };
+
 
 
             //  tag วันเกิด       

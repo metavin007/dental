@@ -5,10 +5,12 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +40,8 @@ public class Bill implements Serializable {
     @Column(name = "SUMPRICE")
     private Double sumPrice;
 
-    @OneToMany(mappedBy = "bill")
+    @JsonIgnore
+    @OneToMany(mappedBy = "bill",cascade = CascadeType.REMOVE)
     private List<OrderBill> orderBills;
 
     public List<OrderBill> getOrderBills() {

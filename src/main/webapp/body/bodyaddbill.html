@@ -5,7 +5,7 @@
         <div class="row" >
             <div class="input-field col m6">
                 <i class="material-icons prefix">android</i>
-                <input type="date" class="datepicker" ng-model="xxx" >
+                <input type="date" class="datepicker" ng-model="bill.dateBill" >
                 <label>วันออกbill</label>
             </div>
         </div>
@@ -134,45 +134,41 @@
 
             </div><div class="input-field col m2 " >
                 <button class="waves-effect waves-light btn light-blue darken-4" 
-                        type="button" ng-click="saveDetailheal()">
+                        type="button" ng-click="saveBill()">
                     บันทึก
                 </button>
             </div>
         </div>
 
-        <!--        <div class="row">
+                <div class="row">
                     <div class="input-field col m12">
                         <table class="hoverable">
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>DETAILHEAL</td>
-                                    <td>DATEHEAL</td>
-                                    <td>CUSTOMER_NAME</td>
-                                    <td>DUCTOR_NAME</td>
-        
+                                    <td>DATEBILL</td>
+                                    <td>SUMPRICE</td>
+                                    
                                     <td></td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="columndetailheal in detailHeals.content">
-                                    <td>{{columndetailheal.id}}</td>
-                                    <td>{{columndetailheal.detail}}</td> 
-                                    <td>{{columndetailheal.dateHeal}}</td> 
-                                    <td>{{columndetailheal.customer.name}}</td> 
-                                    <td>{{columndetailheal.doctor.nameTh}}</td>  
+                                <tr ng-repeat="columnBill in bills.content">
+                                    <td>{{columnBill.id}}</td>
+                                    <td>{{columnBill.dateBill}}</td> 
+                                    <td>{{columnBill.sumPrice}}</td>                                     
                                     <td>
                                         <form method="post">
                                             <input type="submit" value="Delete" 
                                                    class="waves-effect waves-light btn deep-orange 
-                                                   accent-4" ng-click="deleteDetailheal(columndetailheal)"> 
+                                                   accent-4" ng-click="delectBill(columnBill)"> 
                                         </form>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>-->
+                </div>
     </div>
 </div>
 

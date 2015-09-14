@@ -40,6 +40,8 @@ public class BillController {
     @Autowired
     private PayHealRepo payHealRepo;
     
+    private Bill idBill;
+
     @RequestMapping(value = "/loadorderproduct")
     public Page<Product_Lot> loadOrderProduct(Pageable pageable) {
         return product_LotRepo.findAll(pageable);
@@ -51,12 +53,27 @@ public class BillController {
     }
 
     @RequestMapping(value = "/loadpayheal")
-    public Page<PayHeal> loadDetailHeal(Pageable pageable) {     
+    public Page<PayHeal> loadDetailHeal(Pageable pageable) {
         return payHealRepo.findAll(pageable);
     }
 
+    @RequestMapping(value = "/savebill", method = RequestMethod.POST)
+    public void saveBill(@RequestBody Bill bill) {
+        billRepo.save(bill);
+        idBill = bill;
+    }
+
     @RequestMapping(value = "/saveorderbill", method = RequestMethod.POST)
-    public void saveOrderBill(@RequestBody OrderBill orderBill) {
+    public void saveOrderBill(@RequestBody OrderBill[] orderBill) {
+        for (OrderBill orderBill1 : orderBill) {
+            orderBill1.setBill(idBill);
+            orderBillRepo.save(orderBill1);
+        }
+    }
+    
+    @RequestMapping(value = "/saveidpayheal",method = RequestMethod.POST)
+    public void saveIdPayheal(@RequestBody OrderBill orderBill){
+        orderBill.setBill(idBill);
         orderBillRepo.save(orderBill);
     }
 

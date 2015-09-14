@@ -5,6 +5,7 @@
  */
 package th.co.geniustree.web.dental.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -52,6 +53,7 @@ public class Product_Lot implements Serializable {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product_Lot")
     private List<OrderBill> orderProduct_Lots;
 

@@ -62,10 +62,10 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "BLOOD")
     private String blood;
 
-    @Column(name = "SOLDIER_STATUS")
+    @Column(name = "SOLDIERSTATUS")
     private String soldierStatus;
 
-    @Column(name = "MARRY_STATUS")
+    @Column(name = "MARRYSTATUS")
     private String marryStatus;
 
     @Column(name = "NATION")
@@ -74,7 +74,7 @@ public class Doctor extends SuperEmployee implements Serializable {
     @Column(name = "RACE")
     private String race;
 
-    @Column(name = "ADDRESSP_ID")
+    @Column(name = "ADDRESSPID")
     private String addressPid;
 
     @Column(name = "ADDRESS")
@@ -88,11 +88,11 @@ public class Doctor extends SuperEmployee implements Serializable {
     private String mobile;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "START_WORD")
+    @Column(name = "STARTWORD")
     private Date startWork;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "END_WORD")
+    @Column(name = "ENDWORD")
     private Date endWork;
 
     @Column(name = "WORD_STATUS")

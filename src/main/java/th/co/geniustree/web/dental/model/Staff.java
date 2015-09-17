@@ -25,7 +25,6 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Table(name = "STAFF")
-@AttributeOverride(name = "stateEmployee", column = @Column(name = "STATA_STAFF"))
 public class Staff extends SuperEmployee implements Serializable {
 
     @NotBlank(message = "E-Mail not Empty")
@@ -92,6 +91,9 @@ public class Staff extends SuperEmployee implements Serializable {
     @Column(name = "WORD_STATUS")
     private String workStatus;
 
+    @Column(name = "ENABLED")
+    private boolean enabled = true;
+
     @ManyToOne
     @JoinColumn(name = "DEPARTMENTEMPLOYEE_ID")
     private DepartmentEmployee departmentEmployee;
@@ -103,8 +105,6 @@ public class Staff extends SuperEmployee implements Serializable {
     public void setDepartmentEmployee(DepartmentEmployee departmentEmployee) {
         this.departmentEmployee = departmentEmployee;
     }
-
-    private boolean enabled = true;
 
     public String getEmail() {
         return email;

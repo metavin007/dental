@@ -35,11 +35,7 @@ public abstract class SuperEmployee implements Serializable{
     @SequenceGenerator(name = "SUPEREMPLOYEE", sequenceName = "SUPEREMPLOYEE_SEQ", allocationSize = 1)
     @GeneratedValue(generator = "SUPEREMPLOYEE",strategy = GenerationType.AUTO)
     private Integer id;
-    
-    @Column(name = "STATEEMPLOYEE")
-    private String stateEmployee;
 
-    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "BANKACCOUNT_ID", nullable = true)
     private BankAccount bankaccount;
@@ -83,14 +79,6 @@ public abstract class SuperEmployee implements Serializable{
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getStateEmployee() {
-        return stateEmployee;
-    }
-
-    public void setStateEmployee(String stateEmployee) {
-        this.stateEmployee = stateEmployee;
     }
 
     @Override

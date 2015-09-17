@@ -106,10 +106,10 @@
                                 <div style="margin-left: 40px; margin-top: 40px;">
                                     <select class="browser-default"
                                             ng-model="nameDetailHeal"
-                                            ng-options="loadPayDetailHeals.customer.hn for loadPayDetailHeals in loadPayDetailHeals.content"      
+                                            ng-options="loadPayDetailHeals.customer.hn +' '+ loadPayDetailHeals.dateHeal for loadPayDetailHeals in loadPayDetailHeals.content"      
                                             >                                    
                                     </select>
-                                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อสินค้า</label>
+                                    <label  style="margin-left: 45px; font-size: 14px;">ชื่อรายการรักษาและวันที่</label>
                                 </div>
                             </div>
                         </div>

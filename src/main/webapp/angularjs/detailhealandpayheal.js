@@ -53,7 +53,7 @@ angular.module('DetailHealAndPayheal')
 
             loadCustomer();
             function loadCustomer() {
-                $http.get('/customer').success(function (data) {
+                $http.get('/loadcustomer').success(function (data) {
                     $scope.customers = data;
                 }).error(function (data, status, header, config) {
 

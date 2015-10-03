@@ -1,16 +1,37 @@
 angular.module('Customer', []);
 angular.module('Customer', ['checklist-model'])
-        .controller('CustomerController', function ($scope, $http) {
-            $scope.customer = {};
+        .service('ServiceCustomer', function () {
+              this.showCustomer = {};
+                    this.setShowCustomer = function (showCustomer) {
+                            this.showCustomer = showCustomer;
+                    };
+                    this.getShowCustomer = function () {
+                            return this.showCustomer;
+                    };
+              this.updateCustomer = {};
+                    this.setUpdateCustomer = function (updateCustomer) {
+                            this.updateCustomer = updateCustomer;
+                    };
+                    this.getUpdateCustomer = function () {
+                            return this.updateCustomer;
+                    };
+        })
+        .controller('CustomerController', function ($scope, $http, ServiceCustomer) {
+            
+            $scope.customer = ServiceCustomer.getUpdateCustomer();
             $scope.customers = {};
             $scope.medicalhistorys = {};
 
             $scope.error = {};
 
+            $scope.selectRowDataCustomer = function (rowcustomer) {
+                ServiceCustomer.setShowCustomer(rowcustomer);         
+            };
+
 
             loadCustomer();
             function loadCustomer() {
-                $http.get('/customer').success(function (data) {
+                $http.get('/loadcustomer').success(function (data) {
                     $scope.customers = data;
                 }).error(function (data, status, header, config) {
 
@@ -19,7 +40,7 @@ angular.module('Customer', ['checklist-model'])
             ;
 
             $scope.saveCustomer = function () {
-                $http.post('/customer', $scope.customer).success(function (data) {
+                $http.post('/sevecustomer', $scope.customer).success(function (data) {
                     Materialize.toast('saveข้อมูลเรียบร้อย', 3000, 'rounded');
                     $scope.customer = {};
                 }).error(function (data) {
@@ -29,7 +50,7 @@ angular.module('Customer', ['checklist-model'])
             };
 
             $scope.deleteCustomer = function (rowcustomer) {
-                $http.post('/customerdelete', rowcustomer).success(function (data) {
+                $http.post('/deletecustomer', rowcustomer).success(function (data) {
                     loadCustomer();
                     Materialize.toast('ลบข้อมูลเรียบร้อย', 3000, 'rounded');
                 }).error(function (data, status, header, config) {
@@ -48,16 +69,6 @@ angular.module('Customer', ['checklist-model'])
             }
             ;
 
-
-            $scope.selectDetail = {};
-            $scope.selectDetailCustomer = function (rowDetailCustomer) {
-                $http.post('/selectdetailcustomer', rowDetailCustomer).success(function (data) {
-                    $scope.selectDetail = data;
-                }).error(function (data, status, header, config) {
-                });
-            };
-
-
             $scope.keyword = null;
             $scope.searchCustomer = function (keyword) {
                 if (!keyword) {
@@ -69,12 +80,6 @@ angular.module('Customer', ['checklist-model'])
                     });
                 }
             };
-            
-
-//tag select
-//            $(document).ready(function () {
-//                $('select').material_select();
-//            });
 
 //  tag วันเกิด       
             $('.datepicker').pickadate({
@@ -82,6 +87,14 @@ angular.module('Customer', ['checklist-model'])
                 selectYears: 15 // Creates a dropdown of 15 years to control year
             });
 
+        })
+
+        .controller('ShowdataCustomerController', function ($scope, ServiceCustomer) {
+            $scope.showdatacustomer = ServiceCustomer.getShowCustomer();
+    
+            $scope.updateDataCustomer = function (showdatacustomer) {
+                ServiceCustomer.setUpdateCustomer(showdatacustomer);
+            };
         });
 
 

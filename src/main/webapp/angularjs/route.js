@@ -1,5 +1,6 @@
-angular.module('route', ['ngRoute', 'Customer', 'Department', 'Employee', 'Doctor', 'Customer2',
-    'TypeProduct','Unit','Product','Lot','ProductLot','ListPayHeal','DetailHealAndPayheal','Bill']);
+angular.module('route', ['ngRoute', 'Customer', 'Department', 'Employee', 'Doctor',
+    'TypeProduct','Unit','Product','Lot','ProductLot','ListPayHeal','DetailHealAndPayheal'
+    ,'Bill','Appointment']);
 angular.module('route')
         .config(function ($routeProvider) {
             $routeProvider
@@ -11,6 +12,9 @@ angular.module('route')
                     .when('/tablecustomer', {
                         templateUrl: '../body/bodytablecustomer.html',
                         controller: 'CustomerController'})
+                     .when('/showdetailcustomer', {
+                        templateUrl: '../body/showdetailcustomer.html',
+                        controller: 'ShowdataCustomerController'})
                     .when('/addemployee', {
                         templateUrl: '../body/bodyaddemployee.html',
                         controller: 'EmployeeController'})
@@ -26,9 +30,7 @@ angular.module('route')
                     .when('/tabledoctor', {
                         templateUrl: '../body/bodytabledoctor.html',
                         controller: 'DoctorController'})
-                    .when('/detailcustomer', {
-                        templateUrl: '../body/bodydetailcustomer.html',
-                        controller: 'CustomerController2'})
+                   
 
 
                     .when('/addtypeproduct', {
@@ -63,7 +65,10 @@ angular.module('route')
                     .when('/addbill', {
                         templateUrl: '../body/bodyaddbill.html',
                         controller: 'BillController'})
-
+                    
+                    .when('/addappointment',{
+                        templateUrl:'../body/bodyaddappointment.html',
+                        controller:'AppointmentController'})
 
                     .otherwise({redirecTo: '../body/bodymain.html'})
                     ;

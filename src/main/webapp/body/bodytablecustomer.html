@@ -1,4 +1,4 @@
-<div class="card-panel grey lighten-2">
+<div class="card-panel">
     <div class="white" style="padding: 20px;">
         <h3 style="padding: 0px; margin: 0px;">ข้อมูลลูกค้า</h3>  
 
@@ -22,7 +22,7 @@
                     <td>NAME</td>
                     <td>TEL</td> 
                     <td>MOBILE</td>    
-                    <td></td> 
+                    <td></td>  
                 </tr> 
             </thead>
 
@@ -35,8 +35,8 @@
                     <td>{{columncustomer.mobile}}</td>
                     <td>
                         <form method="post">
-                            <input type="submit" value="Delete" class="waves-effect waves-light btn deep-orange accent-4" ng-click="deleteCustomer(columncustomer)"> 
-                            <a href="#/detailcustomer" class="waves-effect waves-light btn green darken-4" ng-click="selectDetailCustomer(columncustomer)">Detail</a>
+                            <input type="submit" value="ลบข้อมูล" class="waves-effect waves-light btn deep-orange accent-4" ng-click="deleteCustomer(columncustomer)"> 
+                            <a ng-click="selectRowDataCustomer(columncustomer)" href="#/showdetailcustomer" class="waves-effect waves-light btn green darken-4">ดูข้อมูล</a>
                         </form>
                     </td>
                 </tr>  

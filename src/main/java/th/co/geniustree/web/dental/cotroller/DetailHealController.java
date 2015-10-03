@@ -29,12 +29,8 @@ public class DetailHealController {
 
     @Autowired
     private DetailHealRepo detailHealRepo;
-    
-    @Autowired
-    private PayHealRepo payHealRepo;
-    
+       
    
-    
 
     @RequestMapping(value = "/loaddetailheal")
     public Page<DetailHeal> loadDetailHeal(Pageable pageable) {

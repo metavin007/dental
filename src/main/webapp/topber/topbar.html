@@ -1,48 +1,53 @@
-<div class="card-panel grey lighten-2" >
-    <nav>
-        <div class="nav-wrapper white">
-            <ul class="hide-on-med-and-down">
-                <li><a href="#/" style="color: black;">หน้าแรก</a></li>
-                <li><a class="dropdown-button"  data-activates="Person"
-                       style="color: black;">จัดการบุคลากร<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-button"  data-activates="heal"
-                       style="color: black;">จัดการการรักษา<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-button"  data-activates="Product"
-                       style="color: black;">จัดการสินค้า<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-button"  data-activates="Table"
-                       style="color: black;">ตารางจัดการข้อมูล<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-        </div>
-
-        <ul id="Person" class="dropdown-content" style="width: 166px;">
-            <li><a href="#/addcustomer" class="collection-item">เพิ่มข้อมูลลูกค้า</a></li>
-            <li><a href="#/adddepartmentemployee" class="collection-item">จัดการข้อมูลแผนกพนักงาน</a></li>
-            <li><a href="#/addemployee" class="collection-item">เพิ่มข้อมูลพนักงาน</a></li>
-            <li><a href="#/adddoctor" class="collection-item">เพิ่มข้อมูลหมอ</a></li>
+<nav>
+    <div class="nav-wrapper white">
+        <ul class="hide-on-med-and-down">
+            <li><a href="#/" style="color: black;">หน้าแรก</a></li>
+            <li><a class="dropdown-button"  data-activates="Person"
+                   style="color: black;">จัดการบุคลากร<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button"  data-activates="heal"
+                   style="color: black;">จัดการการรักษา<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button"  data-activates="Product"
+                   style="color: black;">จัดการสินค้า<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button"  data-activates="Table"
+                   style="color: black;">ตารางจัดการข้อมูล<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button"  data-activates="Appointment"
+                   style="color: black;">จัดการนัด<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
+    </div>
 
-        <ul id="heal" class="dropdown-content" style="width: 171px;">
-            <li><a href="#/addlistpayheal" class="collection-item">จัดการชนิดการรักษา</a></li>
-            <li><a href="#/adddetailheal-and-payheal" class="collection-item">บันทึกการรักษาพร้อมเลือกoperation</a></li>
-        </ul>
+    <ul id="Person" class="dropdown-content" style="width: 200px;">
+        <li><a href="#/addcustomer" class="collection-item">เพิ่มข้อมูลลูกค้า</a></li>
+        <li><a href="#/adddepartmentemployee" class="collection-item">จัดการข้อมูลแผนกพนักงาน</a></li>
+        <li><a href="#/addemployee" class="collection-item">เพิ่มข้อมูลพนักงาน</a></li>
+        <li><a href="#/adddoctor" class="collection-item">เพิ่มข้อมูลหมอ</a></li>
+    </ul>
 
-        <ul id="Product" class="dropdown-content" style="width: 150px;">
-            <li><a href="#/addunit" class="collection-item">จัดการหน่วยสินค้า</a></li>
-            <li><a href="#/addtypeproduct" class="collection-item">จัดการประเภทสินค้า</a></li>
-            <li><a href="#/addlot" class="collection-item">เพิ่มข้อมูลLot</a></li>
-            <li><a href="#/addproduct" class="collection-item">เพิ่มข้อมูลสินค้า</a></li>
-            <li><a href="#/addproductlot" class="collection-item">เพิ่มข้อมูลProductLot</a></li>
-            <li><a href="#/addbill" class="collection-item">เพิ่มBill</a></li>
-        </ul>
+    <ul id="heal" class="dropdown-content" style="width: 200px;">
+        <li><a href="#/addlistpayheal" class="collection-item">จัดการชนิดการรักษา</a></li>
+        <li><a href="#/adddetailheal-and-payheal" class="collection-item">บันทึกการรักษาพร้อมเลือกoperation</a></li>
+    </ul>
 
-        <ul id="Table" class="dropdown-content" style="width: 189px;">
-            <li><a href="#/tablecustomer" class="collection-item">ตารางข้อมูลลูกค้า</a></li>
-            <li><a href="#/tableemployee" class="collection-item">ตารางข้อมูลพนักงาน</a></li>
-            <li><a href="#/tabledoctor" class="collection-item">ตารางข้อมูลหมอ</a></li>
-            <li><a href="#/tableproduct" class="collection-item">ตารางข้อมูลสินค้า</a></li>
-        </ul>
-    </nav>
-</div>
+    <ul id="Product" class="dropdown-content" style="width: 200px;">
+        <li><a href="#/addunit" class="collection-item">จัดการหน่วยสินค้า</a></li>
+        <li><a href="#/addtypeproduct" class="collection-item">จัดการประเภทสินค้า</a></li>
+        <li><a href="#/addlot" class="collection-item">เพิ่มข้อมูลLot</a></li>
+        <li><a href="#/addproduct" class="collection-item">เพิ่มข้อมูลสินค้า</a></li>
+        <li><a href="#/addproductlot" class="collection-item">เพิ่มข้อมูลProductLot</a></li>
+        <li><a href="#/addbill" class="collection-item">เพิ่มBill</a></li>
+    </ul>
+
+    <ul id="Table" class="dropdown-content" style="width: 200px;">
+        <li><a href="#/tablecustomer" class="collection-item">ตารางข้อมูลลูกค้า</a></li>
+        <li><a href="#/tableemployee" class="collection-item">ตารางข้อมูลพนักงาน</a></li>
+        <li><a href="#/tabledoctor" class="collection-item">ตารางข้อมูลหมอ</a></li>
+        <li><a href="#/tableproduct" class="collection-item">ตารางข้อมูลสินค้า</a></li>
+    </ul>
+    
+     <ul id="Appointment" class="dropdown-content" style="width: 200px;">
+        <li><a href="#/addappointment" class="collection-item">เพิ่มการนัด</a></li>
+        
+    </ul>
+</nav>
 
 <script>
     $('.dropdown-button').dropdown({

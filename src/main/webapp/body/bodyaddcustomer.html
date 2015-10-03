@@ -1,4 +1,4 @@
-<div class="card-panel grey lighten-2">
+<div class="card-panel">
     <div class="white" style="padding: 20px;">
         <h3 style="padding: 0px; margin: 0px;">เพิ่มข้อมูลลูกค้า</h3>
         <br>
@@ -105,6 +105,7 @@
             <div class="input-field col m6">
                 <i class="material-icons prefix">assignment</i>
                  <label>ประวัติทางการแพทย์</label>
+                 <br>
                  <br>
                  <div ng-repeat="med in medicalhistorys.content">    
                      <input type="checkbox" id="{{med.id}}" checklist-model="customer.medicalHistory" 
